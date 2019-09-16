@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body onload="functionNewQuestion()">
 <script>
-var numbers = [["zero","0","   ","   "],["one","1","   ","   "],["two","2","   ","   "],["three","3","3","   "],["four","4","   ","   "],["five","5","   ","   "],["six","6","   ","   "],["seven","7","   ","   "],["eight","8","   ","   "],["nine","9","   ","   "],["ten","10","   ","   "],["eleven","11","   ","   "],["twelve","12","   ","   "],["thirteen","13","   ","   "],["fourteen","14","   ","   "],["fifteen","15","   ","   "],["sixteen","16","   ","   "],["seventeen","17","   ","   "],["eighteen","17","   ","   "],["nineteen","19","   ","   "],["twenty","20","   ","   "]];
+var numbers = [["zero","0","   ","   "],["one","1","   ","   "],["two","2","   ","   "],["three","3","3","   "],["four","4","   ","   "],["five","5","   ","   "],["six","6","   ","   "],["seven","7","   ","   "],["eight","8","   ","   "],["nine","9","   ","   "],["ten","10","   ","   "],["eleven","11","   ","   "],["twelve","12","   ","   "],["thirteen","13","   ","   "],["fourteen","14","   ","   "],["fifteen","15","   ","   "],["sixteen","16","   ","   "],["seventeen","17","   ","   "],["eighteen","17","   ","   "],["nineteen","19","   ","   "],["twenty","20","   ","   "],
+["long","dài","   ","   "],
+["short","ngắn","   ","   "],
+["curly","tóc quăng","   ","   "],
+["straight","tóc thẳng","   ","   "],
+["square","hình vuông","   ","   "],
+["circle","hình tròn","   ","   "],
+["triangle","hình tam giác","   ","   "],
+["rectangle","hình chữ nhật","   ","   "],
+["elephant","con voi","   ","   "],
+["giraffe","hưu cao cổ","   ","   "],
+["monkey","con khỉ","   ","   "],
+["big","to lớn","   ","   "],
+["tall","cao","   ","   "],
+["little","nhỏ bé","   ","   "],
+["tiger","con hổ","   ","   "],
+["snake","con rắn","   ","   "],
+["parrot","con két","   ","   "],
+["rice","gạo","   ","   "],
+["meat","thịt","   ","   "],
+["carrots","cà rốt","   ","   "],
+["yogurt","sữa chua","   ","   "],
+["fish","cá","   ","   "],
+["bread","bánh mì","   ","   "],
+["milk","sữa","   ","   "],
+["juice","nước ép trái cây","   ","   "],
+["water","nước","   ","   "],
+["rug","thảm","   ","   "],
+["bed","giường ngủ","   ","   "],
+["cupboard","tủ quần áo","   ","   "],
+["shelf","kệ sách","   ","   "],
+["pillow","gối","   ","   "],
+["blanket","chăn","   ","   "],
+["run","chạy","   ","   "],
+["fly","bay","   ","   "],
+["walk","đi bộ","   ","   "],
+["talk","nói chuyện","   ","   "],
+["swim","bơi","   ","   "],
+["climb","leo trèo","   ","   "],
+["write","viết","   ","   "],
+["draw","vẽ","   ","   "],
+["sing","hát","   ","   "],
+["sandcastle","lâu đài cát","   ","   "],
+["beach","bãi biển","   ","   "],
+["crab","con cua","   ","   "],
+["the sea","đại dương","   ","   "],
+["boat","thuyền","   ","   "],
+["shell","vỏ sò","   ","   "],
+["sun cream","kem chống nắng","   ","   "],
+["bat","vợt bóng bàn","   ","   "],
+["ice lolly","kem cây","   ","   "],
+];
 console.log(numbers); 
 var index = 1;
-functionShowImage();
 
-
-
-var myVar="hello";
 function functionCheckAnwser() { 
 text = document.getElementById("anwser").value;
 if (text.toLowerCase() == numbers[index][0]){
 	alert('You anwser is right !!!!!!!!' + text);
 	index = index + 1;
 	functionNewQuestion();
-	functionShowImage();
+
 	 }
 else {
 	alert('You anwser is wrong : please try again  ' + numbers[index][0]);
@@ -27,23 +74,22 @@ else {
 	
 function functionNewQuestion() { 
 	
-	document.getElementById('question').value=index.toString();
+	document.getElementById('question').value=numbers[index][1];
 	document.getElementById('anwser').value="";
 }
 
 </script>
-<h1>Numbers</h1>
 <div align="center" id="myImage">
 <!--<img src="numbers/number-11.png" alt="Girl in a jacket" style="width:200px;height:200px;">-->
 </div>
 
 <div align="center">
 <h1>
-<form>
+<form >
 Question : 
-  <input type="text" name="question" id="question" value="1" size="50"><br>
+  <input type="text" name="question" id="question" value="1" size="30" style="font-size:25px"><br>
   Your anwser : 
-  <input type="text" name="anwser" id="anwser" value="one" size="40"><br>
+  <input type="text" name="anwser" id="anwser" value="one" size="30" style="font-size:25px"><br>
   <p><a href="#" onClick="functionCheckAnwser();">Check</a></p>
 </form>
 </h1>
