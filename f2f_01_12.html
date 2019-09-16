@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body onload="functionNewQuestion()">
+<script>
+var numbers = [["rice","gạo","   ","   "],
+["meat","thịt","   ","   "],
+["carrots","cà rốt","   ","   "],
+["yogurt","sữa chua","   ","   "],
+["fish","cá","   ","   "],
+["bread","bánh mì","   ","   "],
+["milk","sữa","   ","   "],
+["juice","nước ép trái cây","   ","   "],
+["water","nước","   ","   "]];
+console.log(numbers); 
+var index = 1;
+
+function functionCheckAnwser() { 
+text = document.getElementById("anwser").value;
+if (text.toLowerCase() == numbers[index][0]){
+	alert('You anwser is right !!!!!!!!' + text);
+	index = index + 1;
+	functionNewQuestion();
+
+	 }
+else {
+	alert('You anwser is wrong : please try again  ' + numbers[index][0]);
+	functionNewQuestion()
+	
+	}
+}
+	
+function functionNewQuestion() { 
+	
+	document.getElementById('question').value=numbers[index][1];
+	document.getElementById('anwser').value="";
+}
+
+</script>
+<div align="center" id="myImage">
+<!--<img src="numbers/number-11.png" alt="Girl in a jacket" style="width:200px;height:200px;">-->
+</div>
+
+<div align="center">
+<h1>
+<form >
+Question : 
+  <input type="text" name="question" id="question" value="1" size="30" style="font-size:25px"><br>
+  Your anwser : 
+  <input type="text" name="anwser" id="anwser" value="one" size="30" style="font-size:25px"><br>
+  <p><a href="#" onClick="functionCheckAnwser();">Check</a></p>
+</form>
+</h1>
+</div>
+</body>
+</html>
