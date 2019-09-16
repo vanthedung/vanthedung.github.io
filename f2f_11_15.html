@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<body onload="functionNewQuestion()">
+<script>
+var number1_5 = [
+["red","đỏ","   ","   "],
+["yellow","vàng","   ","   "],
+["pink","hồng","   ","   "],
+["green","xanh lá cây","   ","   "],
+["purple","tím","   ","   "],
+["orange","màu cam","   ","   "],
+["blue","xanh da trời","   ","   "],
+["pen","cây viết","   ","   "],
+["rubber","cục tẩy","   ","   "],
+["pencil","viết chì","   ","   "],
+["rule","cây thướt kẻ","   ","   "],
+["book","cuốn sách","   ","   "],
+["bag","cặp đi học","   ","   "],
+["door","cửa","   ","   "],
+["window","cửa sổ","   ","   "],
+["doll","búp bê","   ","   "],
+["ball","trái bóng","   ","   "],
+["teddy","gấu bông","   ","   "],
+["puzzle","trò chơi sếp hình","   ","   "],
+["car","xe ô tô","   ","   "],
+["kite","con diều","   ","   "],
+["bike","xe đạp","   ","   "],
+["train","tàu hỏa","   ","   "],
+["arms","cánh tay","   ","   "],
+["nose","cái mũi","   ","   "],
+["face","cái mặt","   ","   "],
+["legs","chân","   ","   "],
+["ears","tai","   ","   "],
+["fingers","ngón tay","   ","   "],
+["hands","bàn tay","   ","   "],
+["eyes","mắt","   ","   "],
+["teacher","giáo viên","   ","   "],
+["pupil","học sinh","   ","   "],
+["housewife","bà nội trợ","   ","   "],
+["fireman","lính cứu hỏa","   ","   "],
+["pilot","phi công","   ","   "],
+["doctor","bác sỹ","   ","   "],
+["policeman","cảnh sát","   ","   "],
+["farmer","nông dân","   ","   "],
+["seesaw","bập bênh","   ","   "],
+["slide","cầu tuột","   ","   "],
+["net","lưới cầu môn","   ","   "],
+["swing","xích đu","   ","   "],
+["tree","cây cối","   ","   "],
+["pool","hồ bơi","   ","   "],
+["ice cream","kem","   ","   "],
+["frisbee","ném đĩa","   ","   "],
+];
+var number6_10 = [
+["mum","mẹ","   ","   "],
+["dad","bố","   ","   "],
+["sister","chị gái, em gái","   ","   "],
+["brother","anh trai, em trai","   ","   "],
+["grandma","bà","   ","   "],
+["grandpa","ông","   ","   "],
+["aunt","cô","   ","   "],
+["uncle","chú","   ","   "],
+["cousin","anh chị em họ","   ","   "],
+["dress","cái áo đầm","   ","   "],
+["socks","đôi vớ","   ","   "],
+["t-shirt","áo sơ mi","   ","   "],
+["trousers","cái quần","   ","   "],
+["shorts","quần ngắn","   ","   "],
+["shoes","đôi giày","   ","   "],
+["coat","áo khoác","   ","   "],
+["hat","cái mũ","   ","   "],
+["kitchen","nhà bếp","   ","   "],
+["living room","phòng khách","   ","   "],
+["dining room","phòng ăn","   ","   "],
+["bedroom","phòng ngủ","   ","   "],
+["bathroom","phòng tắm","   ","   "],
+["garden","khu vườn","   ","   "],
+["upstairs","ở trên lầu","   ","   "],
+["downstairs","ở dưới lầu","   ","   "],
+["house","ngôi nhà","   ","   "],
+["flat","căn hộ","   ","   "],
+["lunch box","hộp đựng cơm","   ","   "],
+["sandwich","bánh mì sandwich","   ","   "],
+["drinks","đồ uống","   ","   "],
+["apple","quả táo","   ","   "],
+["banana","quả chuối","   ","   "],
+["biscuit","bánh quy","   ","   "],
+["tomato","trái cà chua","   ","   "],
+["pear","trái lê","   ","   "],
+["grapes","trái nho","   ","   "],
+["one","1","   ","   "],
+["two","2","   ","   "],
+["three","3","   ","   "],
+["four","4","   ","   "],
+["long","dài","   ","   "],
+["short","ngắn","   ","   "],
+["curly","tóc quăng","   ","   "],
+["straight","tóc thẳng","   ","   "],
+["square","hình vuông","   ","   "],
+["circle","hình tròn","   ","   "],
+["triangle","hình tam giác","   ","   "],
+["rectangle","hình chữ nhật","   ","   "],
+];
+var numbers11_15 = [
+["elephant","con voi","   ","   "],
+["giraffe","hưu cao cổ","   ","   "],
+["monkey","con khỉ","   ","   "],
+["big","to lớn","   ","   "],
+["tall","cao","   ","   "],
+["little","nhỏ bé","   ","   "],
+["tiger","con hổ","   ","   "],
+["snake","con rắn","   ","   "],
+["parrot","con két","   ","   "],
+["five","5","   ","   "],
+["six","6","   ","   "],
+["seven","7","   ","   "],
+["eight","8","   ","   "],
+["nine","9","   ","   "],
+["ten","10","   ","   "],
+["rice","gạo","   ","   "],
+["meat","thịt","   ","   "],
+["carrots","cà rốt","   ","   "],
+["yogurt","sữa chua","   ","   "],
+["fish","cá","   ","   "],
+["bread","bánh mì","   ","   "],
+["milk","sữa","   ","   "],
+["juice","nước ép trái cây","   ","   "],
+["water","nước","   ","   "],
+["eleven","11","   ","   "],
+["twelve","12","   ","   "],
+["thirteen","13","   ","   "],
+["fourteen","14","   ","   "],
+["fifteen","15","   ","   "],
+["rug","thảm","   ","   "],
+["bed","giường ngủ","   ","   "],
+["cupboard","tủ quần áo","   ","   "],
+["shelf","kệ sách","   ","   "],
+["pillow","gối","   ","   "],
+["blanket","chăn","   ","   "],
+["run","chạy","   ","   "],
+["fly","bay","   ","   "],
+["walk","đi bộ","   ","   "],
+["talk","nói chuyện","   ","   "],
+["swim","bơi","   ","   "],
+["climb","leo trèo","   ","   "],
+["write","viết","   ","   "],
+["draw","vẽ","   ","   "],
+["sing","hát","   ","   "],
+["sixteen","16","   ","   "],
+["seventeen","17","   ","   "],
+["eighteen","18","   ","   "],
+["nineteen","19","   ","   "],
+["twenty","20","   ","   "],
+["sandcastle","lâu đài cát","   ","   "],
+["beach","bãi biển","   ","   "],
+["crab","con cua","   ","   "],
+["the sea","đại dương","   ","   "],
+["boat","thuyền","   ","   "],
+["shell","vỏ sò","   ","   "],
+["sun cream","kem chống nắng","   ","   "],
+["bat","vợt bóng bàn","   ","   "],
+["ice lolly","kem cây","   ","   "],
+];
+var index = 0;
+numbers = numbers11_15;
+function functionCheckAnwser() { 
+text = document.getElementById("anwser").value;
+if (text.toLowerCase() == numbers[index][0]){
+	alert('Your anwser is right !!!!!!!!' + text);
+	index = index + 1;
+	functionNewQuestion();
+
+	 }
+else {
+	alert('Your anwser is wrong : please try again  ' + numbers[index][0]);
+	functionNewQuestion()
+	
+	}
+}
+	
+function functionNewQuestion() { 
+	
+	document.getElementById('question').value=numbers[index][1];
+	document.getElementById('anwser').value="";
+}
+
+</script>
+<div align="center" id="myImage">
+<!--<img src="numbers/number-11.png" alt="Girl in a jacket" style="width:200px;height:200px;">-->
+</div>
+
+<div align="center">
+<h1>
+<form >
+Question : 
+  <input type="text" name="question" id="question" value="1" size="30" style="font-size:25px"><br>
+  Your anwser : 
+  <input type="text" name="anwser" id="anwser" value="one" size="30" style="font-size:25px"><br>
+  <p><a href="#" onClick="functionCheckAnwser();">Check</a></p>
+</form>
+</h1>
+</div>
+</body>
+</html>
