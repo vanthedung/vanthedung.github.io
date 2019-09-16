@@ -2,7 +2,27 @@
 <html>
 <body onload="functionNewQuestion()">
 <script>
-var numbers = [["zero","0","   ","   "],["one","1","   ","   "],["two","2","   ","   "],["three","3","3","   "],["four","4","   ","   "],["five","5","   ","   "],["six","6","   ","   "],["seven","7","   ","   "],["eight","8","   ","   "],["nine","9","   ","   "],["ten","10","   ","   "],["eleven","11","   ","   "],["twelve","12","   ","   "],["thirteen","13","   ","   "],["fourteen","14","   ","   "],["fifteen","15","   ","   "],["sixteen","16","   ","   "],["seventeen","17","   ","   "],["eighteen","17","   ","   "],["nineteen","19","   ","   "],["twenty","20","   ","   "],
+var numbers = [["zero","0","   ","   "],
+["one","1","   ","   "],
+["two","2","   ","   "],
+["three","3","   ","   "],
+["four","4","   ","   "],
+["five","5","   ","   "],
+["six","6","   ","   "],
+["seven","7","   ","   "],
+["eight","8","   ","   "],
+["nine","9","   ","   "],
+["ten","10","   ","   "],
+["eleven","11","   ","   "],
+["twelve","12","   ","   "],
+["thirteen","13","   ","   "],
+["fourteen","14","   ","   "],
+["fifteen","15","   ","   "],
+["sixteen","16","   ","   "],
+["seventeen","17","   ","   "],
+["eighteen","17","   ","   "],
+["nineteen","19","   ","   "],
+["twenty","20","   ","   "],
 ["long","dài","   ","   "],
 ["short","ngắn","   ","   "],
 ["curly","tóc quăng","   ","   "],
@@ -60,13 +80,13 @@ var index = 1;
 function functionCheckAnwser() { 
 text = document.getElementById("anwser").value;
 if (text.toLowerCase() == numbers[index][0]){
-	alert('You anwser is right !!!!!!!!' + text);
+	alert('Your anwser is right !!!!!!!!' + text);
 	index = index + 1;
 	functionNewQuestion();
 
 	 }
 else {
-	alert('You anwser is wrong : please try again  ' + numbers[index][0]);
+	alert('Your anwser is wrong : please try again  ' + numbers[index][0]);
 	functionNewQuestion()
 	
 	}
