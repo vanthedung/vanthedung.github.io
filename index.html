@@ -12,7 +12,7 @@ functionShowImage();
 var myVar="hello";
 function functionCheckAnwser() { 
 text = document.getElementById("anwser").value;
-if (text == numbers[index][0]){
+if (text.toLowerCase() == numbers[index][0]){
 	alert('You anwser is right !!!!!!!!' + text);
 	index = index + 1;
 	functionNewQuestion();
