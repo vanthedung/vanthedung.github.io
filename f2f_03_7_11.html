@@ -99,10 +99,8 @@ if (text.toLowerCase() == numbers[index][0]){
 	var li = document.createElement("li");
 	li.appendChild(document.createTextNode(numbers[index][0]));
 	ol_right.appendChild(li);
-	index = index + 1;
-	if index >= maxindex {
-		index = Math.floor((Math.random() * maxindex));
-	}
+	index = Math.floor((Math.random() * maxindex));
+	
 	functionNewQuestion();
 
 	 }
@@ -113,10 +111,7 @@ else {
 	li.appendChild(document.createTextNode(numbers[index][0]));
 	ol_wrong.appendChild(li);
 	//alert('Your anwser is wrong : please try again  ' + numbers[index][0]);
-	index = index + 1;
-	if index >= maxindex {
-		index = Math.floor((Math.random() * maxindex));
-	}
+	index = Math.floor((Math.random() * maxindex));
 	functionNewQuestion()
 	
 	}
