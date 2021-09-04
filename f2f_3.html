@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<body onload="functionNewQuestion()">
+<script>
+var numbers= [
+["Egypt","Ai Cập","   ","   "],
+["the UK","Nước Anh","   ","   "],
+["Russia","Nước Nga","   ","   "],
+["Spain","Tây Ban Nha","   ","   "],
+["Thailand","Thái Lan","   ","   "],
+["Australia","Nước Úc","   ","   "],
+["the USA","Nước Mỹ","   ","   "],
+["Brazil","Nước Brazil","   ","   "],
+["crayon","bút sáp","   ","   "],
+["draw","vẽ","   ","   "],
+["spoon","cái muỗng","   ","   "],
+["snake","con rắn","   ","   "],
+["drink","uống","   ","   "],
+["play","chơi","   ","   "],
+
+["spring","mùa xuân","   ","   "],
+["summer","mùa hè","   ","   "],
+["autumn","mùa thu","   ","   "],
+["winter","mùa đông","   ","   "],
+["garden","khu vườn","   ","   "],
+["season","mùa","   ","   "],
+
+["read comics","đọc truyện","   ","   "],
+["skateboard","trượt ván","   ","   "],
+["do gymnastics","tập thể dục dụng cụ","   ","   "],
+["play chess","chơi cờ","   ","   "],
+["fish","câu cá","   ","   "],
+["play basketball","chơi bóng rổ","   ","   "],
+["take photos","chụp hình","   ","   "],
+["play volleyball","chơi bóng chuyền","   ","   "],
+["play the guitar","chơi đàn ghi ta","   ","   "],
+["shop","cửa hàng","   ","   "],
+["cook","nấu ăn","   ","   "],
+["paint","vẽ","   ","   "],
+["play the piano","chơi đàn piano","   ","   "],
+["visit family","thăm gia đình","   ","   "],
+
+["computer","Máy tính","   ","   "],
+["TV","Ti vi","   ","   "],
+["DVD player","máy chơi DVD","   ","   "],
+["CD player","máy chơi CD","   ","   "],
+["MP3 player","máy chơi nhạc mp3","   ","   "],
+["camera","máy ảnh","   ","   "],
+["turn on","mở lên","   ","   "],
+["turn off","tắt","   ","   "],
+
+["stickers","miếng hình dán","   ","   "],
+["posters","hình quảng cáo","   ","   "],
+["comics","truyện tranh","   ","   "],
+["postcard","bưu thiếp","   ","   "],
+["badges","huy hiệu","   ","   "],
+["shells","vỏ sò","   ","   "],
+
+["swim","bơi","   ","   "],
+["sail","thuyền buồm","   ","   "],
+["dive","lặn","   ","   "],
+["surf","lướt","   ","   "],
+["kayak","chèo kayak","   ","   "],
+["windsurf","lướt ván","   ","   "],
+["polluted","ô nhiễm","   ","   "],
+["clean","sạch","   ","   "],
+["dangerous","nguy hiểm","   ","   "],
+["safe","an toàn","   ","   "],
+["beautiful","đẹp","   ","   "],
+["ugly","xấu","   ","   "],
+
+["penguin","chim cánh cục","   ","   "],
+["zebra","ngụa vằn","   ","   "],
+["monkey","con khỉ","   ","   "],
+["kangaroo","chuột túi","   ","   "],
+["camel","lạt đà","   ","   "],
+["lizard","thằn lằn","   ","   "],
+["flamingo","hồng hạt","   ","   "],
+["crocodile","cá sấu","   ","   "],
+
+["fork","cái nĩa","   ","   "],
+["house","con ngựa","   ","   "],
+["corn","bắp ngô","   ","   "],
+["straw","ống hut","   ","   "],
+["paw","móng vuốt","   ","   "],
+["yawn","ngáp","   ","   "],
+
+["angry","giận","   ","   "],
+["scared","sợ","   ","   "],
+["free","tự do","   ","   "],
+["sorry","xin lỗi","   ","   "],
+["funny","vui vẻ","   ","   "],
+["kind","tốt bụng","   ","   "],
+
+];
+var right = [];
+var wrong = [];
+
+var index = 0;
+var maxindex = numbers.length -1;
+function functionCheckAnwser() { 
+text = document.getElementById("anwser").value;
+if (text.toLowerCase() == numbers[index][0]){
+	right.push(numbers[index][0]);
+	//alert('Your anwser is right !!!!!!!!' + text);
+	var ol_right = document.getElementById("ol_right");
+	var li = document.createElement("li");
+	li.appendChild(document.createTextNode(numbers[index][0]));
+	ol_right.appendChild(li);
+	
+	index = Math.floor((Math.random() * maxindex));
+	functionNewQuestion();
+
+	 }
+else {
+	wrong.push(numbers[index][0]);
+	var ol_wrong = document.getElementById("ol_wrong");
+	var li = document.createElement("li");
+	li.appendChild(document.createTextNode(numbers[index][0]));
+	ol_wrong.appendChild(li);
+	//alert('Your anwser is wrong : please try again  ' + numbers[index][0]);
+	index = Math.floor((Math.random() * maxindex));
+	functionNewQuestion()
+	
+	}
+}
+	
+function functionNewQuestion() { 
+	
+	document.getElementById('question').value=numbers[index][1];
+	document.getElementById('anwser').value="";
+}
+	
+function functionShowResults() { 
+	var ol_right = document.getElementById("ol_right");
+	right.forEach(function(element){
+		var li = document.createElement("li");
+		li.appendChild(document.createTextNode(element));
+		ol_right.appendChild(li);
+	});
+	var ol_wrong = document.getElementById("ol_wrong");
+	wrong.forEach(function(element){
+		var li = document.createElement("li");
+		li.appendChild(document.createTextNode(element));
+		ol_wrong.appendChild(li);
+	});
+	
+}
+function functionShowResults() { 
+	var ol_right = document.getElementById("ol_right");
+	right.forEach(function(element){
+		var li = document.createElement("li");
+		li.appendChild(document.createTextNode(element));
+		ol_right.appendChild(li);
+	});
+	var ol_wrong = document.getElementById("ol_wrong");
+	wrong.forEach(function(element){
+		var li = document.createElement("li");
+		li.appendChild(document.createTextNode(element));
+		ol_wrong.appendChild(li);
+	});
+	
+}
+
+</script>
+<div align="center" id="myImage">
+<!--<img src="numbers/number-11.png" alt="Girl in a jacket" style="width:200px;height:200px;">-->
+</div>
+
+<div align="center">
+<h1>
+<form >
+Question : 
+  <input type="text" name="question" id="question" value="1" size="30" style="font-size:25px"><br>
+  Your anwser : 
+  <input type="text" name="anwser" id="anwser" value="one" size="30" style="font-size:25px"><br>
+  <p><a href="#" onClick="functionCheckAnwser();">Check</a></p>
+</form>
+</h1>
+</div>
+
+<div align="center">
+<div style="width: 50%; float:left">
+   #RIGHT
+   <ol id="ol_right">
+</ol>  
+</div>
+
+<div style="width: 50%; float:right">
+   #WRONG
+   <ol id="ol_wrong">
+</ol> 
+</div>
+</div>
+</body>
+</html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
