@@ -100,7 +100,7 @@ var index = 0;
 var maxindex = numbers.length -1;
 function functionCheckAnwser() { 
 text = document.getElementById("anwser").value;
-if (text.toLowerCase() == numbers[index][0]){
+if (text.toLowerCase() == numbers[index][0].toLowerCase()){
 	right.push(numbers[index][0]);
 	//alert('Your anwser is right !!!!!!!!' + text);
 	var ol_right = document.getElementById("ol_right");
