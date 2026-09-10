@@ -50,9 +50,9 @@ button{border:0;border-radius:7px;padding:7px 10px;cursor:pointer}
 <div class="page">
   <div class="header">
     <h1>100 IT Support Email Replies</h1>
-    <div class="sub">Each scenario includes a <b>Short Version</b> and a <b>Long Version</b>. Use <b>Translate to Vietnamese</b> for the translation, or <b>Google Read</b> to hear the English through Google Translate audio.</div>
+    <div class="sub">Each scenario includes a <b>Short Version</b> and a <b>Long Version</b>. Use <b>Translate to Vietnamese</b> for the translation, or <b>Read</b> to hear the English. The page prefers a Google English voice when Chrome provides one.</div>
     <input id="search" class="search" placeholder="Search: API, login, SAP, printer, FTP, database..." oninput="filterCards()">
-    <div class="header-actions"><button class="stop-read" onclick="stopReading()">■ Stop Google Read</button></div><div id="count" class="count">Showing 100 email templates</div>
+    <div class="header-actions"><button class="stop-read" onclick="stopReading()">■ Stop Reading</button></div><div id="voiceInfo" class="count">Voice: detecting available English voice...</div><div id="count" class="count">Showing 100 email templates</div>
   </div>
   <div class="grid">
 <article class="card" data-search="network connectivity investigation - network connectivity hello [name],
@@ -87,7 +87,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(0,'short',this)">Copy</button><button class="read" onclick="readEmail(0,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(0,'short',this)">Copy</button><button class="read" onclick="readEmail(0,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(0,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -98,7 +98,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(0,'long',this)">Copy</button><button class="read" onclick="readEmail(0,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(0,'long',this)">Copy</button><button class="read" onclick="readEmail(0,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(0,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -137,7 +137,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(1,'short',this)">Copy</button><button class="read" onclick="readEmail(1,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(1,'short',this)">Copy</button><button class="read" onclick="readEmail(1,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(1,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -148,7 +148,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(1,'long',this)">Copy</button><button class="read" onclick="readEmail(1,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(1,'long',this)">Copy</button><button class="read" onclick="readEmail(1,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(1,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -187,7 +187,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(2,'short',this)">Copy</button><button class="read" onclick="readEmail(2,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(2,'short',this)">Copy</button><button class="read" onclick="readEmail(2,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(2,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -198,7 +198,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(2,'long',this)">Copy</button><button class="read" onclick="readEmail(2,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(2,'long',this)">Copy</button><button class="read" onclick="readEmail(2,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(2,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -237,7 +237,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(3,'short',this)">Copy</button><button class="read" onclick="readEmail(3,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(3,'short',this)">Copy</button><button class="read" onclick="readEmail(3,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(3,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -248,7 +248,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(3,'long',this)">Copy</button><button class="read" onclick="readEmail(3,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(3,'long',this)">Copy</button><button class="read" onclick="readEmail(3,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(3,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -287,7 +287,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(4,'short',this)">Copy</button><button class="read" onclick="readEmail(4,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(4,'short',this)">Copy</button><button class="read" onclick="readEmail(4,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(4,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -298,7 +298,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(4,'long',this)">Copy</button><button class="read" onclick="readEmail(4,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(4,'long',this)">Copy</button><button class="read" onclick="readEmail(4,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(4,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -337,7 +337,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(5,'short',this)">Copy</button><button class="read" onclick="readEmail(5,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(5,'short',this)">Copy</button><button class="read" onclick="readEmail(5,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(5,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -348,7 +348,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(5,'long',this)">Copy</button><button class="read" onclick="readEmail(5,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(5,'long',this)">Copy</button><button class="read" onclick="readEmail(5,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(5,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -387,7 +387,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(6,'short',this)">Copy</button><button class="read" onclick="readEmail(6,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(6,'short',this)">Copy</button><button class="read" onclick="readEmail(6,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(6,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -398,7 +398,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(6,'long',this)">Copy</button><button class="read" onclick="readEmail(6,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(6,'long',this)">Copy</button><button class="read" onclick="readEmail(6,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(6,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -437,7 +437,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(7,'short',this)">Copy</button><button class="read" onclick="readEmail(7,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(7,'short',this)">Copy</button><button class="read" onclick="readEmail(7,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(7,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -448,7 +448,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(7,'long',this)">Copy</button><button class="read" onclick="readEmail(7,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(7,'long',this)">Copy</button><button class="read" onclick="readEmail(7,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(7,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -487,7 +487,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(8,'short',this)">Copy</button><button class="read" onclick="readEmail(8,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(8,'short',this)">Copy</button><button class="read" onclick="readEmail(8,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(8,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -498,7 +498,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(8,'long',this)">Copy</button><button class="read" onclick="readEmail(8,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(8,'long',this)">Copy</button><button class="read" onclick="readEmail(8,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(8,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -537,7 +537,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(9,'short',this)">Copy</button><button class="read" onclick="readEmail(9,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(9,'short',this)">Copy</button><button class="read" onclick="readEmail(9,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(9,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -548,7 +548,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(9,'long',this)">Copy</button><button class="read" onclick="readEmail(9,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(9,'long',this)">Copy</button><button class="read" onclick="readEmail(9,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(9,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -587,7 +587,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(10,'short',this)">Copy</button><button class="read" onclick="readEmail(10,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(10,'short',this)">Copy</button><button class="read" onclick="readEmail(10,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(10,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -598,7 +598,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(10,'long',this)">Copy</button><button class="read" onclick="readEmail(10,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(10,'long',this)">Copy</button><button class="read" onclick="readEmail(10,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(10,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -637,7 +637,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(11,'short',this)">Copy</button><button class="read" onclick="readEmail(11,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(11,'short',this)">Copy</button><button class="read" onclick="readEmail(11,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(11,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -648,7 +648,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(11,'long',this)">Copy</button><button class="read" onclick="readEmail(11,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(11,'long',this)">Copy</button><button class="read" onclick="readEmail(11,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(11,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -687,7 +687,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(12,'short',this)">Copy</button><button class="read" onclick="readEmail(12,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(12,'short',this)">Copy</button><button class="read" onclick="readEmail(12,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(12,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -698,7 +698,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(12,'long',this)">Copy</button><button class="read" onclick="readEmail(12,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(12,'long',this)">Copy</button><button class="read" onclick="readEmail(12,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(12,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -737,7 +737,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(13,'short',this)">Copy</button><button class="read" onclick="readEmail(13,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(13,'short',this)">Copy</button><button class="read" onclick="readEmail(13,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(13,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -748,7 +748,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(13,'long',this)">Copy</button><button class="read" onclick="readEmail(13,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(13,'long',this)">Copy</button><button class="read" onclick="readEmail(13,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(13,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -787,7 +787,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(14,'short',this)">Copy</button><button class="read" onclick="readEmail(14,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(14,'short',this)">Copy</button><button class="read" onclick="readEmail(14,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(14,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -798,7 +798,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(14,'long',this)">Copy</button><button class="read" onclick="readEmail(14,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(14,'long',this)">Copy</button><button class="read" onclick="readEmail(14,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(14,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -837,7 +837,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(15,'short',this)">Copy</button><button class="read" onclick="readEmail(15,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(15,'short',this)">Copy</button><button class="read" onclick="readEmail(15,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(15,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -848,7 +848,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(15,'long',this)">Copy</button><button class="read" onclick="readEmail(15,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(15,'long',this)">Copy</button><button class="read" onclick="readEmail(15,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(15,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -887,7 +887,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(16,'short',this)">Copy</button><button class="read" onclick="readEmail(16,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(16,'short',this)">Copy</button><button class="read" onclick="readEmail(16,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(16,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -898,7 +898,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(16,'long',this)">Copy</button><button class="read" onclick="readEmail(16,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(16,'long',this)">Copy</button><button class="read" onclick="readEmail(16,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(16,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -937,7 +937,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(17,'short',this)">Copy</button><button class="read" onclick="readEmail(17,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(17,'short',this)">Copy</button><button class="read" onclick="readEmail(17,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(17,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -948,7 +948,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(17,'long',this)">Copy</button><button class="read" onclick="readEmail(17,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(17,'long',this)">Copy</button><button class="read" onclick="readEmail(17,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(17,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -987,7 +987,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(18,'short',this)">Copy</button><button class="read" onclick="readEmail(18,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(18,'short',this)">Copy</button><button class="read" onclick="readEmail(18,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(18,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -998,7 +998,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(18,'long',this)">Copy</button><button class="read" onclick="readEmail(18,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(18,'long',this)">Copy</button><button class="read" onclick="readEmail(18,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(18,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1037,7 +1037,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(19,'short',this)">Copy</button><button class="read" onclick="readEmail(19,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(19,'short',this)">Copy</button><button class="read" onclick="readEmail(19,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(19,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1048,7 +1048,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(19,'long',this)">Copy</button><button class="read" onclick="readEmail(19,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(19,'long',this)">Copy</button><button class="read" onclick="readEmail(19,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(19,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1087,7 +1087,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(20,'short',this)">Copy</button><button class="read" onclick="readEmail(20,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(20,'short',this)">Copy</button><button class="read" onclick="readEmail(20,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(20,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1098,7 +1098,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(20,'long',this)">Copy</button><button class="read" onclick="readEmail(20,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(20,'long',this)">Copy</button><button class="read" onclick="readEmail(20,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(20,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1137,7 +1137,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(21,'short',this)">Copy</button><button class="read" onclick="readEmail(21,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(21,'short',this)">Copy</button><button class="read" onclick="readEmail(21,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(21,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1148,7 +1148,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(21,'long',this)">Copy</button><button class="read" onclick="readEmail(21,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(21,'long',this)">Copy</button><button class="read" onclick="readEmail(21,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(21,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1187,7 +1187,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(22,'short',this)">Copy</button><button class="read" onclick="readEmail(22,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(22,'short',this)">Copy</button><button class="read" onclick="readEmail(22,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(22,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1198,7 +1198,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(22,'long',this)">Copy</button><button class="read" onclick="readEmail(22,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(22,'long',this)">Copy</button><button class="read" onclick="readEmail(22,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(22,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1237,7 +1237,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(23,'short',this)">Copy</button><button class="read" onclick="readEmail(23,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(23,'short',this)">Copy</button><button class="read" onclick="readEmail(23,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(23,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1248,7 +1248,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(23,'long',this)">Copy</button><button class="read" onclick="readEmail(23,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(23,'long',this)">Copy</button><button class="read" onclick="readEmail(23,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(23,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1287,7 +1287,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(24,'short',this)">Copy</button><button class="read" onclick="readEmail(24,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(24,'short',this)">Copy</button><button class="read" onclick="readEmail(24,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(24,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1298,7 +1298,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(24,'long',this)">Copy</button><button class="read" onclick="readEmail(24,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(24,'long',this)">Copy</button><button class="read" onclick="readEmail(24,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(24,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1337,7 +1337,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(25,'short',this)">Copy</button><button class="read" onclick="readEmail(25,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(25,'short',this)">Copy</button><button class="read" onclick="readEmail(25,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(25,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1348,7 +1348,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(25,'long',this)">Copy</button><button class="read" onclick="readEmail(25,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(25,'long',this)">Copy</button><button class="read" onclick="readEmail(25,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(25,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1387,7 +1387,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(26,'short',this)">Copy</button><button class="read" onclick="readEmail(26,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(26,'short',this)">Copy</button><button class="read" onclick="readEmail(26,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(26,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1398,7 +1398,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(26,'long',this)">Copy</button><button class="read" onclick="readEmail(26,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(26,'long',this)">Copy</button><button class="read" onclick="readEmail(26,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(26,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1437,7 +1437,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(27,'short',this)">Copy</button><button class="read" onclick="readEmail(27,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(27,'short',this)">Copy</button><button class="read" onclick="readEmail(27,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(27,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1448,7 +1448,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(27,'long',this)">Copy</button><button class="read" onclick="readEmail(27,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(27,'long',this)">Copy</button><button class="read" onclick="readEmail(27,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(27,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1487,7 +1487,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(28,'short',this)">Copy</button><button class="read" onclick="readEmail(28,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(28,'short',this)">Copy</button><button class="read" onclick="readEmail(28,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(28,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1498,7 +1498,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(28,'long',this)">Copy</button><button class="read" onclick="readEmail(28,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(28,'long',this)">Copy</button><button class="read" onclick="readEmail(28,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(28,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1537,7 +1537,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(29,'short',this)">Copy</button><button class="read" onclick="readEmail(29,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(29,'short',this)">Copy</button><button class="read" onclick="readEmail(29,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(29,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1548,7 +1548,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(29,'long',this)">Copy</button><button class="read" onclick="readEmail(29,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(29,'long',this)">Copy</button><button class="read" onclick="readEmail(29,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(29,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1587,7 +1587,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(30,'short',this)">Copy</button><button class="read" onclick="readEmail(30,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(30,'short',this)">Copy</button><button class="read" onclick="readEmail(30,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(30,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1598,7 +1598,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(30,'long',this)">Copy</button><button class="read" onclick="readEmail(30,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(30,'long',this)">Copy</button><button class="read" onclick="readEmail(30,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(30,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1637,7 +1637,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(31,'short',this)">Copy</button><button class="read" onclick="readEmail(31,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(31,'short',this)">Copy</button><button class="read" onclick="readEmail(31,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(31,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1648,7 +1648,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(31,'long',this)">Copy</button><button class="read" onclick="readEmail(31,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(31,'long',this)">Copy</button><button class="read" onclick="readEmail(31,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(31,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1687,7 +1687,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(32,'short',this)">Copy</button><button class="read" onclick="readEmail(32,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(32,'short',this)">Copy</button><button class="read" onclick="readEmail(32,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(32,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1698,7 +1698,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(32,'long',this)">Copy</button><button class="read" onclick="readEmail(32,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(32,'long',this)">Copy</button><button class="read" onclick="readEmail(32,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(32,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1737,7 +1737,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(33,'short',this)">Copy</button><button class="read" onclick="readEmail(33,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(33,'short',this)">Copy</button><button class="read" onclick="readEmail(33,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(33,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1748,7 +1748,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(33,'long',this)">Copy</button><button class="read" onclick="readEmail(33,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(33,'long',this)">Copy</button><button class="read" onclick="readEmail(33,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(33,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1787,7 +1787,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(34,'short',this)">Copy</button><button class="read" onclick="readEmail(34,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(34,'short',this)">Copy</button><button class="read" onclick="readEmail(34,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(34,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1798,7 +1798,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(34,'long',this)">Copy</button><button class="read" onclick="readEmail(34,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(34,'long',this)">Copy</button><button class="read" onclick="readEmail(34,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(34,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1837,7 +1837,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(35,'short',this)">Copy</button><button class="read" onclick="readEmail(35,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(35,'short',this)">Copy</button><button class="read" onclick="readEmail(35,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(35,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1848,7 +1848,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(35,'long',this)">Copy</button><button class="read" onclick="readEmail(35,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(35,'long',this)">Copy</button><button class="read" onclick="readEmail(35,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(35,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1887,7 +1887,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(36,'short',this)">Copy</button><button class="read" onclick="readEmail(36,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(36,'short',this)">Copy</button><button class="read" onclick="readEmail(36,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(36,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1898,7 +1898,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(36,'long',this)">Copy</button><button class="read" onclick="readEmail(36,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(36,'long',this)">Copy</button><button class="read" onclick="readEmail(36,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(36,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1937,7 +1937,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(37,'short',this)">Copy</button><button class="read" onclick="readEmail(37,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(37,'short',this)">Copy</button><button class="read" onclick="readEmail(37,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(37,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1948,7 +1948,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(37,'long',this)">Copy</button><button class="read" onclick="readEmail(37,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(37,'long',this)">Copy</button><button class="read" onclick="readEmail(37,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(37,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1987,7 +1987,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(38,'short',this)">Copy</button><button class="read" onclick="readEmail(38,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(38,'short',this)">Copy</button><button class="read" onclick="readEmail(38,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(38,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -1998,7 +1998,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(38,'long',this)">Copy</button><button class="read" onclick="readEmail(38,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(38,'long',this)">Copy</button><button class="read" onclick="readEmail(38,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(38,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2037,7 +2037,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(39,'short',this)">Copy</button><button class="read" onclick="readEmail(39,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(39,'short',this)">Copy</button><button class="read" onclick="readEmail(39,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(39,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2048,7 +2048,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(39,'long',this)">Copy</button><button class="read" onclick="readEmail(39,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(39,'long',this)">Copy</button><button class="read" onclick="readEmail(39,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(39,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2087,7 +2087,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(40,'short',this)">Copy</button><button class="read" onclick="readEmail(40,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(40,'short',this)">Copy</button><button class="read" onclick="readEmail(40,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(40,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2098,7 +2098,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(40,'long',this)">Copy</button><button class="read" onclick="readEmail(40,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(40,'long',this)">Copy</button><button class="read" onclick="readEmail(40,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(40,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2137,7 +2137,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(41,'short',this)">Copy</button><button class="read" onclick="readEmail(41,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(41,'short',this)">Copy</button><button class="read" onclick="readEmail(41,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(41,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2148,7 +2148,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(41,'long',this)">Copy</button><button class="read" onclick="readEmail(41,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(41,'long',this)">Copy</button><button class="read" onclick="readEmail(41,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(41,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2187,7 +2187,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(42,'short',this)">Copy</button><button class="read" onclick="readEmail(42,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(42,'short',this)">Copy</button><button class="read" onclick="readEmail(42,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(42,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2198,7 +2198,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(42,'long',this)">Copy</button><button class="read" onclick="readEmail(42,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(42,'long',this)">Copy</button><button class="read" onclick="readEmail(42,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(42,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2237,7 +2237,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(43,'short',this)">Copy</button><button class="read" onclick="readEmail(43,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(43,'short',this)">Copy</button><button class="read" onclick="readEmail(43,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(43,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2248,7 +2248,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(43,'long',this)">Copy</button><button class="read" onclick="readEmail(43,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(43,'long',this)">Copy</button><button class="read" onclick="readEmail(43,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(43,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2287,7 +2287,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(44,'short',this)">Copy</button><button class="read" onclick="readEmail(44,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(44,'short',this)">Copy</button><button class="read" onclick="readEmail(44,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(44,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2298,7 +2298,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(44,'long',this)">Copy</button><button class="read" onclick="readEmail(44,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(44,'long',this)">Copy</button><button class="read" onclick="readEmail(44,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(44,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2337,7 +2337,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(45,'short',this)">Copy</button><button class="read" onclick="readEmail(45,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(45,'short',this)">Copy</button><button class="read" onclick="readEmail(45,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(45,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2348,7 +2348,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(45,'long',this)">Copy</button><button class="read" onclick="readEmail(45,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(45,'long',this)">Copy</button><button class="read" onclick="readEmail(45,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(45,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2387,7 +2387,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(46,'short',this)">Copy</button><button class="read" onclick="readEmail(46,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(46,'short',this)">Copy</button><button class="read" onclick="readEmail(46,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(46,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2398,7 +2398,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(46,'long',this)">Copy</button><button class="read" onclick="readEmail(46,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(46,'long',this)">Copy</button><button class="read" onclick="readEmail(46,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(46,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2437,7 +2437,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(47,'short',this)">Copy</button><button class="read" onclick="readEmail(47,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(47,'short',this)">Copy</button><button class="read" onclick="readEmail(47,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(47,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2448,7 +2448,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(47,'long',this)">Copy</button><button class="read" onclick="readEmail(47,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(47,'long',this)">Copy</button><button class="read" onclick="readEmail(47,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(47,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2487,7 +2487,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(48,'short',this)">Copy</button><button class="read" onclick="readEmail(48,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(48,'short',this)">Copy</button><button class="read" onclick="readEmail(48,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(48,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2498,7 +2498,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(48,'long',this)">Copy</button><button class="read" onclick="readEmail(48,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(48,'long',this)">Copy</button><button class="read" onclick="readEmail(48,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(48,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2537,7 +2537,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(49,'short',this)">Copy</button><button class="read" onclick="readEmail(49,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(49,'short',this)">Copy</button><button class="read" onclick="readEmail(49,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(49,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2548,7 +2548,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(49,'long',this)">Copy</button><button class="read" onclick="readEmail(49,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(49,'long',this)">Copy</button><button class="read" onclick="readEmail(49,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(49,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2587,7 +2587,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(50,'short',this)">Copy</button><button class="read" onclick="readEmail(50,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(50,'short',this)">Copy</button><button class="read" onclick="readEmail(50,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(50,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2598,7 +2598,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(50,'long',this)">Copy</button><button class="read" onclick="readEmail(50,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(50,'long',this)">Copy</button><button class="read" onclick="readEmail(50,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(50,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2637,7 +2637,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(51,'short',this)">Copy</button><button class="read" onclick="readEmail(51,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(51,'short',this)">Copy</button><button class="read" onclick="readEmail(51,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(51,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2648,7 +2648,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(51,'long',this)">Copy</button><button class="read" onclick="readEmail(51,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(51,'long',this)">Copy</button><button class="read" onclick="readEmail(51,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(51,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2687,7 +2687,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(52,'short',this)">Copy</button><button class="read" onclick="readEmail(52,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(52,'short',this)">Copy</button><button class="read" onclick="readEmail(52,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(52,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2698,7 +2698,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(52,'long',this)">Copy</button><button class="read" onclick="readEmail(52,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(52,'long',this)">Copy</button><button class="read" onclick="readEmail(52,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(52,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2737,7 +2737,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(53,'short',this)">Copy</button><button class="read" onclick="readEmail(53,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(53,'short',this)">Copy</button><button class="read" onclick="readEmail(53,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(53,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2748,7 +2748,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(53,'long',this)">Copy</button><button class="read" onclick="readEmail(53,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(53,'long',this)">Copy</button><button class="read" onclick="readEmail(53,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(53,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2787,7 +2787,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(54,'short',this)">Copy</button><button class="read" onclick="readEmail(54,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(54,'short',this)">Copy</button><button class="read" onclick="readEmail(54,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(54,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2798,7 +2798,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(54,'long',this)">Copy</button><button class="read" onclick="readEmail(54,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(54,'long',this)">Copy</button><button class="read" onclick="readEmail(54,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(54,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2837,7 +2837,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(55,'short',this)">Copy</button><button class="read" onclick="readEmail(55,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(55,'short',this)">Copy</button><button class="read" onclick="readEmail(55,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(55,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2848,7 +2848,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(55,'long',this)">Copy</button><button class="read" onclick="readEmail(55,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(55,'long',this)">Copy</button><button class="read" onclick="readEmail(55,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(55,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2887,7 +2887,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(56,'short',this)">Copy</button><button class="read" onclick="readEmail(56,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(56,'short',this)">Copy</button><button class="read" onclick="readEmail(56,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(56,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2898,7 +2898,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(56,'long',this)">Copy</button><button class="read" onclick="readEmail(56,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(56,'long',this)">Copy</button><button class="read" onclick="readEmail(56,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(56,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2937,7 +2937,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(57,'short',this)">Copy</button><button class="read" onclick="readEmail(57,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(57,'short',this)">Copy</button><button class="read" onclick="readEmail(57,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(57,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2948,7 +2948,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(57,'long',this)">Copy</button><button class="read" onclick="readEmail(57,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(57,'long',this)">Copy</button><button class="read" onclick="readEmail(57,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(57,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2987,7 +2987,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(58,'short',this)">Copy</button><button class="read" onclick="readEmail(58,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(58,'short',this)">Copy</button><button class="read" onclick="readEmail(58,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(58,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -2998,7 +2998,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(58,'long',this)">Copy</button><button class="read" onclick="readEmail(58,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(58,'long',this)">Copy</button><button class="read" onclick="readEmail(58,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(58,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3037,7 +3037,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(59,'short',this)">Copy</button><button class="read" onclick="readEmail(59,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(59,'short',this)">Copy</button><button class="read" onclick="readEmail(59,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(59,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3048,7 +3048,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(59,'long',this)">Copy</button><button class="read" onclick="readEmail(59,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(59,'long',this)">Copy</button><button class="read" onclick="readEmail(59,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(59,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3087,7 +3087,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(60,'short',this)">Copy</button><button class="read" onclick="readEmail(60,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(60,'short',this)">Copy</button><button class="read" onclick="readEmail(60,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(60,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3098,7 +3098,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(60,'long',this)">Copy</button><button class="read" onclick="readEmail(60,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(60,'long',this)">Copy</button><button class="read" onclick="readEmail(60,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(60,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3137,7 +3137,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(61,'short',this)">Copy</button><button class="read" onclick="readEmail(61,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(61,'short',this)">Copy</button><button class="read" onclick="readEmail(61,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(61,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3148,7 +3148,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(61,'long',this)">Copy</button><button class="read" onclick="readEmail(61,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(61,'long',this)">Copy</button><button class="read" onclick="readEmail(61,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(61,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3187,7 +3187,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(62,'short',this)">Copy</button><button class="read" onclick="readEmail(62,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(62,'short',this)">Copy</button><button class="read" onclick="readEmail(62,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(62,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3198,7 +3198,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(62,'long',this)">Copy</button><button class="read" onclick="readEmail(62,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(62,'long',this)">Copy</button><button class="read" onclick="readEmail(62,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(62,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3237,7 +3237,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(63,'short',this)">Copy</button><button class="read" onclick="readEmail(63,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(63,'short',this)">Copy</button><button class="read" onclick="readEmail(63,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(63,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3248,7 +3248,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(63,'long',this)">Copy</button><button class="read" onclick="readEmail(63,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(63,'long',this)">Copy</button><button class="read" onclick="readEmail(63,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(63,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3287,7 +3287,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(64,'short',this)">Copy</button><button class="read" onclick="readEmail(64,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(64,'short',this)">Copy</button><button class="read" onclick="readEmail(64,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(64,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3298,7 +3298,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(64,'long',this)">Copy</button><button class="read" onclick="readEmail(64,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(64,'long',this)">Copy</button><button class="read" onclick="readEmail(64,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(64,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3337,7 +3337,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(65,'short',this)">Copy</button><button class="read" onclick="readEmail(65,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(65,'short',this)">Copy</button><button class="read" onclick="readEmail(65,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(65,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3348,7 +3348,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(65,'long',this)">Copy</button><button class="read" onclick="readEmail(65,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(65,'long',this)">Copy</button><button class="read" onclick="readEmail(65,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(65,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3387,7 +3387,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(66,'short',this)">Copy</button><button class="read" onclick="readEmail(66,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(66,'short',this)">Copy</button><button class="read" onclick="readEmail(66,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(66,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3398,7 +3398,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(66,'long',this)">Copy</button><button class="read" onclick="readEmail(66,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(66,'long',this)">Copy</button><button class="read" onclick="readEmail(66,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(66,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3437,7 +3437,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(67,'short',this)">Copy</button><button class="read" onclick="readEmail(67,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(67,'short',this)">Copy</button><button class="read" onclick="readEmail(67,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(67,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3448,7 +3448,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(67,'long',this)">Copy</button><button class="read" onclick="readEmail(67,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(67,'long',this)">Copy</button><button class="read" onclick="readEmail(67,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(67,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3487,7 +3487,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(68,'short',this)">Copy</button><button class="read" onclick="readEmail(68,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(68,'short',this)">Copy</button><button class="read" onclick="readEmail(68,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(68,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3498,7 +3498,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(68,'long',this)">Copy</button><button class="read" onclick="readEmail(68,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(68,'long',this)">Copy</button><button class="read" onclick="readEmail(68,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(68,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3537,7 +3537,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(69,'short',this)">Copy</button><button class="read" onclick="readEmail(69,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(69,'short',this)">Copy</button><button class="read" onclick="readEmail(69,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(69,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3548,7 +3548,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(69,'long',this)">Copy</button><button class="read" onclick="readEmail(69,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(69,'long',this)">Copy</button><button class="read" onclick="readEmail(69,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(69,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3587,7 +3587,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(70,'short',this)">Copy</button><button class="read" onclick="readEmail(70,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(70,'short',this)">Copy</button><button class="read" onclick="readEmail(70,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(70,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3598,7 +3598,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(70,'long',this)">Copy</button><button class="read" onclick="readEmail(70,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(70,'long',this)">Copy</button><button class="read" onclick="readEmail(70,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(70,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3637,7 +3637,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(71,'short',this)">Copy</button><button class="read" onclick="readEmail(71,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(71,'short',this)">Copy</button><button class="read" onclick="readEmail(71,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(71,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3648,7 +3648,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(71,'long',this)">Copy</button><button class="read" onclick="readEmail(71,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(71,'long',this)">Copy</button><button class="read" onclick="readEmail(71,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(71,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3687,7 +3687,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(72,'short',this)">Copy</button><button class="read" onclick="readEmail(72,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(72,'short',this)">Copy</button><button class="read" onclick="readEmail(72,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(72,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3698,7 +3698,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(72,'long',this)">Copy</button><button class="read" onclick="readEmail(72,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(72,'long',this)">Copy</button><button class="read" onclick="readEmail(72,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(72,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3737,7 +3737,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(73,'short',this)">Copy</button><button class="read" onclick="readEmail(73,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(73,'short',this)">Copy</button><button class="read" onclick="readEmail(73,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(73,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3748,7 +3748,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(73,'long',this)">Copy</button><button class="read" onclick="readEmail(73,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(73,'long',this)">Copy</button><button class="read" onclick="readEmail(73,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(73,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3787,7 +3787,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(74,'short',this)">Copy</button><button class="read" onclick="readEmail(74,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(74,'short',this)">Copy</button><button class="read" onclick="readEmail(74,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(74,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3798,7 +3798,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(74,'long',this)">Copy</button><button class="read" onclick="readEmail(74,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(74,'long',this)">Copy</button><button class="read" onclick="readEmail(74,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(74,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3837,7 +3837,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(75,'short',this)">Copy</button><button class="read" onclick="readEmail(75,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(75,'short',this)">Copy</button><button class="read" onclick="readEmail(75,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(75,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3848,7 +3848,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(75,'long',this)">Copy</button><button class="read" onclick="readEmail(75,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(75,'long',this)">Copy</button><button class="read" onclick="readEmail(75,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(75,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3887,7 +3887,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(76,'short',this)">Copy</button><button class="read" onclick="readEmail(76,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(76,'short',this)">Copy</button><button class="read" onclick="readEmail(76,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(76,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3898,7 +3898,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(76,'long',this)">Copy</button><button class="read" onclick="readEmail(76,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(76,'long',this)">Copy</button><button class="read" onclick="readEmail(76,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(76,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3937,7 +3937,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(77,'short',this)">Copy</button><button class="read" onclick="readEmail(77,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(77,'short',this)">Copy</button><button class="read" onclick="readEmail(77,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(77,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3948,7 +3948,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(77,'long',this)">Copy</button><button class="read" onclick="readEmail(77,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(77,'long',this)">Copy</button><button class="read" onclick="readEmail(77,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(77,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3987,7 +3987,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(78,'short',this)">Copy</button><button class="read" onclick="readEmail(78,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(78,'short',this)">Copy</button><button class="read" onclick="readEmail(78,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(78,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -3998,7 +3998,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(78,'long',this)">Copy</button><button class="read" onclick="readEmail(78,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(78,'long',this)">Copy</button><button class="read" onclick="readEmail(78,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(78,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4037,7 +4037,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(79,'short',this)">Copy</button><button class="read" onclick="readEmail(79,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(79,'short',this)">Copy</button><button class="read" onclick="readEmail(79,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(79,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4048,7 +4048,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(79,'long',this)">Copy</button><button class="read" onclick="readEmail(79,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(79,'long',this)">Copy</button><button class="read" onclick="readEmail(79,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(79,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4087,7 +4087,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(80,'short',this)">Copy</button><button class="read" onclick="readEmail(80,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(80,'short',this)">Copy</button><button class="read" onclick="readEmail(80,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(80,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4098,7 +4098,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(80,'long',this)">Copy</button><button class="read" onclick="readEmail(80,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(80,'long',this)">Copy</button><button class="read" onclick="readEmail(80,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(80,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4137,7 +4137,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(81,'short',this)">Copy</button><button class="read" onclick="readEmail(81,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(81,'short',this)">Copy</button><button class="read" onclick="readEmail(81,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(81,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4148,7 +4148,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(81,'long',this)">Copy</button><button class="read" onclick="readEmail(81,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(81,'long',this)">Copy</button><button class="read" onclick="readEmail(81,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(81,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4187,7 +4187,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(82,'short',this)">Copy</button><button class="read" onclick="readEmail(82,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(82,'short',this)">Copy</button><button class="read" onclick="readEmail(82,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(82,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4198,7 +4198,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(82,'long',this)">Copy</button><button class="read" onclick="readEmail(82,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(82,'long',this)">Copy</button><button class="read" onclick="readEmail(82,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(82,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4237,7 +4237,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(83,'short',this)">Copy</button><button class="read" onclick="readEmail(83,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(83,'short',this)">Copy</button><button class="read" onclick="readEmail(83,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(83,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4248,7 +4248,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(83,'long',this)">Copy</button><button class="read" onclick="readEmail(83,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(83,'long',this)">Copy</button><button class="read" onclick="readEmail(83,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(83,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4287,7 +4287,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(84,'short',this)">Copy</button><button class="read" onclick="readEmail(84,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(84,'short',this)">Copy</button><button class="read" onclick="readEmail(84,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(84,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4298,7 +4298,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(84,'long',this)">Copy</button><button class="read" onclick="readEmail(84,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(84,'long',this)">Copy</button><button class="read" onclick="readEmail(84,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(84,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4337,7 +4337,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(85,'short',this)">Copy</button><button class="read" onclick="readEmail(85,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(85,'short',this)">Copy</button><button class="read" onclick="readEmail(85,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(85,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4348,7 +4348,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(85,'long',this)">Copy</button><button class="read" onclick="readEmail(85,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(85,'long',this)">Copy</button><button class="read" onclick="readEmail(85,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(85,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4387,7 +4387,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(86,'short',this)">Copy</button><button class="read" onclick="readEmail(86,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(86,'short',this)">Copy</button><button class="read" onclick="readEmail(86,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(86,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4398,7 +4398,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(86,'long',this)">Copy</button><button class="read" onclick="readEmail(86,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(86,'long',this)">Copy</button><button class="read" onclick="readEmail(86,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(86,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4437,7 +4437,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(87,'short',this)">Copy</button><button class="read" onclick="readEmail(87,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(87,'short',this)">Copy</button><button class="read" onclick="readEmail(87,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(87,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4448,7 +4448,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(87,'long',this)">Copy</button><button class="read" onclick="readEmail(87,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(87,'long',this)">Copy</button><button class="read" onclick="readEmail(87,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(87,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4487,7 +4487,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(88,'short',this)">Copy</button><button class="read" onclick="readEmail(88,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(88,'short',this)">Copy</button><button class="read" onclick="readEmail(88,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(88,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4498,7 +4498,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(88,'long',this)">Copy</button><button class="read" onclick="readEmail(88,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(88,'long',this)">Copy</button><button class="read" onclick="readEmail(88,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(88,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4537,7 +4537,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(89,'short',this)">Copy</button><button class="read" onclick="readEmail(89,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(89,'short',this)">Copy</button><button class="read" onclick="readEmail(89,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(89,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4548,7 +4548,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(89,'long',this)">Copy</button><button class="read" onclick="readEmail(89,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(89,'long',this)">Copy</button><button class="read" onclick="readEmail(89,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(89,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4587,7 +4587,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(90,'short',this)">Copy</button><button class="read" onclick="readEmail(90,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(90,'short',this)">Copy</button><button class="read" onclick="readEmail(90,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(90,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4598,7 +4598,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(90,'long',this)">Copy</button><button class="read" onclick="readEmail(90,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(90,'long',this)">Copy</button><button class="read" onclick="readEmail(90,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(90,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4637,7 +4637,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(91,'short',this)">Copy</button><button class="read" onclick="readEmail(91,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(91,'short',this)">Copy</button><button class="read" onclick="readEmail(91,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(91,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4648,7 +4648,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(91,'long',this)">Copy</button><button class="read" onclick="readEmail(91,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(91,'long',this)">Copy</button><button class="read" onclick="readEmail(91,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(91,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4687,7 +4687,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(92,'short',this)">Copy</button><button class="read" onclick="readEmail(92,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(92,'short',this)">Copy</button><button class="read" onclick="readEmail(92,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(92,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4698,7 +4698,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(92,'long',this)">Copy</button><button class="read" onclick="readEmail(92,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(92,'long',this)">Copy</button><button class="read" onclick="readEmail(92,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(92,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4737,7 +4737,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(93,'short',this)">Copy</button><button class="read" onclick="readEmail(93,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(93,'short',this)">Copy</button><button class="read" onclick="readEmail(93,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(93,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4748,7 +4748,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(93,'long',this)">Copy</button><button class="read" onclick="readEmail(93,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(93,'long',this)">Copy</button><button class="read" onclick="readEmail(93,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(93,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4787,7 +4787,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(94,'short',this)">Copy</button><button class="read" onclick="readEmail(94,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(94,'short',this)">Copy</button><button class="read" onclick="readEmail(94,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(94,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4798,7 +4798,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(94,'long',this)">Copy</button><button class="read" onclick="readEmail(94,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(94,'long',this)">Copy</button><button class="read" onclick="readEmail(94,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(94,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4837,7 +4837,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(95,'short',this)">Copy</button><button class="read" onclick="readEmail(95,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(95,'short',this)">Copy</button><button class="read" onclick="readEmail(95,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(95,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4848,7 +4848,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(95,'long',this)">Copy</button><button class="read" onclick="readEmail(95,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(95,'long',this)">Copy</button><button class="read" onclick="readEmail(95,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(95,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4887,7 +4887,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(96,'short',this)">Copy</button><button class="read" onclick="readEmail(96,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(96,'short',this)">Copy</button><button class="read" onclick="readEmail(96,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(96,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4898,7 +4898,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(96,'long',this)">Copy</button><button class="read" onclick="readEmail(96,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(96,'long',this)">Copy</button><button class="read" onclick="readEmail(96,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(96,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4937,7 +4937,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(97,'short',this)">Copy</button><button class="read" onclick="readEmail(97,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(97,'short',this)">Copy</button><button class="read" onclick="readEmail(97,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(97,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4948,7 +4948,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(97,'long',this)">Copy</button><button class="read" onclick="readEmail(97,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(97,'long',this)">Copy</button><button class="read" onclick="readEmail(97,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(97,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4987,7 +4987,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(98,'short',this)">Copy</button><button class="read" onclick="readEmail(98,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(98,'short',this)">Copy</button><button class="read" onclick="readEmail(98,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(98,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -4998,7 +4998,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(98,'long',this)">Copy</button><button class="read" onclick="readEmail(98,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(98,'long',this)">Copy</button><button class="read" onclick="readEmail(98,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(98,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -5037,7 +5037,7 @@ regards,
     <div class="version-head">
       <h3>Short Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(99,'short',this)">Copy</button><button class="read" onclick="readEmail(99,\'short\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(99,'short',this)">Copy</button><button class="read" onclick="readEmail(99,\'short\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(99,'short')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -5048,7 +5048,7 @@ regards,
     <div class="version-head">
       <h3>Long Version</h3>
       <div class="actions">
-        <button class="copy" onclick="copyText(99,'long',this)">Copy</button><button class="read" onclick="readEmail(99,\'long\',this)">🔊 Google Read</button>
+        <button class="copy" onclick="copyText(99,'long',this)">Copy</button><button class="read" onclick="readEmail(99,\'long\',this)">🔊 Read</button>
         <button class="translate" onclick="showTranslation(99,'long')">Translate to Vietnamese</button>
       </div>
     </div>
@@ -5101,106 +5101,87 @@ function copyTranslation(btn){
 
 
 
-let activeReadButton=null;
-let googleAudio=null;
-let readQueue=[];
-let readIndex=0;
+
+let speechSynth = window.speechSynthesis;
+let activeReadButton = null;
+let availableVoices = [];
+
+function loadVoices(){
+  if(!speechSynth) return;
+  availableVoices = speechSynth.getVoices() || [];
+}
+
+function getGoogleVoice(){
+  loadVoices();
+  return (
+    availableVoices.find(v => /google/i.test(v.name) && /en-US/i.test(v.lang)) ||
+    availableVoices.find(v => /google/i.test(v.name) && /^en/i.test(v.lang)) ||
+    availableVoices.find(v => /en-US/i.test(v.lang)) ||
+    availableVoices.find(v => /^en/i.test(v.lang)) ||
+    availableVoices[0]
+  );
+}
 
 function clearReadButton(){
   if(activeReadButton){
     activeReadButton.classList.remove("reading");
-    activeReadButton.textContent="🔊 Google Read";
-    activeReadButton=null;
+    activeReadButton.textContent = "🔊 Read";
+    activeReadButton = null;
   }
-}
-
-function splitForGoogleTTS(text, maxLen=180){
-  // Google Translate TTS works more reliably with shorter chunks.
-  const cleaned=text.replace(/\s+/g," ").trim();
-  const sentences=cleaned.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [cleaned];
-  const chunks=[];
-  for(const sentence of sentences){
-    const s=sentence.trim();
-    if(s.length<=maxLen){
-      chunks.push(s);
-      continue;
-    }
-    const words=s.split(" ");
-    let part="";
-    for(const word of words){
-      if((part+" "+word).trim().length>maxLen){
-        if(part) chunks.push(part.trim());
-        part=word;
-      }else{
-        part=(part+" "+word).trim();
-      }
-    }
-    if(part) chunks.push(part.trim());
-  }
-  return chunks.filter(Boolean);
-}
-
-function googleTtsUrl(text){
-  return "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en-US&q="+encodeURIComponent(text);
-}
-
-function playNextGoogleChunk(){
-  if(readIndex>=readQueue.length){
-    clearReadButton();
-    return;
-  }
-
-  googleAudio=new Audio(googleTtsUrl(readQueue[readIndex]));
-  googleAudio.preload="auto";
-
-  googleAudio.onended=()=>{
-    readIndex++;
-    playNextGoogleChunk();
-  };
-
-  googleAudio.onerror=()=>{
-    clearReadButton();
-    alert("Google Translate audio could not be played. Google may be blocking this browser request.");
-  };
-
-  googleAudio.play().catch(()=>{
-    clearReadButton();
-    alert("Your browser blocked the Google Translate audio request. Please click Read again or allow audio playback.");
-  });
 }
 
 function readEmail(i,type,btn){
-  stopReading();
+  if(!speechSynth){
+    alert("Read Aloud is not supported in this browser.");
+    return;
+  }
 
-  const e=emails[i];
-  let text=e[type];
+  speechSynth.cancel();
+  clearReadButton();
 
-  // Skip placeholders and email signature markers where possible.
-  text=text
+  const e = emails[i];
+  let text = e[type]
     .replace(/\[Name\]/g,"")
     .replace(/\[Your Name\]/g,"")
     .replace(/\n+/g," ")
     .trim();
 
-  readQueue=splitForGoogleTTS(text);
-  readIndex=0;
-  activeReadButton=btn;
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.88;
+  utterance.pitch = 1.0;
+
+  const selectedVoice = getGoogleVoice();
+  if(selectedVoice){
+    utterance.voice = selectedVoice;
+    const voiceInfo = document.getElementById("voiceInfo");
+    if(voiceInfo){
+      voiceInfo.textContent = "Voice: " + selectedVoice.name + " (" + selectedVoice.lang + ")";
+    }
+  }
+
+  activeReadButton = btn;
   btn.classList.add("reading");
-  btn.textContent="🔊 Google Reading...";
-  playNextGoogleChunk();
+  btn.textContent = "🔊 Reading...";
+
+  utterance.onend = clearReadButton;
+  utterance.onerror = function(){
+    clearReadButton();
+    alert("The browser could not play the selected voice.");
+  };
+
+  speechSynth.speak(utterance);
 }
 
 function stopReading(){
-  if(googleAudio){
-    googleAudio.pause();
-    googleAudio.src="";
-    googleAudio=null;
-  }
-  readQueue=[];
-  readIndex=0;
+  if(speechSynth) speechSynth.cancel();
   clearReadButton();
 }
 
+loadVoices();
+if(speechSynth){
+  speechSynth.onvoiceschanged = loadVoices;
+}
 function filterCards(){
   const q=document.getElementById("search").value.toLowerCase().trim();
   let n=0;
