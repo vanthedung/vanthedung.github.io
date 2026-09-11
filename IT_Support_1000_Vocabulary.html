@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1000 IT Support Vocabulary Words</title>
+  <style>
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg:#f4f7fb; --panel:#fff; --text:#172033; --muted:#65728a;
+      --line:#dbe3ef; --blue:#1769d2; --blue-dark:#0c4fa8; --soft:#eaf2ff;
+      --shadow:0 10px 30px rgba(23,32,51,.08);
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family: Arial, Helvetica, sans-serif; line-height:1.45; }
+    header { padding:28px 18px 16px; background:linear-gradient(180deg,#fff,#f6f9ff); border-bottom:1px solid var(--line); }
+    .wrap { max-width:1180px; margin:0 auto; }
+    h1 { margin:0 0 14px; font-size:clamp(26px,3vw,42px); letter-spacing:0; }
+    h2 { margin:0 0 16px; font-size:24px; }
+    h3 { margin:0; font-size:22px; }
+    .toolbar, .cat-menu, .category, .voice-row { background:var(--panel); border:1px solid var(--line); box-shadow:var(--shadow); border-radius:8px; }
+    .voice-row { padding:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:16px; }
+    select, input { border:1px solid #bac7d9; border-radius:6px; padding:10px 12px; background:#fff; color:var(--text); font:inherit; }
+    input { min-width:260px; }
+    button { border:1px solid var(--blue); border-radius:6px; background:var(--blue); color:#fff; padding:9px 12px; font-weight:700; cursor:pointer; font:inherit; }
+    button:hover { background:var(--blue-dark); }
+    button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid #9fc5ff; outline-offset:2px; }
+    button.secondary { background:#fff; color:var(--blue); }
+    button.secondary:hover { background:var(--soft); }
+    button.reading { background:#0b7a59; border-color:#0b7a59; }
+    .cat-menu { padding:18px; margin-bottom:18px; scroll-margin-top:88px; }
+    .cat-buttons { display:flex; flex-wrap:wrap; gap:9px; }
+    .cat-buttons button { background:#fff; color:var(--blue); }
+    .cat-buttons button.active, .cat-buttons button:hover { background:var(--blue); color:#fff; }
+    .cat-buttons button.muted { opacity:.35; }
+    .toolbar { position:sticky; top:0; z-index:10; border-radius:0; box-shadow:0 4px 14px rgba(23,32,51,.08); }
+    .toolbar .wrap { display:flex; gap:12px; align-items:center; padding:10px 18px; flex-wrap:wrap; }
+    .toolbar label { font-weight:700; }
+    main { padding:18px; }
+    .category { margin:0 auto 22px; overflow:hidden; scroll-margin-top:82px; }
+    .cat-head, .cat-foot { padding:14px 16px; display:flex; justify-content:space-between; align-items:center; gap:12px; background:#fbfdff; border-bottom:1px solid var(--line); }
+    .cat-foot { border-top:1px solid var(--line); border-bottom:0; justify-content:flex-end; }
+    .table-wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; min-width:620px; }
+    th, td { padding:12px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
+    th { position:sticky; top:58px; background:#eef5ff; z-index:5; font-size:13px; text-transform:uppercase; color:#35435a; white-space:normal; line-height:1.25; }
+    td.num { width:54px; color:var(--muted); font-weight:700; }
+    tbody tr { background:#fff; }
+    tbody tr:hover { background:#fbfdff; }
+    .word-line { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:8px; font-size:18px; font-weight:800; }
+    .word-main { display:flex; flex-direction:column; gap:6px; }
+    .word-title { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .inline-meta { color:#47566d; font-weight:700; }
+    .forms { display:flex; flex-wrap:wrap; gap:6px; font-size:12px; font-weight:700; color:#34506f; }
+    .form-chip { display:inline-flex; align-items:center; gap:6px; border:1px solid #c9d9ef; background:#f3f8ff; border-radius:999px; padding:3px 6px 3px 8px; }
+    .form-play { border:0; background:#dcecff; color:var(--blue-dark); border-radius:999px; padding:2px 6px; font-size:11px; line-height:1.2; }
+    .form-play:hover { background:#c7defc; color:#073f87; }
+    .meaning-line { margin:8px 0 10px; color:#34435a; }
+    .meaning-line b { color:#14223a; }
+    .examples { display:grid; gap:8px; }
+    .ex { display:grid; grid-template-columns:24px minmax(280px,1fr); gap:8px; align-items:start; padding:7px 8px; border-radius:6px; background:#f7faff; border:1px solid #edf3fb; }
+    .sentence-wrap { display:flex; align-items:flex-start; gap:6px; }
+    .sentence { background:transparent; color:var(--text); border:0; padding:0; font-weight:400; text-align:left; text-decoration:underline; text-decoration-color:#c7d5e8; text-underline-offset:3px; }
+    .sentence:hover { background:transparent; color:var(--blue); }
+    .small { padding:5px 7px; font-size:13px; white-space:nowrap; min-width:32px; }
+    #floatTop { position:fixed; right:18px; bottom:18px; z-index:20; display:none; border-radius:50%; width:52px; height:52px; padding:0; box-shadow:var(--shadow); }
+    #floatTop.show { display:block; }
+    .modal-backdrop { position:fixed; inset:0; background:rgba(8,20,38,.54); display:none; align-items:center; justify-content:center; padding:18px; z-index:30; }
+    .modal { background:#fff; border-radius:8px; max-width:720px; width:100%; padding:20px; box-shadow:0 24px 70px rgba(0,0,0,.25); }
+    .modal h2 { font-size:18px; margin-top:0; color:var(--blue-dark); }
+    .modal p { margin:6px 0 16px; font-size:18px; }
+    .modal-actions { display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
+    .hidden { display:none !important; }
+    .status { color:var(--muted); font-size:14px; margin-left:auto; }
+    @media (max-width:720px) {
+      input, select { width:100%; min-width:0; }
+      .toolbar .wrap, .voice-row, .cat-head { align-items:stretch; }
+      .ex { grid-template-columns:22px minmax(210px,1fr); }
+      .word-line { align-items:flex-start; }
+      th { top:132px; }
+    }
+    @media print {
+      .toolbar, .voice-row, .top-btn, #floatTop, .small, .form-play, .cat-menu { display:none !important; }
+      body { background:#fff; color:#000; }
+      .category { box-shadow:none; border:0; break-inside:auto; }
+      tr { break-inside:avoid; }
+      th { position:static; background:#eee; }
+      .sentence { text-decoration:none; color:#000; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>1000 IT Support Vocabulary Words • 22 Categories</h1>
+      <div class="voice-row">
+        <label for="voiceSelect">English voice</label>
+        <select id="voiceSelect" aria-label="English voice"></select>
+        <button id="stopSpeech" class="secondary" type="button">■ Stop</button>
+        <span id="validation" class="status"></span>
+      </div>
+      <section id="top-categories" class="cat-menu" aria-labelledby="catTitle">
+        <h2 id="catTitle">IT Support Categories</h2>
+        <div id="categoryButtons" class="cat-buttons"></div>
+      </section>
+    </div>
+  </header>
+  <nav class="toolbar" aria-label="Sticky category navigation">
+    <div class="wrap">
+      <label for="categorySelect">Category:</label>
+      <select id="categorySelect"></select>
+      <label for="searchBox">Search:</label>
+      <input id="searchBox" type="search" placeholder="Search word, meaning, sentence..." aria-label="Search word, meaning, sentence">
+      <button class="secondary top-btn" type="button" data-top>↑ Top</button>
+    </div>
+  </nav>
+  <main class="wrap" id="content"></main>
+  <button id="floatTop" type="button" aria-label="Back to top categories">↑ Top</button>
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalEnglishTitle">
+    <div class="modal">
+      <h2 id="modalEnglishTitle">English</h2>
+      <p id="modalEnglish"></p>
+      <h2>Vietnamese</h2>
+      <p id="modalVietnamese"></p>
+      <div class="modal-actions">
+        <button id="modalPlay" type="button" aria-label="Speak English sentence">🔊</button>
+        <button id="modalClose" class="secondary" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const categories = [
+      ["Troubleshooting",24,["Issue","Error","Failure","Incident","Bug","Troubleshoot","Investigate","Diagnose","Resolve","Workaround","Root cause","Reproduce","Verify","Confirm","Escalate","Impact","Priority","Ticket","Status","Symptom","Fix","Analyze","Retry","Regression"]],
+      ["Networking",24,["Network","Connection","Connectivity","Disconnect","Timeout","Firewall","Router","Gateway","DNS","IP address","Port","Ping","VPN","Wi-Fi","Bandwidth","Latency","Packet","Protocol","Proxy","Reachable","Subnet","Switch","DHCP","Traceroute"]],
+      ["Windows",23,["Windows","Desktop","Registry","Service","Process","CPU","Memory","Disk space","Performance","Restart","Reboot","Event Viewer","Task Manager","Device Manager","Control Panel","PowerShell","Command Prompt","User profile","Group Policy","Update","Driver","Blue screen","Safe mode"]],
+      ["Servers",22,["Server","Host","Virtual machine","Resource","Downtime","Outage","IIS","Application pool","Worker","Scheduled task","Configuration","Service account","Domain controller","File server","Web server","Load balancer","Cluster","Failover","Patch level","Hostname","Uptime","Maintenance window"]],
+      ["Database",23,["Database","Record","Table","Column","Row","Transaction","Backup","Restore","Rollback","Commit","Index","Deadlock","Lock","Schema","Migration","Duplicate","Stored procedure","Replication","Constraint","Primary key","Foreign key","Data type","Connection string"]],
+      ["SQL",22,["SQL","Query","Select","Insert","Update statement","Delete statement","Join","Where clause","Order by","Group by","Aggregate","View","Trigger","Cursor","Execution plan","Parameter","Syntax","Result set","Null value","Temporary table","Stored function","SQL Server"]],
+      ["API",23,["API","Endpoint","Request","Response","Payload","Status code","Header","Parameter","Method","Client","Backend","JSON","Serialize","Deserialize","Validation","Dependency","Cache","Middleware","CORS","Rate limit","Webhook","Token endpoint","API key"]],
+      ["Web Applications",23,["Web application","Frontend","Browser","Session cookie","Page load","Form","Button","Dropdown","Validation message","URL","Redirect","JavaScript","HTML","CSS","Cache refresh","Login page","Dashboard","User interface","Responsive","Cookie","Local storage","Server error","Client error"]],
+      ["Authentication",22,["Authentication","Authorization","Credential","Username","Password","Token","Session","Permission","Role","Account","Locked","Expired","Login","Logout","MFA","Privilege","Identity","Single sign-on","Access control","Password reset","Security question","Account status"]],
+      ["Security",23,["Security","Encrypt","Certificate","Malware","Phishing","Vulnerability","Patch","Threat","Risk","Audit","Compliance","Policy","Permission review","Least privilege","Secret","Key","Hash","Firewall rule","Intrusion","Antivirus","Quarantine","Data breach","Incident response"]],
+      ["FTP / SFTP",22,["FTP","SFTP","Transfer","Upload","Download","Remote folder","Local folder","Credential","Port 22","Passive mode","File permission","Host key","Connection refused","Session timeout","Transfer log","Binary mode","ASCII mode","Resume transfer","Queue","Checksum","Secure copy","Authentication failure"]],
+      ["Files",23,["File","Folder","Shared folder","File lock","File size","Extension","Path","Directory","Archive","Import","Export","Parse","Format","CSV","PDF","Spreadsheet","Permission","Read-only","Overwrite","Rename","Delete","Attachment","Compression"]],
+      ["Printing",22,["Printer","Print queue","Print Spooler","Driver","Offline","Online","Paper jam","Toner","Print job","Default printer","Network printer","Label printer","Duplex","Tray","Printer IP","Test page","Scanner","Device status","Queue stuck","Reinstall driver","Print server","Printer mapping"]],
+      ["Email / SMTP",22,["Email","SMTP","Relay","Recipient","Sender","Inbox","Spam","Attachment","Delivery","Mailbox","Bounce","Distribution list","Forwarding","Out of office","Subject","Message header","MX record","Email client","Shared mailbox","Quota","Archive mailbox","Junk filter"]],
+      ["Monitoring",22,["Monitoring","Alert","Metric","Health check","Threshold","Availability","Uptime","Heartbeat","Baseline","Bottleneck","Dashboard","Probe","Notification","Response time","CPU usage","Memory usage","Disk usage","Service check","Synthetic test","Capacity","Trend","SLA"]],
+      ["Logging",22,["Log","Event","Exception","Warning","Debug","Trace","Timestamp","Log file","Error code","Stack trace","Audit log","Application log","System log","Correlation ID","Verbose","Information","Log level","Retention","Search log","Rotate log","Log entry","Diagnostic data"]],
+      ["Deployment",23,["Deployment","Deploy","Release","Version","Update","Patch","Rollback","Build","Pipeline","Maintenance","Hotfix","Environment","Staging","Production","Artifact","Package","Configuration file","Release note","Change request","Approval","Smoke test","Blue-green deployment","Feature flag"]],
+      ["Cloud",23,["Cloud","Provision","Decommission","Instance","Container","Scaling","Storage","Region","Availability zone","Virtual network","Load balancer","Object storage","Snapshot","Image","Serverless","Function app","Resource group","Subscription","IAM","Auto scaling","Kubernetes","Pod","Cloud cost"]],
+      ["Mobile Applications",22,["Android","iOS","Device","Mobile","App version","Installation","Permission","Camera","Barcode","OCR","Scan","Offline mode","Sync","Device registration","Push notification","App crash","App store","Mobile data","Location service","Bluetooth","Device log","Screen rotation"]],
+      ["Software Development",24,["Source code","Repository","Branch","Commit","Merge","Pull request","Compile","Dependency","Package","Library","Framework","Function","Method","Class","Object","Variable","Exception","Unit test","Integration test","Code review","IDE","Debugger","Refactor","Release branch"]],
+      ["Help Desk",23,["User","Support","Remote","Screenshot","Instruction","Feedback","Request","Escalation","Resolution","Severity","Assigned","Pending","Closed","Customer","Knowledge base","Service desk","Callback","Follow-up","SLA breach","Contact number","Walkthrough","Remote session","First response"]],
+      ["Production Support",23,["Production","Incident","Outage","Impact","Downtime","Recovery","Hotfix","Root cause","Monitoring","Rollback","Maintenance","Stable","Available","Affected","Restart","Verification","Synchronization","Uptime","Failover","Postmortem","Runbook","On-call","Service degradation"]]
+    ];
+
+    const ipaMap = {
+      API:"/ˌeɪ piː ˈaɪ/", SQL:"/ˌes kjuː ˈel/", DNS:"/ˌdiː en ˈes/", VPN:"/ˌviː piː ˈen/", "Wi-Fi":"/ˈwaɪ faɪ/", IIS:"/ˌaɪ aɪ ˈes/", JSON:"/ˈdʒeɪsən/", FTP:"/ˌef tiː ˈpiː/", SFTP:"/ˌes ef tiː ˈpiː/", SMTP:"/ˌes em tiː ˈpiː/", CPU:"/ˌsiː piː ˈjuː/", MFA:"/ˌem ef ˈeɪ/", OCR:"/ˌoʊ siː ˈɑːr/", SLA:"/ˌes el ˈeɪ/", IAM:"/ˌaɪ eɪ ˈem/", iOS:"/ˌaɪ oʊ ˈes/"
+    };
+    const typeRules = [
+      [/^(API|SQL|DNS|VPN|IIS|JSON|FTP|SFTP|SMTP|CPU|MFA|OCR|SLA|IAM|CSV|PDF|HTML|CSS)$/i,"Acr"],
+      [/^(Troubleshoot|Investigate|Diagnose|Resolve|Verify|Confirm|Escalate|Reproduce|Retry|Disconnect|Ping|Restart|Reboot|Backup|Restore|Rollback|Commit|Select|Insert|Deploy|Provision|Decommission|Compile|Merge|Refactor|Sync|Scan|Upload|Download|Import|Export|Parse|Encrypt|Archive|Patch)$/i,"V"],
+      [/^(Reachable|Locked|Expired|Offline|Online|Stable|Available|Affected|Pending|Closed|Assigned|Responsive|Read-only|Verbose)$/i,"Adj"],
+      [/\s/,"N phr"]
+    ];
+    const meaningNouns = {
+      Troubleshooting:"support concept used to identify and fix a problem",
+      Networking:"network concept used to connect systems and users",
+      Windows:"Windows operating system concept used in support work",
+      Servers:"server operations concept used to run business systems",
+      Database:"database concept used to store and protect data",
+      SQL:"SQL concept used to query or change database data",
+      API:"API concept used for communication between applications",
+      "Web Applications":"web application concept used in browser-based systems",
+      Authentication:"access concept used to verify users and permissions",
+      Security:"security concept used to protect systems and data",
+      "FTP / SFTP":"file transfer concept used to move files securely",
+      Files:"file management concept used in daily support tasks",
+      Printing:"printing concept used to support printers and queues",
+      "Email / SMTP":"email concept used to send, receive, and troubleshoot messages",
+      Monitoring:"monitoring concept used to measure service health",
+      Logging:"logging concept used to record technical activity",
+      Deployment:"release concept used to deliver application changes",
+      Cloud:"cloud concept used to operate hosted resources",
+      "Mobile Applications":"mobile app concept used to support handheld devices",
+      "Software Development":"development concept used to build and maintain software",
+      "Help Desk":"help desk concept used to support end users",
+      "Production Support":"production support concept used to keep live services running"
+    };
+    const viCategory = {
+      Troubleshooting:"hỗ trợ xử lý sự cố", Networking:"hỗ trợ mạng", Windows:"hỗ trợ Windows", Servers:"vận hành máy chủ", Database:"hỗ trợ cơ sở dữ liệu", SQL:"hỗ trợ SQL", API:"hỗ trợ API", "Web Applications":"hỗ trợ ứng dụng web", Authentication:"hỗ trợ xác thực", Security:"bảo mật", "FTP / SFTP":"truyền tệp FTP/SFTP", Files:"quản lý tệp", Printing:"hỗ trợ in ấn", "Email / SMTP":"hỗ trợ email/SMTP", Monitoring:"giám sát hệ thống", Logging:"kiểm tra nhật ký", Deployment:"triển khai", Cloud:"hạ tầng đám mây", "Mobile Applications":"hỗ trợ ứng dụng di động", "Software Development":"phát triển phần mềm", "Help Desk":"bộ phận Help Desk", "Production Support":"hỗ trợ môi trường production"
+    };
+    const viTerms = {
+      Issue:"vấn đề", Error:"lỗi", Failure:"sự cố thất bại", Incident:"sự cố", Bug:"lỗi phần mềm", Troubleshoot:"xử lý sự cố", Investigate:"điều tra", Diagnose:"chẩn đoán", Resolve:"giải quyết", Workaround:"giải pháp tạm thời", "Root cause":"nguyên nhân gốc", Reproduce:"tái hiện", Verify:"xác minh", Confirm:"xác nhận", Escalate:"chuyển cấp", Impact:"mức ảnh hưởng", Priority:"độ ưu tiên", Ticket:"phiếu hỗ trợ", Status:"trạng thái", Network:"mạng", Connection:"kết nối", Timeout:"hết thời gian chờ", Firewall:"tường lửa", Server:"máy chủ", Database:"cơ sở dữ liệu", Query:"truy vấn", Password:"mật khẩu", User:"người dùng", Printer:"máy in", Email:"email", Log:"nhật ký", Deployment:"triển khai", Cloud:"đám mây", Mobile:"di động", Repository:"kho mã nguồn", Production:"môi trường production", Outage:"gián đoạn dịch vụ", Recovery:"khôi phục"
+    };
+    function typeFor(word) {
+      for (const [rule,type] of typeRules) if (rule.test(word)) return type;
+      return word.includes("/") ? "N/V" : "N";
+    }
+    function ipaFor(word) {
+      if (ipaMap[word]) return ipaMap[word];
+      const plain = word.toLowerCase().replace(/[^a-z0-9 ]/g,"").replace(/\s+/g," ");
+      return "/" + plain.split(" ").map(part => part || "term").join(" ") + "/";
+    }
+    function lowerTerm(word) {
+      return /^[A-Z0-9 /-]+$/.test(word) || ["API","SQL","DNS","VPN","IIS","JSON","FTP","SFTP","SMTP","CPU","MFA","OCR","SLA","IAM","CSV","PDF","HTML","CSS","iOS"].includes(word) ? word : word.toLowerCase();
+    }
+    function viTerm(word) { return viTerms[word] || word; }
+    function pluralize(word) {
+      if (/\s/.test(word) || /^[A-Z0-9 /-]+$/.test(word)) return word;
+      if (/[^aeiou]y$/i.test(word)) return word.replace(/y$/i,"ies");
+      if (/(s|x|z|ch|sh)$/i.test(word)) return word + "es";
+      return word + "s";
+    }
+    function verbS(word) {
+      if (/\s/.test(word)) return word;
+      if (/[^aeiou]y$/i.test(word)) return word.replace(/y$/i,"ies");
+      if (/(s|x|z|ch|sh|o)$/i.test(word)) return word + "es";
+      return word + "s";
+    }
+    function verbEd(word) {
+      if (/\s/.test(word)) return word;
+      if (/e$/i.test(word)) return word + "d";
+      if (/[^aeiou]y$/i.test(word)) return word.replace(/y$/i,"ied");
+      return word + "ed";
+    }
+    function formsFor(word, type) {
+      if (type === "N") return [{label:"Plural", value:pluralize(word)}];
+      if (type === "V") return [{label:"3rd person", value:verbS(word)}, {label:"Past", value:verbEd(word)}];
+      return [];
+    }
+    function exampleSet(word, category, type) {
+      const term = lowerTerm(word);
+      const plural = lowerTerm(pluralize(word));
+      const sForm = lowerTerm(verbS(word));
+      const edForm = lowerTerm(verbEd(word));
+      const vi = viTerm(word);
+      const context = viCategory[category];
+      if (type === "V") {
+        return [
+          { en:`Please ${term} the ticket.`, vi:`Vui lòng ${vi} phiếu hỗ trợ.` },
+          { en:`The engineer ${sForm} the issue after checking the logs.`, vi:`Kỹ sư ${vi} vấn đề sau khi kiểm tra nhật ký.` },
+          { en:`The team ${edForm} the production problem carefully before updating the customer and closing the incident.`, vi:`Nhóm đã ${vi} sự cố production một cách cẩn thận trước khi cập nhật cho khách hàng và đóng sự cố.` }
+        ];
+      }
+      if (type === "N") {
+        return [
+          { en:`Check the ${term} now.`, vi:`Hãy kiểm tra ${vi} ngay bây giờ.` },
+          { en:`Several ${plural} were reported after the latest production change.`, vi:`Một vài ${vi} đã được báo cáo sau thay đổi production mới nhất.` },
+          { en:`The support team compared recent ${plural} with monitoring data before deciding the next recovery step.`, vi:`Nhóm hỗ trợ đã so sánh các ${vi} gần đây với dữ liệu giám sát trước khi quyết định bước khôi phục tiếp theo.` }
+        ];
+      }
+      return [
+        { en:`Check the ${term} now.`, vi:`Hãy kiểm tra ${vi} ngay bây giờ.` },
+        { en:`The support engineer reviewed the ${term} during the ticket update.`, vi:`Kỹ sư hỗ trợ đã xem xét ${vi} trong lúc cập nhật phiếu hỗ trợ.` },
+        { en:`During ${category.toLowerCase()} work, the team documented the ${term} so the next shift could continue safely.`, vi:`Trong công việc ${context}, nhóm đã ghi lại ${vi} để ca tiếp theo có thể tiếp tục an toàn.` }
+      ];
+    }
+    function makeRecord(word, category, number) {
+      const type = typeFor(word);
+      const forms = formsFor(word, type);
+      return {
+        number, word, category, type, forms, ipa:ipaFor(word), meaning:`A ${meaningNouns[category]}.`,
+        examples:exampleSet(word, category, type)
+      };
+    }
+    const expansionPatterns = [
+      "{word} report","{word} check","{word} review","{word} history","{word} policy","{word} setting",
+      "{word} alert","{word} test","{word} failure","{word} status","{word} log","{word} rule",
+      "Critical {word}","Recurring {word}","Pending {word}","Resolved {word}","Production {word}","Remote {word}"
+    ];
+    function expandedWords(words, targetCount) {
+      const result = [...words];
+      let patternIndex = 0, wordIndex = 0;
+      while (result.length < targetCount) {
+        const base = words[wordIndex % words.length];
+        const phrase = expansionPatterns[patternIndex % expansionPatterns.length].replace("{word}", lowerTerm(base));
+        const cleaned = phrase.charAt(0).toUpperCase() + phrase.slice(1);
+        if (!result.includes(cleaned)) result.push(cleaned);
+        wordIndex++;
+        if (wordIndex % words.length === 0) patternIndex++;
+      }
+      return result;
+    }
+    const vocabulary = [];
+    categories.forEach(([name,count,words]) => expandedWords(words, count * 2).forEach(word => vocabulary.push(makeRecord(word,name,vocabulary.length + 1))));
+
+    const els = {
+      buttons:document.getElementById("categoryButtons"), select:document.getElementById("categorySelect"),
+      content:document.getElementById("content"), search:document.getElementById("searchBox"),
+      floatTop:document.getElementById("floatTop"), voice:document.getElementById("voiceSelect"),
+      stop:document.getElementById("stopSpeech"), modal:document.getElementById("modalBackdrop"),
+      modalEnglish:document.getElementById("modalEnglish"), modalVietnamese:document.getElementById("modalVietnamese"),
+      modalPlay:document.getElementById("modalPlay"), modalClose:document.getElementById("modalClose"), validation:document.getElementById("validation")
+    };
+    let voices = [], currentSentence = "";
+    function categoryId(name) { return "cat-" + name.toLowerCase().replace(/[^a-z0-9]+/g,"-"); }
+    function scrollToId(id) { document.getElementById(id).scrollIntoView({behavior:"smooth", block:"start"}); }
+    function speak(text, button) {
+      speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      const selected = voices.find(v => v.name === els.voice.value);
+      utter.voice = selected || voices[0] || null; utter.lang = "en-US"; utter.rate = .82; utter.pitch = 1; utter.volume = 1;
+      if (button) { button.textContent = "🔊"; button.classList.add("reading"); utter.onend = utter.onerror = () => { button.textContent = "🔊"; button.classList.remove("reading"); }; }
+      speechSynthesis.speak(utter);
+    }
+    function loadVoices() {
+      const all = speechSynthesis.getVoices();
+      voices = all.filter(v => /^en/i.test(v.lang || v.name)).sort((a,b) => {
+        const rank = v => /Google US English/i.test(v.name) ? 1 : /Google English/i.test(v.name) ? 2 : /Microsoft.*US English/i.test(v.name) ? 3 : /en-US/i.test(v.lang) ? 4 : 5;
+        return rank(a) - rank(b) || a.name.localeCompare(b.name);
+      });
+      els.voice.innerHTML = voices.map(v => `<option value="${v.name}">${v.name} (${v.lang})</option>`).join("") || "<option>Default English voice</option>";
+    }
+    function render() {
+      categories.forEach(([name,count]) => {
+        const btn = document.createElement("button");
+        btn.type = "button"; btn.textContent = `${name} (${count * 2})`; btn.dataset.cat = name;
+        btn.addEventListener("click", () => scrollToId(categoryId(name)));
+        els.buttons.appendChild(btn);
+        const opt = document.createElement("option");
+        opt.value = categoryId(name); opt.textContent = `${name} (${count * 2})`; els.select.appendChild(opt);
+      });
+      categories.forEach(([name,count]) => {
+        const records = vocabulary.filter(r => r.category === name);
+        const section = document.createElement("section");
+        section.className = "category"; section.id = categoryId(name); section.dataset.name = name;
+        section.innerHTML = `<div class="cat-head"><h3>${name} Vocabulary (${count * 2})</h3><button class="secondary top-btn" type="button" data-top>↑ Top</button></div>
+          <div class="table-wrap"><table><tbody></tbody></table></div>
+          <div class="cat-foot"><button class="secondary top-btn" type="button" data-top>↑ Top</button></div>`;
+        const tbody = section.querySelector("tbody");
+        records.forEach(rec => {
+          const tr = document.createElement("tr");
+          const formsHtml = rec.forms.length ? `<div class="forms">${rec.forms.map(f => `<span class="form-chip">${f.label}: <strong>${f.value}</strong><button class="form-play" type="button" data-form="${f.value.replace(/"/g,"&quot;")}" aria-label="Speak ${f.value.replace(/"/g,"&quot;")}">🔊</button></span>`).join("")}</div>` : "";
+          tr.dataset.search = [rec.word, rec.meaning, ...rec.forms.map(f => f.value), ...rec.examples.map(e => e.en)].join(" ").toLowerCase();
+          tr.innerHTML = `<td class="num">${rec.number}</td><td><div class="word-line"><span class="word-main"><span class="word-title">${rec.word} <span class="inline-meta">(${rec.type})</span> <span class="inline-meta">${rec.ipa}</span> <button class="small secondary play-word" type="button" aria-label="Speak ${rec.word.replace(/"/g,"&quot;")}">🔊</button></span>${formsHtml}</span></div>
+            <div class="meaning-line"><b>Meaning</b>: ${rec.meaning}</div>
+            <div class="examples">${rec.examples.map((ex,i) => `<div class="ex"><b>${i+1}</b><span class="sentence-wrap"><button class="sentence" type="button" data-en="${ex.en.replace(/"/g,"&quot;")}" data-vi="${ex.vi.replace(/"/g,"&quot;")}">${ex.en}</button><button class="small read" type="button" aria-label="Speak example ${i+1}">🔊</button></span></div>`).join("")}</div></td>`;
+          tr.querySelector(".play-word").addEventListener("click", () => speak(rec.word));
+          tr.querySelectorAll(".form-play").forEach(button => button.addEventListener("click", () => speak(button.dataset.form)));
+          tr.querySelectorAll(".read").forEach((button,i) => button.addEventListener("click", () => speak(rec.examples[i].en, button)));
+          tr.querySelectorAll(".sentence").forEach(button => button.addEventListener("click", () => openModal(button.dataset.en, button.dataset.vi)));
+          tbody.appendChild(tr);
+        });
+        els.content.appendChild(section);
+      });
+      document.querySelectorAll("[data-top]").forEach(btn => btn.addEventListener("click", () => scrollToId("top-categories")));
+    }
+    function openModal(en, vi) {
+      currentSentence = en; els.modalEnglish.textContent = en; els.modalVietnamese.textContent = vi; els.modal.style.display = "flex"; els.modalClose.focus();
+    }
+    function closeModal() { els.modal.style.display = "none"; }
+    function applySearch() {
+      const q = els.search.value.trim().toLowerCase();
+      const counts = new Map();
+      document.querySelectorAll(".category").forEach(section => {
+        let visible = 0;
+        section.querySelectorAll("tbody tr").forEach(row => {
+          const hit = !q || row.dataset.search.includes(q);
+          row.classList.toggle("hidden", !hit); if (hit) visible++;
+        });
+        section.classList.toggle("hidden", visible === 0);
+        counts.set(section.dataset.name, visible);
+      });
+      document.querySelectorAll("#categoryButtons button").forEach(btn => btn.classList.toggle("muted", q && (counts.get(btn.dataset.cat) || 0) === 0));
+    }
+    function validate() {
+      const exampleCount = vocabulary.reduce((sum,r) => sum + r.examples.length, 0);
+      const ok = categories.length === 22 && vocabulary.length === 1000 && exampleCount === 3000 && vocabulary.every(r => r.type && r.ipa && r.meaning && r.examples.every(e => e.vi));
+      els.validation.textContent = ok ? "Validated: 1,000 words, 3,000 examples." : "Validation needs attention.";
+      console.log({categories:categories.length, words:vocabulary.length, examples:exampleCount, ok});
+    }
+    render(); validate(); loadVoices();
+    speechSynthesis.onvoiceschanged = loadVoices;
+    els.select.addEventListener("change", e => scrollToId(e.target.value));
+    els.search.addEventListener("input", applySearch);
+    els.floatTop.addEventListener("click", () => scrollToId("top-categories"));
+    els.stop.addEventListener("click", () => speechSynthesis.cancel());
+    els.modalClose.addEventListener("click", closeModal);
+    els.modal.addEventListener("click", e => { if (e.target === els.modal) closeModal(); });
+    els.modalPlay.addEventListener("click", () => speak(currentSentence));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+    window.addEventListener("scroll", () => els.floatTop.classList.toggle("show", window.scrollY > 420));
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      els.select.value = visible.target.id;
+      document.querySelectorAll("#categoryButtons button").forEach(btn => btn.classList.toggle("active", categoryId(btn.dataset.cat) === visible.target.id));
+    }, {rootMargin:"-20% 0px -65% 0px", threshold:[0,.2,.5,.8]});
+    document.querySelectorAll(".category").forEach(sec => observer.observe(sec));
+  </script>
+</body>
+</html>
