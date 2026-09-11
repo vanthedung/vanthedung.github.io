@@ -1291,10 +1291,12 @@
     function loadVoices() {
       const all = speechSynthesis.getVoices();
       voices = all.filter(v => /^en/i.test(v.lang || v.name)).sort((a,b) => {
-        const rank = v => /Google US English/i.test(v.name) ? 1 : /Google English/i.test(v.name) ? 2 : /Microsoft.*US English/i.test(v.name) ? 3 : /en-US/i.test(v.lang) ? 4 : 5;
+        const rank = v => /Google US English/i.test(v.name) && /^en-US$/i.test(v.lang) ? 1 : /Google US English/i.test(v.name) ? 2 : /Microsoft.*US English/i.test(v.name) ? 3 : /^en-US$/i.test(v.lang) ? 4 : /Google English/i.test(v.name) ? 5 : 6;
         return rank(a) - rank(b) || a.name.localeCompare(b.name);
       });
       els.voice.innerHTML = voices.map(v => `<option value="${v.name}">${v.name} (${v.lang})</option>`).join("") || "<option>Default English voice</option>";
+      const preferred = voices.find(v => /Google US English/i.test(v.name) && /^en-US$/i.test(v.lang)) || voices.find(v => /^en-US$/i.test(v.lang)) || voices[0];
+      if (preferred) els.voice.value = preferred.name;
     }
     function render() {
       categories.forEach(([name,count]) => {

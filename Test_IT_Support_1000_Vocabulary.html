@@ -103,6 +103,7 @@
           <option value="need-practice">Need Practice</option>
         </select>
         <button id="needPracticeListBtn" class="secondary" type="button">List</button>
+        <select id="voiceSelect" aria-label="English voice"></select>
       </div>
       <div class="options" aria-label="Test options">
         <label class="check-option"><input id="autoPlay" type="checkbox"> Auto Play</label>
@@ -1304,7 +1305,8 @@
       resultPanel:document.getElementById("resultPanel"), showBtn:document.getElementById("showBtn"), againBtn:document.getElementById("againBtn"),
       clearStats:document.getElementById("clearStats"), needPracticeListBtn:document.getElementById("needPracticeListBtn"),
       needPracticeModal:document.getElementById("needPracticeModal"), needPracticeList:document.getElementById("needPracticeList"),
-      clearNeedPractice:document.getElementById("clearNeedPractice"), closeNeedPractice:document.getElementById("closeNeedPractice")
+      clearNeedPractice:document.getElementById("clearNeedPractice"), closeNeedPractice:document.getElementById("closeNeedPractice"),
+      voice:document.getElementById("voiceSelect")
     };
     let voices = [], preferredVoice = null, current = null, questionNumber = 0, history = [], historyIndex = -1, checkedValue = null;
     const stats = JSON.parse(localStorage.getItem("testVocabularyStats") || "{\"correct\":0,\"wrong\":0,\"wrongWords\":[]}");
@@ -1317,21 +1319,21 @@
     }
     function loadVoices() {
       voices = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang || v.name)).sort((a,b) => {
-        const rank = v => /Google US English/i.test(v.name) ? 1 : /Google English/i.test(v.name) ? 2 : /Microsoft.*US English/i.test(v.name) ? 3 : /en-US/i.test(v.lang) ? 4 : 5;
+        const rank = v => /Google US English/i.test(v.name) && /^en-US$/i.test(v.lang) ? 1 : /Google US English/i.test(v.name) ? 2 : /Microsoft.*US English/i.test(v.name) ? 3 : /^en-US$/i.test(v.lang) ? 4 : /Google English/i.test(v.name) ? 5 : 6;
         return rank(a) - rank(b) || a.name.localeCompare(b.name);
       });
+      els.voice.innerHTML = voices.map(v => `<option value="${v.name}">${v.name} (${v.lang})</option>`).join("") || "<option>Default English voice</option>";
       preferredVoice =
-        voices.find(v => v.name === "Google US English" && /^en-US$/i.test(v.lang)) ||
-        voices.find(v => /Google US English/i.test(v.name)) ||
-        voices.find(v => /Google English/i.test(v.name) && /^en-US$/i.test(v.lang)) ||
+        voices.find(v => /Google US English/i.test(v.name) && /^en-US$/i.test(v.lang)) ||
         voices.find(v => /^en-US$/i.test(v.lang)) ||
         voices[0] ||
         null;
+      if (preferredVoice) els.voice.value = preferredVoice.name;
     }
     function speak(text) {
       speechSynthesis.cancel();
       const utter = new SpeechSynthesisUtterance(text);
-      utter.voice = preferredVoice; utter.lang = "en-US"; utter.rate = .82; utter.pitch = 1; utter.volume = 1;
+      utter.voice = voices.find(v => v.name === els.voice.value) || preferredVoice; utter.lang = "en-US"; utter.rate = .82; utter.pitch = 1; utter.volume = 1;
       speechSynthesis.speak(utter);
     }
     function normalize(text) { return text.trim().replace(/\s+/g, " ").toLowerCase(); }
