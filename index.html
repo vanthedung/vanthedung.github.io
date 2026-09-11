@@ -1,11 +1,93 @@
-<!DOCTYPE html>
-<html>
-<body >
-
-<div align="center">
-<h1>
-<h2><a href="IT_Support_1000_Vocabulary.html">IT Support 1000 Vocabulary</a></h2>
-<h2><a href="IT_Support_100_Email_Replies.html">IT Support 100 Email Replies</a></h2>
-<h2><a href="Test_vocabulary.html">Test write</a></h2>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT Support English Tools</title>
+  <style>
+    :root {
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --text:#172033;
+      --muted:#65728a;
+      --blue:#1769d2;
+      --line:#d9e3f0;
+      --shadow:0 10px 30px rgba(23,32,51,.08);
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Arial, Helvetica, sans-serif;
+      padding:18px;
+    }
+    main {
+      width:min(520px, 100%);
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:10px;
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+    h1 {
+      margin:0 0 8px;
+      font-size:clamp(26px, 7vw, 38px);
+      line-height:1.1;
+      letter-spacing:0;
+      text-align:center;
+    }
+    p {
+      margin:0 0 20px;
+      color:var(--muted);
+      text-align:center;
+      font-size:16px;
+    }
+    nav {
+      display:grid;
+      gap:12px;
+    }
+    a {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:58px;
+      padding:14px 16px;
+      border:1px solid var(--blue);
+      border-radius:8px;
+      background:var(--blue);
+      color:#fff;
+      text-decoration:none;
+      font-size:18px;
+      font-weight:700;
+      text-align:center;
+    }
+    a:hover,
+    a:focus-visible {
+      background:#0b4fa8;
+      outline:3px solid #9fc5ff;
+      outline-offset:2px;
+    }
+    @media (max-width:420px) {
+      body { padding:12px; align-items:flex-start; }
+      main { padding:18px; margin-top:18px; }
+      a { min-height:54px; font-size:16px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>IT Support English Tools</h1>
+    <p>Vocabulary, email replies, and typing practice</p>
+    <nav aria-label="Tool links">
+      <a href="IT_Support_1000_Vocabulary.html">IT Support 1000 Vocabulary</a>
+      <a href="IT_Support_100_Email_Replies.html">IT Support 100 Email Replies</a>
+      <a href="Test_vocabulary.html">Test Write</a>
+    </nav>
+  </main>
 </body>
 </html>
