@@ -58,6 +58,8 @@
     .form-play:hover { background:#c7defc; color:#073f87; }
     .meaning-line { margin:8px 0 10px; color:#34435a; }
     .meaning-line b { color:#14223a; }
+    .dict-link { display:inline-flex; align-items:center; justify-content:center; margin-left:6px; width:28px; height:28px; border:1px solid #c9d9ef; border-radius:999px; background:#f3f8ff; color:var(--blue-dark); text-decoration:none; font-weight:700; }
+    .dict-link:hover, .dict-link:focus-visible { background:#dcecff; outline:3px solid #9fc5ff; outline-offset:2px; }
     .examples { display:grid; gap:8px; }
     .ex { display:grid; grid-template-columns:24px minmax(280px,1fr); gap:8px; align-items:start; padding:7px 8px; border-radius:6px; background:#f7faff; border:1px solid #edf3fb; }
     .sentence-wrap { display:flex; align-items:flex-start; gap:6px; }
@@ -168,29 +170,47 @@
       [/^(Reachable|Locked|Expired|Offline|Online|Stable|Available|Affected|Pending|Closed|Assigned|Responsive|Read-only|Verbose)$/i,"Adj"],
       [/\s/,"N phr"]
     ];
-    const meaningNouns = {
-      Troubleshooting:"support concept used to identify and fix a problem",
-      Networking:"network concept used to connect systems and users",
-      Windows:"Windows operating system concept used in support work",
-      Servers:"server operations concept used to run business systems",
-      Database:"database concept used to store and protect data",
-      SQL:"SQL concept used to query or change database data",
-      API:"API concept used for communication between applications",
-      "Web Applications":"web application concept used in browser-based systems",
-      Authentication:"access concept used to verify users and permissions",
-      Security:"security concept used to protect systems and data",
-      "FTP / SFTP":"file transfer concept used to move files securely",
-      Files:"file management concept used in daily support tasks",
-      Printing:"printing concept used to support printers and queues",
-      "Email / SMTP":"email concept used to send, receive, and troubleshoot messages",
-      Monitoring:"monitoring concept used to measure service health",
-      Logging:"logging concept used to record technical activity",
-      Deployment:"release concept used to deliver application changes",
-      Cloud:"cloud concept used to operate hosted resources",
-      "Mobile Applications":"mobile app concept used to support handheld devices",
-      "Software Development":"development concept used to build and maintain software",
-      "Help Desk":"help desk concept used to support end users",
-      "Production Support":"production support concept used to keep live services running"
+    const baseMeanings = {
+      Issue:"A problem or question that needs attention.", Error:"A mistake or fault that stops expected behavior.", Failure:"When a system or action does not work as required.", Incident:"An unplanned event that affects a service or user.", Bug:"A defect in software that causes incorrect behavior.", Troubleshoot:"To find and fix the cause of a technical problem.", Investigate:"To examine details in order to understand a problem.", Diagnose:"To identify the likely cause of a technical issue.", Resolve:"To fix a problem or complete a support request.", Workaround:"A temporary method used when the normal solution is not available.", "Root cause":"The original reason a problem happened.", Reproduce:"To make a problem happen again so it can be studied.", Verify:"To check that something is true or working.", Confirm:"To make sure information or behavior is correct.", Escalate:"To send a problem to a higher support level.", Impact:"The effect a problem has on users or systems.", Priority:"The order of importance for handling work.", Ticket:"A tracked support request or incident record.", Status:"The current state of a task, system, or request.", Symptom:"A visible sign of an underlying problem.", Fix:"A change that corrects a problem.", Analyze:"To study information carefully to understand it.", Retry:"To attempt the same action again.", Regression:"A problem that returns after a change or update.",
+      Network:"Connected systems that share data and resources.", Connection:"A link between devices, services, or systems.", Connectivity:"The ability to connect to a network or service.", Disconnect:"To lose or end a connection.", Timeout:"When a request stops waiting after too much time passes.", Firewall:"A security system that controls network traffic.", Router:"A device that directs network traffic between networks.", Gateway:"A network point that connects different systems or networks.", DNS:"A service that translates domain names into IP addresses.", "IP address":"A unique network address for a device or service.", Port:"A numbered communication endpoint on a device.", Ping:"A test used to check whether a device is reachable.", VPN:"A secure private network connection over the internet.", "Wi-Fi":"Wireless network access.", Bandwidth:"The amount of data a connection can carry.", Latency:"Delay before data starts or finishes moving.", Packet:"A small unit of data sent over a network.", Protocol:"A rule set for communication between systems.", Proxy:"A server that forwards requests between clients and services.", Reachable:"Able to be contacted over the network.", Subnet:"A smaller network inside a larger network.", Switch:"A device that connects machines on a local network.", DHCP:"A service that assigns IP addresses automatically.", Traceroute:"A test that shows the network path to a destination.",
+      Server:"A computer or service that provides resources to clients.", Outage:"A period when a service is unavailable.", Downtime:"Time when a system is not available.", Database:"An organized store of data.", Query:"A request for data from a database.", Record:"One stored item or row of data.", Table:"A database structure made of rows and columns.", Column:"A vertical field in a database table.", Row:"A single record in a database table.", Transaction:"A group of database actions handled as one unit.", Backup:"A saved copy of data used for recovery.", Restore:"To recover data or service from a backup.", Rollback:"To return a system or database to an earlier state.", Commit:"To save a completed change permanently.", Index:"A database structure that helps find data faster.", Deadlock:"A database conflict where processes block each other.", Lock:"A control that prevents conflicting access to data.", Schema:"The structure of database objects and relationships.", Migration:"A controlled change to data or system structure.", Duplicate:"An extra copy of the same item.", "Stored procedure":"Saved SQL code that runs in a database.", Join:"A query operation that combines related tables.",
+      API:"A way for applications to exchange data and actions.", Endpoint:"A specific API address that receives requests.", Request:"A message sent to a service asking for data or action.", Response:"The message returned after a request.", Payload:"The data carried inside a request or response.", "Status code":"A number that describes the result of a web request.", Header:"Metadata sent with an HTTP request or response.", Parameter:"A value passed into a command, query, or request.", Method:"A defined action or function in code or HTTP.", Client:"A device or program that requests a service.", Backend:"The server-side part of an application.", Frontend:"The user-facing part of an application.", JSON:"A text format for structured data.", Serialize:"To convert data into a storable or transferable format.", Deserialize:"To convert stored or transferred data back into objects.", Validation:"Checking that input or data follows required rules.", Dependency:"Software or service required by another component.", Cache:"Stored data used to speed up future access.", Middleware:"Software that runs between a request and final handler.", CORS:"Browser security rules for cross-origin requests.",
+      Authentication:"The process of proving a user's identity.", Authorization:"The process of deciding what access is allowed.", Credential:"Information used to prove identity.", Username:"The name used to identify an account.", Password:"A secret used to sign in.", Token:"A value used to prove an authenticated session or request.", Session:"A period of activity for a signed-in user.", Permission:"Allowed access to perform an action.", Role:"A named group of permissions.", Account:"A user identity in a system.", Locked:"Blocked from access or changes.", Expired:"No longer valid because time has passed.", Login:"The act of signing in.", Logout:"The act of signing out.", MFA:"Multi-factor authentication using more than one proof of identity.", Privilege:"Special access to perform protected actions.",
+      Security:"Protection of systems, accounts, and data.", Encrypt:"To convert data into a protected unreadable form.", Certificate:"A digital file used to prove identity or secure communication.", Malware:"Software designed to harm systems or data.", Phishing:"A trick used to steal information or access.", Vulnerability:"A weakness that could be exploited.", Threat:"A possible source of harm.", Risk:"The chance and impact of something bad happening.", Audit:"A formal review of activity or compliance.", Compliance:"Following required rules or standards.", Policy:"A rule that controls system or user behavior.",
+      File:"A stored digital item.", Folder:"A container for files.", Upload:"To send a file to another system.", Download:"To receive a file from another system.", Transfer:"To move data or files between locations.", Path:"The location of a file or folder.", Directory:"A folder location in a file system.", Archive:"A stored collection of older or compressed files.", Import:"To bring data into a system.", Export:"To send data out of a system.", Parse:"To read data and break it into usable parts.", Format:"The structure or type of data.", Printer:"A device that produces paper output.", "Print queue":"The waiting list of print jobs.", "Print Spooler":"A Windows service that manages print jobs.", Driver:"Software that lets the operating system use hardware.", Offline:"Not connected or not available.", Online:"Connected and available.",
+      Email:"An electronic message sent between users.", SMTP:"A protocol used to send email.", Relay:"A server that forwards email.", Recipient:"The person or address receiving a message.", Sender:"The person or address sending a message.", Inbox:"The folder where received email arrives.", Spam:"Unwanted or suspicious email.", Attachment:"A file included with a message.", Delivery:"Successful arrival of a message or item.", Mailbox:"A user's email storage area.",
+      Monitoring:"Watching systems to detect health or performance problems.", Alert:"A notification that a condition needs attention.", Metric:"A measured value used to track system health.", "Health check":"A test that confirms a service is working.", Threshold:"A limit that triggers action when crossed.", Availability:"The ability of a service to be used.", Uptime:"Time when a system is running and available.", Heartbeat:"A regular signal showing a service is alive.", Baseline:"A normal reference level for comparison.", Bottleneck:"A slow point that limits overall performance.",
+      Log:"A record of system or application activity.", Event:"A recorded action or condition.", Exception:"An error condition handled by software.", Warning:"A message about a possible problem.", Debug:"Detailed information used to diagnose code behavior.", Trace:"Detailed step-by-step diagnostic information.", Timestamp:"The recorded date and time of an event.", "Error code":"A code that identifies a specific problem.", "Stack trace":"A report showing where an error happened in code.",
+      Deployment:"The process of releasing software to an environment.", Deploy:"To release software or configuration to an environment.", Release:"A delivered version of software.", Version:"A specific labeled state of software.", Update:"A change that improves or corrects software.", Patch:"A small update that fixes a problem.", Build:"A compiled or packaged software output.", Pipeline:"An automated process for building, testing, and deploying.", Maintenance:"Planned work to keep systems healthy.", Hotfix:"An urgent fix released quickly.",
+      Cloud:"Hosted computing resources delivered over a network.", Provision:"To create or assign a resource.", Decommission:"To remove a resource from service.", Instance:"A running virtual server or service copy.", Container:"A packaged application runtime.", Scaling:"Changing capacity to handle demand.", Storage:"Space used to keep data.", Region:"A geographic cloud location.", "Availability zone":"An isolated cloud location inside a region.",
+      Android:"Google's mobile operating system.", iOS:"Apple's mobile operating system.", Device:"A phone, computer, printer, or other hardware item.", Mobile:"Related to phones or tablets.", "App version":"The installed release number of a mobile app.", Installation:"The process of adding software to a device.", Camera:"A device component used to capture images.", Barcode:"A machine-readable code made of lines or patterns.", OCR:"Text recognition from an image.", Scan:"To capture or read data with a device.", Sync:"To make data match between systems.",
+      "Source code":"Human-readable instructions used to build software.", Repository:"A storage location for source code.", Branch:"A separate line of code changes.", Merge:"To combine code changes.", "Pull request":"A request to review and merge code.", Package:"A bundled software component.", Library:"Reusable code used by an application.", Framework:"A structured set of tools for building software.", Function:"A reusable block of code.", Class:"A code template for objects.", Object:"A data structure created from a class.", Variable:"A named value in code.", "Unit test":"A test for a small piece of code.", "Integration test":"A test that checks multiple parts working together.",
+      User:"A person who uses a system.", Support:"Help provided to users or teams.", Remote:"Done from another location or computer.", Screenshot:"An image of what appears on a screen.", Instruction:"Steps that tell someone what to do.", Feedback:"Information about results or user experience.", Escalation:"Moving a ticket to a higher support level.", Resolution:"The final fix or answer for a ticket.", Severity:"How serious an issue is.", Customer:"A person or group receiving service.", "Knowledge base":"A collection of support articles.", "Service desk":"The team or system that handles support requests.",
+      Production:"The live environment used by real users.", Recovery:"Returning a system to normal service.", Stable:"Working reliably without unexpected changes.", Available:"Ready for users or systems to access.", Affected:"Impacted by a problem.", Verification:"Checking that a fix or condition is correct.", Synchronization:"Making data or systems match.", Failover:"Switching to a backup system after failure.", Postmortem:"A review after an incident.", Runbook:"Documented steps for operations or support.", "On-call":"Support responsibility outside normal hours."
+    };
+    const categoryMeaningFallback = {
+      Troubleshooting:"A term used when identifying, tracking, or fixing technical problems.",
+      Networking:"A term used for network communication, connectivity, or traffic flow.",
+      Windows:"A term used when supporting Windows devices, tools, or services.",
+      Servers:"A term used for server operation, hosting, or infrastructure support.",
+      Database:"A term used for storing, changing, protecting, or retrieving data.",
+      SQL:"A term used when writing or troubleshooting SQL database work.",
+      API:"A term used when applications send requests and receive responses.",
+      "Web Applications":"A term used for browser-based application behavior or user interfaces.",
+      Authentication:"A term used for identity, sign-in, sessions, or access control.",
+      Security:"A term used to protect systems, accounts, networks, and data.",
+      "FTP / SFTP":"A term used for file transfer sessions and secure remote file movement.",
+      Files:"A term used for file storage, access, naming, or processing.",
+      Printing:"A term used when supporting printers, drivers, and print jobs.",
+      "Email / SMTP":"A term used when sending, receiving, routing, or troubleshooting email.",
+      Monitoring:"A term used to measure service health, capacity, or availability.",
+      Logging:"A term used to record, search, and understand system activity.",
+      Deployment:"A term used when releasing, packaging, or changing software.",
+      Cloud:"A term used for hosted infrastructure and cloud service operations.",
+      "Mobile Applications":"A term used when supporting phones, tablets, or mobile apps.",
+      "Software Development":"A term used when building, testing, or maintaining software.",
+      "Help Desk":"A term used when assisting users and managing support requests.",
+      "Production Support":"A term used to keep live services stable and available."
     };
     const viCategory = {
       Troubleshooting:"hỗ trợ xử lý sự cố", Networking:"hỗ trợ mạng", Windows:"hỗ trợ Windows", Servers:"vận hành máy chủ", Database:"hỗ trợ cơ sở dữ liệu", SQL:"hỗ trợ SQL", API:"hỗ trợ API", "Web Applications":"hỗ trợ ứng dụng web", Authentication:"hỗ trợ xác thực", Security:"bảo mật", "FTP / SFTP":"truyền tệp FTP/SFTP", Files:"quản lý tệp", Printing:"hỗ trợ in ấn", "Email / SMTP":"hỗ trợ email/SMTP", Monitoring:"giám sát hệ thống", Logging:"kiểm tra nhật ký", Deployment:"triển khai", Cloud:"hạ tầng đám mây", "Mobile Applications":"hỗ trợ ứng dụng di động", "Software Development":"phát triển phần mềm", "Help Desk":"bộ phận Help Desk", "Production Support":"hỗ trợ môi trường production"
@@ -234,6 +254,44 @@
       if (type === "V") return [{label:"3rd person", value:verbS(word)}, {label:"Past", value:verbEd(word)}];
       return [];
     }
+    function baseWordForMeaning(word) {
+      const lower = word.toLowerCase();
+      for (const pattern of expansionPatterns || []) {
+        const token = pattern.replace("{word}","").trim().toLowerCase();
+        if (!token) continue;
+        if (lower.endsWith(" " + token)) return word.slice(0, word.length - token.length - 1);
+        if (lower.startsWith(token + " ")) return word.slice(token.length + 1);
+      }
+      return word;
+    }
+    function meaningFor(word, category) {
+      if (baseMeanings[word]) return baseMeanings[word];
+      const base = baseWordForMeaning(word);
+      const baseMeaning = baseMeanings[base] || categoryMeaningFallback[category];
+      const lower = word.toLowerCase();
+      if (lower.endsWith(" report")) return `A report that describes ${lowerTerm(base)} details, status, or findings.`;
+      if (lower.endsWith(" check")) return `A support check used to confirm the condition of ${lowerTerm(base)}.`;
+      if (lower.endsWith(" review")) return `A review of ${lowerTerm(base)} details before taking support action.`;
+      if (lower.endsWith(" history")) return `Past records or activity related to ${lowerTerm(base)}.`;
+      if (lower.endsWith(" policy")) return `A rule or setting that controls how ${lowerTerm(base)} is handled.`;
+      if (lower.endsWith(" setting")) return `A configurable option related to ${lowerTerm(base)}.`;
+      if (lower.endsWith(" alert")) return `A notification about a ${lowerTerm(base)} condition that may need attention.`;
+      if (lower.endsWith(" test")) return `A test used to verify ${lowerTerm(base)} behavior or availability.`;
+      if (lower.endsWith(" failure")) return `A failure involving ${lowerTerm(base)} that prevents expected operation.`;
+      if (lower.endsWith(" status")) return `The current state of ${lowerTerm(base)}.`;
+      if (lower.endsWith(" log")) return `A log entry or file that records ${lowerTerm(base)} activity.`;
+      if (lower.endsWith(" rule")) return `A rule that controls or validates ${lowerTerm(base)} behavior.`;
+      if (lower.startsWith("critical ")) return `A high-importance ${lowerTerm(base)} that needs urgent attention.`;
+      if (lower.startsWith("recurring ")) return `A ${lowerTerm(base)} that happens repeatedly.`;
+      if (lower.startsWith("pending ")) return `A ${lowerTerm(base)} that is waiting for action or completion.`;
+      if (lower.startsWith("resolved ")) return `A ${lowerTerm(base)} that has already been fixed or completed.`;
+      if (lower.startsWith("production ")) return `A ${lowerTerm(base)} related to the live production environment.`;
+      if (lower.startsWith("remote ")) return `A ${lowerTerm(base)} handled from another location or device.`;
+      return baseMeaning;
+    }
+    function dictionaryUrl(word) {
+      return "https://www.merriam-webster.com/dictionary/" + encodeURIComponent(word.toLowerCase());
+    }
     function exampleSet(word, category, type) {
       const term = lowerTerm(word);
       const plural = lowerTerm(pluralize(word));
@@ -265,7 +323,7 @@
       const type = typeFor(word);
       const forms = formsFor(word, type);
       return {
-        number, word, category, type, forms, ipa:ipaFor(word), meaning:`A ${meaningNouns[category]}.`,
+        number, word, category, type, forms, ipa:ipaFor(word), meaning:meaningFor(word, category),
         examples:exampleSet(word, category, type)
       };
     }
@@ -339,7 +397,7 @@
           const formsHtml = rec.forms.length ? `<div class="forms">${rec.forms.map(f => `<span class="form-chip">${f.label}: <strong>${f.value}</strong><button class="form-play" type="button" data-form="${f.value.replace(/"/g,"&quot;")}" aria-label="Speak ${f.value.replace(/"/g,"&quot;")}">🔊</button></span>`).join("")}</div>` : "";
           tr.dataset.search = [rec.word, rec.meaning, ...rec.forms.map(f => f.value), ...rec.examples.map(e => e.en)].join(" ").toLowerCase();
           tr.innerHTML = `<td class="num">${rec.number}</td><td><div class="word-line"><span class="word-main"><span class="word-title"><span class="mobile-num">${rec.number}.</span> ${rec.word} <span class="inline-meta">(${rec.type})</span> <span class="inline-meta">${rec.ipa}</span> <button class="small secondary play-word" type="button" aria-label="Speak ${rec.word.replace(/"/g,"&quot;")}">🔊</button></span>${formsHtml}</span></div>
-            <div class="meaning-line"><b>Meaning</b>: ${rec.meaning}</div>
+            <div class="meaning-line"><b>Meaning</b>: ${rec.meaning}<a class="dict-link" href="${dictionaryUrl(rec.word)}" target="_blank" rel="noopener noreferrer" aria-label="Open Merriam-Webster definition for ${rec.word.replace(/"/g,"&quot;")}">↗</a></div>
             <div class="examples">${rec.examples.map((ex,i) => `<div class="ex"><b>${i+1}</b><span class="sentence-wrap"><button class="sentence" type="button" data-en="${ex.en.replace(/"/g,"&quot;")}" data-vi="${ex.vi.replace(/"/g,"&quot;")}">${ex.en}</button><button class="small read" type="button" aria-label="Speak example ${i+1}">🔊</button></span></div>`).join("")}</div></td>`;
           tr.querySelector(".play-word").addEventListener("click", () => speak(rec.word));
           tr.querySelectorAll(".form-play").forEach(button => button.addEventListener("click", () => speak(button.dataset.form)));
