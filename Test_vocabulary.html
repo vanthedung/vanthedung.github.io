@@ -1,0 +1,1597 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test Vocabulary</title>
+  <style>
+    html { scroll-behavior:smooth; }
+    :root {
+      --bg:#f4f7fb; --panel:#fff; --text:#172033; --muted:#65728a;
+      --line:#d9e3f0; --blue:#1769d2; --dark:#0b4fa8; --soft:#eaf2ff;
+      --green:#137a4c; --red:#c33030; --yellow:#f7c948; --shadow:0 10px 30px rgba(23,32,51,.08);
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Arial, Helvetica, sans-serif; line-height:1.5; }
+    .wrap { max-width:920px; margin:0 auto; padding:0 16px; }
+    header { background:linear-gradient(180deg,#fff,#f7fbff); border-bottom:1px solid var(--line); padding:24px 0 18px; }
+    h1 { margin:0 0 12px; font-size:clamp(28px,5vw,42px); letter-spacing:0; }
+    button, select, input { font:inherit; }
+    button { border:1px solid var(--blue); background:var(--blue); color:#fff; border-radius:6px; padding:10px 13px; font-weight:700; cursor:pointer; }
+    button:hover { background:var(--dark); }
+    button.secondary { background:#fff; color:var(--blue); }
+    button.secondary:hover { background:var(--soft); }
+    button.icon { min-width:42px; padding:9px 11px; }
+    button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid #9fc5ff; outline-offset:2px; }
+    select, input { border:1px solid #bac7d9; border-radius:6px; padding:11px 12px; background:#fff; color:var(--text); }
+    .toolbar, .options, .card, .stats, .result-panel { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); }
+    .toolbar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; padding:12px; margin-top:14px; }
+    .toolbar select { flex:1; min-width:220px; }
+    .options { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:12px; margin-top:10px; }
+    .check-option { display:inline-flex; align-items:center; gap:7px; font-weight:700; color:#33455f; padding-right:4px; }
+    .check-option input { width:18px; height:18px; padding:0; }
+    .card { margin:20px 0; padding:20px; }
+    .top-line { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; color:var(--muted); font-weight:700; }
+    .info-chip { display:inline-flex; align-items:center; min-height:30px; padding:4px 9px; border:1px solid var(--line); border-radius:999px; background:#f8fbff; }
+    .meaning { margin:18px 0; padding:16px; background:#f8fbff; border:1px solid #edf3fb; border-radius:8px; font-size:20px; }
+    .ipa { color:#40526d; margin-bottom:12px; }
+    .answer-row { display:flex; gap:10px; align-items:center; }
+    #answer { flex:1; min-width:0; font-size:22px; font-weight:700; }
+    .char-check { display:flex; flex-wrap:wrap; gap:5px; min-height:42px; margin-top:14px; }
+    .char { min-width:28px; height:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; border:1px solid var(--line); background:#fff; font-weight:800; }
+    .char.ok { background:#dff6ea; border-color:#9bd9b8; color:#075a35; }
+    .char.bad { background:#ffe1e1; border-color:#f1a4a4; color:#8c1717; }
+    .char.wait { background:#f7f9fc; color:#7a879a; }
+    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding:12px; margin-bottom:18px; }
+    .stat { background:#f8fbff; border:1px solid #edf3fb; border-radius:8px; padding:10px; }
+    .stat b { display:block; font-size:22px; color:#10213c; }
+    .result-panel { padding:16px; margin-top:16px; display:none; }
+    .result-panel.show { display:block; }
+    .correct { color:var(--green); font-weight:800; }
+    .wrong { color:var(--red); font-weight:800; }
+    .answer-compare { display:grid; gap:8px; margin-top:8px; }
+    .compare-line { white-space:pre-wrap; }
+    .compare-label { display:inline-block; min-width:118px; color:#47566d; font-weight:800; }
+    .missing-char { color:var(--red); background:#ffe1e1; border-radius:3px; padding:0 1px; font-weight:800; }
+    .actions-mini { margin-top:10px; }
+    .button-bar { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:8px; margin-top:12px; }
+    .button-bar button { min-height:42px; padding:9px 10px; white-space:nowrap; }
+    .progress { height:10px; background:#e7eef8; border-radius:999px; overflow:hidden; margin-top:14px; }
+    #bar { width:0%; height:100%; background:var(--blue); transition:width .18s ease; }
+    .hidden { display:none !important; }
+    .modal-backdrop { position:fixed; inset:0; background:rgba(8,20,38,.55); display:none; align-items:center; justify-content:center; padding:16px; z-index:40; }
+    .modal-backdrop.show { display:flex; }
+    .modal { width:min(760px,100%); max-height:90vh; overflow:auto; background:#fff; border-radius:8px; padding:18px; box-shadow:0 24px 70px rgba(0,0,0,.25); }
+    .modal h2 { margin:0 0 12px; font-size:22px; }
+    .practice-list { display:grid; gap:10px; margin:12px 0; }
+    .practice-item { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; border:1px solid var(--line); border-radius:8px; padding:12px; background:#f8fbff; }
+    .practice-item-text { color:#34435a; }
+    .practice-item-text b { color:#14223a; }
+    .modal-actions { display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
+    @media (max-width:720px) {
+      .toolbar, .options, .answer-row { align-items:stretch; }
+      .toolbar select, .toolbar button { width:100%; }
+      .answer-row { display:block; }
+      #answer { width:100%; }
+      .button-bar { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .button-bar button { width:100%; white-space:normal; }
+      .check-option { width:100%; }
+      .stats { grid-template-columns:repeat(2,1fr); }
+      body.typing .stats { display:none; }
+      body.typing .card { margin-top:12px; }
+      .top-line { grid-template-columns:1fr; }
+      .info-chip { width:100%; justify-content:center; }
+      .meaning { font-size:18px; }
+      #answer { font-size:20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Test Vocabulary</h1>
+      <div class="toolbar">
+        <select id="categorySelect" aria-label="Category"></select>
+        <select id="modeSelect" aria-label="Question mode">
+          <option value="all">All words</option>
+          <option value="unseen">Unseen first</option>
+          <option value="wrong">Practice wrong words</option>
+          <option value="need-practice">Need Practice</option>
+        </select>
+        <button id="needPracticeListBtn" class="secondary" type="button">List</button>
+      </div>
+      <div class="options" aria-label="Test options">
+        <label class="check-option"><input id="autoPlay" type="checkbox"> Auto Play</label>
+        <label class="check-option"><input id="showMeaning" type="checkbox" checked> Meaning</label>
+        <label class="check-option"><input id="showIpa" type="checkbox"> IPA</label>
+        <label class="check-option"><input id="showInfo" type="checkbox"> Category</label>
+        <label class="check-option"><input id="enableHint" type="checkbox"> Hint</label>
+        <label class="check-option"><input id="sentenceShort" type="checkbox"> Sentence Short</label>
+        <label class="check-option"><input id="sentenceLong" type="checkbox"> Sentence Long</label>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="stats">
+      <div class="stat"><span>Question</span><b id="qNum">1</b></div>
+      <div class="stat"><span>Correct</span><b id="correctCount">0</b></div>
+      <div class="stat"><span>Wrong</span><b id="wrongCount">0</b></div>
+      <div class="stat"><span>Match</span><b id="matchPct">0%</b></div>
+    </section>
+    <section class="card">
+      <div class="top-line" id="infoBlock">
+        <span id="categoryText" class="info-chip">Category</span>
+        <span id="typeText" class="info-chip">Type</span>
+      </div>
+      <div class="meaning" id="meaningBlock"><b>Meaning:</b> <span id="meaningText"></span></div>
+      <div class="ipa" id="ipaBlock"><b>IPA:</b> <span id="ipaText"></span></div>
+      <div class="answer-row">
+        <input id="answer" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the vocabulary word..." aria-label="Type the vocabulary word">
+      </div>
+      <div class="button-bar" aria-label="Question actions">
+        <button id="checkBtn" type="button" aria-label="Check answer">✓</button>
+        <button id="backBtn" class="secondary" type="button" aria-label="Back">←</button>
+        <button id="nextBtn" type="button" aria-label="Next">→</button>
+        <button id="showBtn" class="secondary" type="button" aria-label="Show answer">👁</button>
+        <button id="againBtn" class="secondary" type="button" aria-label="Try again">↻</button>
+        <button id="clearStats" class="secondary" type="button" aria-label="Clear stats">⌫</button>
+        <button id="soundBtn" class="icon secondary" type="button" aria-label="Play sound again">🔊</button>
+      </div>
+      <div class="char-check" id="charCheck" aria-live="polite"></div>
+      <div class="progress"><div id="bar"></div></div>
+      <div class="result-panel" id="resultPanel"></div>
+    </section>
+  </main>
+  <div id="needPracticeModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="needPracticeTitle">
+    <div class="modal">
+      <h2 id="needPracticeTitle">Need Practice</h2>
+      <div id="needPracticeList" class="practice-list"></div>
+      <div class="modal-actions">
+        <button id="clearNeedPractice" class="secondary" type="button">Clear List</button>
+        <button id="closeNeedPractice" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+  <script>
+
+    const categories = [
+      ["Troubleshooting",24,["Issue","Error","Failure","Incident","Bug","Troubleshoot","Investigate","Diagnose","Resolve","Workaround","Root cause","Reproduce","Verify","Confirm","Escalate","Impact","Priority","Ticket","Status","Symptom","Fix","Analyze","Retry","Regression"]],
+      ["Networking",24,["Network","Connection","Connectivity","Disconnect","Timeout","Firewall","Router","Gateway","DNS","IP address","Port","Ping","VPN","Wi-Fi","Bandwidth","Latency","Packet","Protocol","Proxy","Reachable","Subnet","Switch","DHCP","Traceroute"]],
+      ["Windows",23,["Windows","Desktop","Registry","Service","Process","CPU","Memory","Disk space","Performance","Restart","Reboot","Event Viewer","Task Manager","Device Manager","Control Panel","PowerShell","Command Prompt","User profile","Group Policy","Update","Driver","Blue screen","Safe mode"]],
+      ["Servers",22,["Server","Host","Virtual machine","Resource","Downtime","Outage","IIS","Application pool","Worker","Scheduled task","Configuration","Service account","Domain controller","File server","Web server","Load balancer","Cluster","Failover","Patch level","Hostname","Uptime","Maintenance window"]],
+      ["Database",23,["Database","Record","Table","Column","Row","Transaction","Backup","Restore","Rollback","Commit","Index","Deadlock","Lock","Schema","Migration","Duplicate","Stored procedure","Replication","Constraint","Primary key","Foreign key","Data type","Connection string"]],
+      ["SQL",22,["SQL","Query","Select","Insert","Update statement","Delete statement","Join","Where clause","Order by","Group by","Aggregate","View","Trigger","Cursor","Execution plan","Parameter","Syntax","Result set","Null value","Temporary table","Stored function","SQL Server"]],
+      ["API",23,["API","Endpoint","Request","Response","Payload","Status code","Header","Parameter","Method","Client","Backend","JSON","Serialize","Deserialize","Validation","Dependency","Cache","Middleware","CORS","Rate limit","Webhook","Token endpoint","API key"]],
+      ["Web Applications",23,["Web application","Frontend","Browser","Session cookie","Page load","Form","Button","Dropdown","Validation message","URL","Redirect","JavaScript","HTML","CSS","Cache refresh","Login page","Dashboard","User interface","Responsive","Cookie","Local storage","Server error","Client error"]],
+      ["Authentication",22,["Authentication","Authorization","Credential","Username","Password","Token","Session","Permission","Role","Account","Locked","Expired","Login","Logout","MFA","Privilege","Identity","Single sign-on","Access control","Password reset","Security question","Account status"]],
+      ["Security",23,["Security","Encrypt","Certificate","Malware","Phishing","Vulnerability","Patch","Threat","Risk","Audit","Compliance","Policy","Permission review","Least privilege","Secret","Key","Hash","Firewall rule","Intrusion","Antivirus","Quarantine","Data breach","Incident response"]],
+      ["FTP / SFTP",22,["FTP","SFTP","Transfer","Upload","Download","Remote folder","Local folder","Credential","Port 22","Passive mode","File permission","Host key","Connection refused","Session timeout","Transfer log","Binary mode","ASCII mode","Resume transfer","Queue","Checksum","Secure copy","Authentication failure"]],
+      ["Files",23,["File","Folder","Shared folder","File lock","File size","Extension","Path","Directory","Archive","Import","Export","Parse","Format","CSV","PDF","Spreadsheet","Permission","Read-only","Overwrite","Rename","Delete","Attachment","Compression"]],
+      ["Printing",22,["Printer","Print queue","Print Spooler","Driver","Offline","Online","Paper jam","Toner","Print job","Default printer","Network printer","Label printer","Duplex","Tray","Printer IP","Test page","Scanner","Device status","Queue stuck","Reinstall driver","Print server","Printer mapping"]],
+      ["Email / SMTP",22,["Email","SMTP","Relay","Recipient","Sender","Inbox","Spam","Attachment","Delivery","Mailbox","Bounce","Distribution list","Forwarding","Out of office","Subject","Message header","MX record","Email client","Shared mailbox","Quota","Archive mailbox","Junk filter"]],
+      ["Monitoring",22,["Monitoring","Alert","Metric","Health check","Threshold","Availability","Uptime","Heartbeat","Baseline","Bottleneck","Dashboard","Probe","Notification","Response time","CPU usage","Memory usage","Disk usage","Service check","Synthetic test","Capacity","Trend","SLA"]],
+      ["Logging",22,["Log","Event","Exception","Warning","Debug","Trace","Timestamp","Log file","Error code","Stack trace","Audit log","Application log","System log","Correlation ID","Verbose","Information","Log level","Retention","Search log","Rotate log","Log entry","Diagnostic data"]],
+      ["Deployment",23,["Deployment","Deploy","Release","Version","Update","Patch","Rollback","Build","Pipeline","Maintenance","Hotfix","Environment","Staging","Production","Artifact","Package","Configuration file","Release note","Change request","Approval","Smoke test","Blue-green deployment","Feature flag"]],
+      ["Cloud",23,["Cloud","Provision","Decommission","Instance","Container","Scaling","Storage","Region","Availability zone","Virtual network","Load balancer","Object storage","Snapshot","Image","Serverless","Function app","Resource group","Subscription","IAM","Auto scaling","Kubernetes","Pod","Cloud cost"]],
+      ["Mobile Applications",22,["Android","iOS","Device","Mobile","App version","Installation","Permission","Camera","Barcode","OCR","Scan","Offline mode","Sync","Device registration","Push notification","App crash","App store","Mobile data","Location service","Bluetooth","Device log","Screen rotation"]],
+      ["Software Development",24,["Source code","Repository","Branch","Commit","Merge","Pull request","Compile","Dependency","Package","Library","Framework","Function","Method","Class","Object","Variable","Exception","Unit test","Integration test","Code review","IDE","Debugger","Refactor","Release branch"]],
+      ["Help Desk",23,["User","Support","Remote","Screenshot","Instruction","Feedback","Request","Escalation","Resolution","Severity","Assigned","Pending","Closed","Customer","Knowledge base","Service desk","Callback","Follow-up","SLA breach","Contact number","Walkthrough","Remote session","First response"]],
+      ["Production Support",23,["Production","Incident","Outage","Impact","Downtime","Recovery","Hotfix","Root cause","Monitoring","Rollback","Maintenance","Stable","Available","Affected","Restart","Verification","Synchronization","Uptime","Failover","Postmortem","Runbook","On-call","Service degradation"]]
+    ];
+
+    const ipaMap = {
+      API:"/ˌeɪ piː ˈaɪ/", SQL:"/ˌes kjuː ˈel/", DNS:"/ˌdiː en ˈes/", VPN:"/ˌviː piː ˈen/", "Wi-Fi":"/ˈwaɪ faɪ/", IIS:"/ˌaɪ aɪ ˈes/", JSON:"/ˈdʒeɪsən/", FTP:"/ˌef tiː ˈpiː/", SFTP:"/ˌes ef tiː ˈpiː/", SMTP:"/ˌes em tiː ˈpiː/", CPU:"/ˌsiː piː ˈjuː/", MFA:"/ˌem ef ˈeɪ/", OCR:"/ˌoʊ siː ˈɑːr/", SLA:"/ˌes el ˈeɪ/", IAM:"/ˌaɪ eɪ ˈem/", iOS:"/ˌaɪ oʊ ˈes/"
+    };
+    const generatedIpaMap = {
+      "Issue": "/ˈɪʃu/",
+      "Error": "/ˈɛrər/",
+      "Failure": "/ˈfeɪljər/",
+      "Incident": "/ˈɪnsədənt/",
+      "Bug": "/bəg/",
+      "Troubleshoot": "/troubleshoot/",
+      "Investigate": "/ˌɪnˈvɛstəˌgeɪt/",
+      "Diagnose": "/ˌdaɪəgˈnoʊs/",
+      "Resolve": "/riˈzɑlv/",
+      "Workaround": "/workaround/",
+      "Root cause": "/rut kɔz/",
+      "Reproduce": "/ˌriprəˈdus/",
+      "Verify": "/ˈvɛrəˌfaɪ/",
+      "Confirm": "/kənˈfərm/",
+      "Escalate": "/ˈɛskəˌleɪt/",
+      "Impact": "/ˌɪmˈpækt/",
+      "Priority": "/praɪˈɔrəti/",
+      "Ticket": "/ˈtɪkɪt/",
+      "Status": "/ˈstætəs/",
+      "Symptom": "/ˈsɪmptəm/",
+      "Fix": "/fɪks/",
+      "Analyze": "/ˈænəˌlaɪz/",
+      "Retry": "/riˈtraɪ/",
+      "Regression": "/rəˈgrɛʃən/",
+      "Issue report": "/ˈɪʃu rɪˈpɔrt/",
+      "Error report": "/ˈɛrər rɪˈpɔrt/",
+      "Failure report": "/ˈfeɪljər rɪˈpɔrt/",
+      "Incident report": "/ˈɪnsədənt rɪˈpɔrt/",
+      "Bug report": "/bəg rɪˈpɔrt/",
+      "Troubleshoot report": "/troubleshoot rɪˈpɔrt/",
+      "Investigate report": "/ˌɪnˈvɛstəˌgeɪt rɪˈpɔrt/",
+      "Diagnose report": "/ˌdaɪəgˈnoʊs rɪˈpɔrt/",
+      "Resolve report": "/riˈzɑlv rɪˈpɔrt/",
+      "Workaround report": "/workaround rɪˈpɔrt/",
+      "Root cause report": "/rut kɔz rɪˈpɔrt/",
+      "Reproduce report": "/ˌriprəˈdus rɪˈpɔrt/",
+      "Verify report": "/ˈvɛrəˌfaɪ rɪˈpɔrt/",
+      "Confirm report": "/kənˈfərm rɪˈpɔrt/",
+      "Escalate report": "/ˈɛskəˌleɪt rɪˈpɔrt/",
+      "Impact report": "/ˌɪmˈpækt rɪˈpɔrt/",
+      "Priority report": "/praɪˈɔrəti rɪˈpɔrt/",
+      "Ticket report": "/ˈtɪkɪt rɪˈpɔrt/",
+      "Status report": "/ˈstætəs rɪˈpɔrt/",
+      "Symptom report": "/ˈsɪmptəm rɪˈpɔrt/",
+      "Fix report": "/fɪks rɪˈpɔrt/",
+      "Analyze report": "/ˈænəˌlaɪz rɪˈpɔrt/",
+      "Retry report": "/riˈtraɪ rɪˈpɔrt/",
+      "Regression report": "/rəˈgrɛʃən rɪˈpɔrt/",
+      "Network": "/ˈnɛtˌwərk/",
+      "Connection": "/kəˈnɛkʃən/",
+      "Connectivity": "/kənɛkˈtɪvɪti/",
+      "Disconnect": "/dɪskəˈnɛkt/",
+      "Timeout": "/ˈtaɪˌmaʊt/",
+      "Firewall": "/ˈfaɪrwɑl/",
+      "Router": "/ˈrutər/",
+      "Gateway": "/ˈgeɪtˌweɪ/",
+      "DNS": "/ˌdi ɛn ˈɛs/",
+      "IP address": "/ˌaɪ ˈpi ˈæˌdrɛs/",
+      "Port": "/pɔrt/",
+      "Ping": "/pɪŋ/",
+      "VPN": "/ˌvi pi ˈɛn/",
+      "Wi-Fi": "/wi-fi/",
+      "Bandwidth": "/ˈbændwɪdθ/",
+      "Latency": "/ˈleɪtənsi/",
+      "Packet": "/ˈpækɪt/",
+      "Protocol": "/ˈproʊtəˌkɔl/",
+      "Proxy": "/ˈprɑksi/",
+      "Reachable": "/ˈriʧəbəl/",
+      "Subnet": "/subnet/",
+      "Switch": "/swɪʧ/",
+      "DHCP": "/ˌdi eɪʧ si ˈpi/",
+      "Traceroute": "/ˈtreɪsˌrut/",
+      "Network report": "/ˈnɛtˌwərk rɪˈpɔrt/",
+      "Connection report": "/kəˈnɛkʃən rɪˈpɔrt/",
+      "Connectivity report": "/kənɛkˈtɪvɪti rɪˈpɔrt/",
+      "Disconnect report": "/dɪskəˈnɛkt rɪˈpɔrt/",
+      "Timeout report": "/ˈtaɪˌmaʊt rɪˈpɔrt/",
+      "Firewall report": "/ˈfaɪrwɑl rɪˈpɔrt/",
+      "Router report": "/ˈrutər rɪˈpɔrt/",
+      "Gateway report": "/ˈgeɪtˌweɪ rɪˈpɔrt/",
+      "DNS report": "/ˌdi ɛn ˈɛs rɪˈpɔrt/",
+      "Ip address report": "/ˌaɪˌpi ˈæˌdrɛs rɪˈpɔrt/",
+      "Port report": "/pɔrt rɪˈpɔrt/",
+      "Ping report": "/pɪŋ rɪˈpɔrt/",
+      "VPN report": "/ˌvi pi ˈɛn rɪˈpɔrt/",
+      "Wi-Fi report": "/ˈwaɪˌfaɪ rɪˈpɔrt/",
+      "Bandwidth report": "/ˈbændwɪdθ rɪˈpɔrt/",
+      "Latency report": "/ˈleɪtənsi rɪˈpɔrt/",
+      "Packet report": "/ˈpækɪt rɪˈpɔrt/",
+      "Protocol report": "/ˈproʊtəˌkɔl rɪˈpɔrt/",
+      "Proxy report": "/ˈprɑksi rɪˈpɔrt/",
+      "Reachable report": "/ˈriʧəbəl rɪˈpɔrt/",
+      "Subnet report": "/subnet rɪˈpɔrt/",
+      "Switch report": "/swɪʧ rɪˈpɔrt/",
+      "DHCP report": "/ˌdi eɪʧ si ˈpi rɪˈpɔrt/",
+      "Traceroute report": "/ˈtreɪsˌrut rɪˈpɔrt/",
+      "Windows": "/ˈwɪndoʊz/",
+      "Desktop": "/ˈdɛskˌtɑp/",
+      "Registry": "/ˈrɛʤɪstri/",
+      "Service": "/ˈsərvɪs/",
+      "Process": "/ˈprɔˌsɛs/",
+      "CPU": "/ˌsi pi ˈju/",
+      "Memory": "/ˈmɛməri/",
+      "Disk space": "/dɪsk speɪs/",
+      "Performance": "/pərˈfɔrməns/",
+      "Restart": "/riˈstɑrt/",
+      "Reboot": "/riˈbut/",
+      "Event Viewer": "/ɪˈvɛnt vjuər/",
+      "Task Manager": "/tæsk ˈmænɪʤər/",
+      "Device Manager": "/dɪˈvaɪs ˈmænɪʤər/",
+      "Control Panel": "/kənˈtroʊl ˈpænəl/",
+      "PowerShell": "/ˈpaʊərˌʃɛl/",
+      "Command Prompt": "/kəˈmænd prɑmpt/",
+      "User profile": "/ˈjuzər ˈproʊˌfaɪl/",
+      "Group Policy": "/grup ˈpɑləsi/",
+      "Update": "/ˈəpˌdeɪt/",
+      "Driver": "/ˈdraɪvər/",
+      "Blue screen": "/blu skrin/",
+      "Safe mode": "/seɪf moʊd/",
+      "Windows report": "/ˈwɪndoʊz rɪˈpɔrt/",
+      "Desktop report": "/ˈdɛskˌtɑp rɪˈpɔrt/",
+      "Registry report": "/ˈrɛʤɪstri rɪˈpɔrt/",
+      "Service report": "/ˈsərvɪs rɪˈpɔrt/",
+      "Process report": "/ˈprɔˌsɛs rɪˈpɔrt/",
+      "CPU report": "/ˌsi pi ˈju rɪˈpɔrt/",
+      "Memory report": "/ˈmɛməri rɪˈpɔrt/",
+      "Disk space report": "/dɪsk speɪs rɪˈpɔrt/",
+      "Performance report": "/pərˈfɔrməns rɪˈpɔrt/",
+      "Restart report": "/riˈstɑrt rɪˈpɔrt/",
+      "Reboot report": "/riˈbut rɪˈpɔrt/",
+      "Event viewer report": "/ɪˈvɛnt vjuər rɪˈpɔrt/",
+      "Task manager report": "/tæsk ˈmænɪʤər rɪˈpɔrt/",
+      "Device manager report": "/dɪˈvaɪs ˈmænɪʤər rɪˈpɔrt/",
+      "Control panel report": "/kənˈtroʊl ˈpænəl rɪˈpɔrt/",
+      "Powershell report": "/powershell rɪˈpɔrt/",
+      "Command prompt report": "/kəˈmænd prɑmpt rɪˈpɔrt/",
+      "User profile report": "/ˈjuzər ˈproʊˌfaɪl rɪˈpɔrt/",
+      "Group policy report": "/grup ˈpɑləsi rɪˈpɔrt/",
+      "Update report": "/ˈəpˌdeɪt rɪˈpɔrt/",
+      "Driver report": "/ˈdraɪvər rɪˈpɔrt/",
+      "Blue screen report": "/blu skrin rɪˈpɔrt/",
+      "Safe mode report": "/seɪf moʊd rɪˈpɔrt/",
+      "Server": "/ˈsərvər/",
+      "Host": "/hoʊst/",
+      "Virtual machine": "/ˈvərʧuəl məˈʃin/",
+      "Resource": "/ˈrisɔrs/",
+      "Downtime": "/ˈdaʊnˌtaɪm/",
+      "Outage": "/ˈaʊtɪʤ/",
+      "IIS": "/ˌaɪ aɪ ˈɛs/",
+      "Application pool": "/ˌæpləˈkeɪʃən pul/",
+      "Worker": "/ˈwərkər/",
+      "Scheduled task": "/ˈskɛʤʊld tæsk/",
+      "Configuration": "/kənˌfɪgjərˈeɪʃən/",
+      "Service account": "/ˈsərvɪs əˈkaʊnt/",
+      "Domain controller": "/doʊˈmeɪn kənˈtroʊlər/",
+      "File server": "/faɪl ˈsərvər/",
+      "Web server": "/wɛb ˈsərvər/",
+      "Load balancer": "/loʊd ˈbælənsər/",
+      "Cluster": "/ˈkləstər/",
+      "Failover": "/ˈfeɪlˌoʊvər/",
+      "Patch level": "/pæʧ ˈlɛvəl/",
+      "Hostname": "/hostname/",
+      "Uptime": "/uptime/",
+      "Maintenance window": "/ˈmeɪntənəns ˈwɪndoʊ/",
+      "Server report": "/ˈsərvər rɪˈpɔrt/",
+      "Host report": "/hoʊst rɪˈpɔrt/",
+      "Virtual machine report": "/ˈvərʧuəl məˈʃin rɪˈpɔrt/",
+      "Resource report": "/ˈrisɔrs rɪˈpɔrt/",
+      "Downtime report": "/ˈdaʊnˌtaɪm rɪˈpɔrt/",
+      "Outage report": "/ˈaʊtɪʤ rɪˈpɔrt/",
+      "IIS report": "/ˌaɪ aɪ ˈɛs rɪˈpɔrt/",
+      "Application pool report": "/ˌæpləˈkeɪʃən pul rɪˈpɔrt/",
+      "Worker report": "/ˈwərkər rɪˈpɔrt/",
+      "Scheduled task report": "/ˈskɛʤʊld tæsk rɪˈpɔrt/",
+      "Configuration report": "/kənˌfɪgjərˈeɪʃən rɪˈpɔrt/",
+      "Service account report": "/ˈsərvɪs əˈkaʊnt rɪˈpɔrt/",
+      "Domain controller report": "/doʊˈmeɪn kənˈtroʊlər rɪˈpɔrt/",
+      "File server report": "/faɪl ˈsərvər rɪˈpɔrt/",
+      "Web server report": "/wɛb ˈsərvər rɪˈpɔrt/",
+      "Load balancer report": "/loʊd ˈbælənsər rɪˈpɔrt/",
+      "Cluster report": "/ˈkləstər rɪˈpɔrt/",
+      "Failover report": "/ˈfeɪlˌoʊvər rɪˈpɔrt/",
+      "Patch level report": "/pæʧ ˈlɛvəl rɪˈpɔrt/",
+      "Hostname report": "/hostname rɪˈpɔrt/",
+      "Uptime report": "/uptime rɪˈpɔrt/",
+      "Maintenance window report": "/ˈmeɪntənəns ˈwɪndoʊ rɪˈpɔrt/",
+      "Database": "/ˈdætəˌbeɪs/",
+      "Record": "/ˈrɛkərd/",
+      "Table": "/ˈteɪbəl/",
+      "Column": "/ˈkɑləm/",
+      "Row": "/roʊ/",
+      "Transaction": "/trænˈzækʃən/",
+      "Backup": "/ˈbæˌkəp/",
+      "Restore": "/rɪˈstɔr/",
+      "Rollback": "/ˈroʊlˌbæk/",
+      "Commit": "/kəˈmɪt/",
+      "Index": "/ˈɪndɛks/",
+      "Deadlock": "/ˈdɛˌdlɑk/",
+      "Lock": "/lɑk/",
+      "Schema": "/ˈskimə/",
+      "Migration": "/maɪˈgreɪʃən/",
+      "Duplicate": "/ˈdupləˌkeɪt/",
+      "Stored procedure": "/stɔrd prəˈsiʤər/",
+      "Replication": "/ˌrɛplɪˈkeɪʃən/",
+      "Constraint": "/kənˈstreɪnt/",
+      "Primary key": "/ˈpraɪˌmɛri ki/",
+      "Foreign key": "/ˈfɔrən ki/",
+      "Data type": "/ˈdætə taɪp/",
+      "Connection string": "/kəˈnɛkʃən strɪŋ/",
+      "Database report": "/ˈdætəˌbeɪs rɪˈpɔrt/",
+      "Record report": "/ˈrɛkərd rɪˈpɔrt/",
+      "Table report": "/ˈteɪbəl rɪˈpɔrt/",
+      "Column report": "/ˈkɑləm rɪˈpɔrt/",
+      "Row report": "/roʊ rɪˈpɔrt/",
+      "Transaction report": "/trænˈzækʃən rɪˈpɔrt/",
+      "Backup report": "/ˈbæˌkəp rɪˈpɔrt/",
+      "Restore report": "/rɪˈstɔr rɪˈpɔrt/",
+      "Rollback report": "/ˈroʊlˌbæk rɪˈpɔrt/",
+      "Commit report": "/kəˈmɪt rɪˈpɔrt/",
+      "Index report": "/ˈɪndɛks rɪˈpɔrt/",
+      "Deadlock report": "/ˈdɛˌdlɑk rɪˈpɔrt/",
+      "Lock report": "/lɑk rɪˈpɔrt/",
+      "Schema report": "/ˈskimə rɪˈpɔrt/",
+      "Migration report": "/maɪˈgreɪʃən rɪˈpɔrt/",
+      "Duplicate report": "/ˈdupləˌkeɪt rɪˈpɔrt/",
+      "Stored procedure report": "/stɔrd prəˈsiʤər rɪˈpɔrt/",
+      "Replication report": "/ˌrɛplɪˈkeɪʃən rɪˈpɔrt/",
+      "Constraint report": "/kənˈstreɪnt rɪˈpɔrt/",
+      "Primary key report": "/ˈpraɪˌmɛri ki rɪˈpɔrt/",
+      "Foreign key report": "/ˈfɔrən ki rɪˈpɔrt/",
+      "Data type report": "/ˈdætə taɪp rɪˈpɔrt/",
+      "Connection string report": "/kəˈnɛkʃən strɪŋ rɪˈpɔrt/",
+      "SQL": "/ˌɛs kju ˈɛl/",
+      "Query": "/kˈwiri/",
+      "Select": "/səˈlɛkt/",
+      "Insert": "/ˌɪnˈsərt/",
+      "Update statement": "/ˈəpˌdeɪt ˈsteɪtmənt/",
+      "Delete statement": "/dɪˈlit ˈsteɪtmənt/",
+      "Join": "/ʤɔɪn/",
+      "Where clause": "/wɛr klɔz/",
+      "Order by": "/ˈɔrdər baɪ/",
+      "Group by": "/grup baɪ/",
+      "Aggregate": "/ˈægrəgət/",
+      "View": "/vju/",
+      "Trigger": "/ˈtrɪgər/",
+      "Cursor": "/ˈkərsər/",
+      "Execution plan": "/ˌɛksəˈkjuʃən plæn/",
+      "Parameter": "/pərˈæmətər/",
+      "Syntax": "/ˈsɪnˌtæks/",
+      "Result set": "/rɪˈzəlt sɛt/",
+      "Null value": "/nəl ˈvælju/",
+      "Temporary table": "/ˈtɛmpərˌɛri ˈteɪbəl/",
+      "Stored function": "/stɔrd ˈfəŋkʃən/",
+      "SQL Server": "/ˌɛs kju ˈɛl ˈsərvər/",
+      "SQL report": "/ˌɛs kju ˈɛl rɪˈpɔrt/",
+      "Query report": "/kˈwiri rɪˈpɔrt/",
+      "Select report": "/səˈlɛkt rɪˈpɔrt/",
+      "Insert report": "/ˌɪnˈsərt rɪˈpɔrt/",
+      "Update statement report": "/ˈəpˌdeɪt ˈsteɪtmənt rɪˈpɔrt/",
+      "Delete statement report": "/dɪˈlit ˈsteɪtmənt rɪˈpɔrt/",
+      "Join report": "/ʤɔɪn rɪˈpɔrt/",
+      "Where clause report": "/wɛr klɔz rɪˈpɔrt/",
+      "Order by report": "/ˈɔrdər baɪ rɪˈpɔrt/",
+      "Group by report": "/grup baɪ rɪˈpɔrt/",
+      "Aggregate report": "/ˈægrəgət rɪˈpɔrt/",
+      "View report": "/vju rɪˈpɔrt/",
+      "Trigger report": "/ˈtrɪgər rɪˈpɔrt/",
+      "Cursor report": "/ˈkərsər rɪˈpɔrt/",
+      "Execution plan report": "/ˌɛksəˈkjuʃən plæn rɪˈpɔrt/",
+      "Parameter report": "/pərˈæmətər rɪˈpɔrt/",
+      "Syntax report": "/ˈsɪnˌtæks rɪˈpɔrt/",
+      "Result set report": "/rɪˈzəlt sɛt rɪˈpɔrt/",
+      "Null value report": "/nəl ˈvælju rɪˈpɔrt/",
+      "Temporary table report": "/ˈtɛmpərˌɛri ˈteɪbəl rɪˈpɔrt/",
+      "Stored function report": "/stɔrd ˈfəŋkʃən rɪˈpɔrt/",
+      "Sql server report": "/sql ˈsərvər rɪˈpɔrt/",
+      "API": "/ˌeɪ pi ˈaɪ/",
+      "Endpoint": "/ˈɛndˌpɔɪnt/",
+      "Request": "/rɪkˈwɛst/",
+      "Response": "/rɪˈspɑns/",
+      "Payload": "/ˈpeɪˌloʊd/",
+      "Status code": "/ˈstætəs koʊd/",
+      "Header": "/ˈhɛdər/",
+      "Method": "/ˈmɛθəd/",
+      "Client": "/klaɪənt/",
+      "Backend": "/ˈbækˌɛnd/",
+      "JSON": "/ˈʤeɪsən/",
+      "Serialize": "/ˈsɪriəˌlaɪz/",
+      "Deserialize": "/diˈsɪriəˌlaɪz/",
+      "Validation": "/ˌvæləˈdeɪʃən/",
+      "Dependency": "/dɪˈpɛndənsi/",
+      "Cache": "/kæˈʃeɪ/",
+      "Middleware": "/ˈmɪdəlˌwɛr/",
+      "CORS": "/kɔrz/",
+      "Rate limit": "/reɪt ˈlɪmət/",
+      "Webhook": "/ˈwɛbˌhʊk/",
+      "Token endpoint": "/ˈtoʊkən ˈɛndˌpɔɪnt/",
+      "API key": "/ˌeɪ pi ˈaɪ ki/",
+      "API report": "/ˌeɪ pi ˈaɪ rɪˈpɔrt/",
+      "Endpoint report": "/ˈɛndˌpɔɪnt rɪˈpɔrt/",
+      "Request report": "/rɪkˈwɛst rɪˈpɔrt/",
+      "Response report": "/rɪˈspɑns rɪˈpɔrt/",
+      "Payload report": "/ˈpeɪˌloʊd rɪˈpɔrt/",
+      "Status code report": "/ˈstætəs koʊd rɪˈpɔrt/",
+      "Header report": "/ˈhɛdər rɪˈpɔrt/",
+      "Method report": "/ˈmɛθəd rɪˈpɔrt/",
+      "Client report": "/klaɪənt rɪˈpɔrt/",
+      "Backend report": "/ˈbækˌɛnd rɪˈpɔrt/",
+      "JSON report": "/ˈʤeɪsən rɪˈpɔrt/",
+      "Serialize report": "/ˈsɪriəˌlaɪz rɪˈpɔrt/",
+      "Deserialize report": "/diˈsɪriəˌlaɪz rɪˈpɔrt/",
+      "Validation report": "/ˌvæləˈdeɪʃən rɪˈpɔrt/",
+      "Dependency report": "/dɪˈpɛndənsi rɪˈpɔrt/",
+      "Cache report": "/kæˈʃeɪ rɪˈpɔrt/",
+      "Middleware report": "/ˈmɪdəlˌwɛr rɪˈpɔrt/",
+      "CORS report": "/kɔrz rɪˈpɔrt/",
+      "Rate limit report": "/reɪt ˈlɪmət rɪˈpɔrt/",
+      "Webhook report": "/ˈwɛbˌhʊk rɪˈpɔrt/",
+      "Token endpoint report": "/ˈtoʊkən ˈɛndˌpɔɪnt rɪˈpɔrt/",
+      "Api key report": "/api ki rɪˈpɔrt/",
+      "Web application": "/wɛb ˌæpləˈkeɪʃən/",
+      "Frontend": "/ˈfrʌntˌɛnd/",
+      "Browser": "/ˈbraʊzər/",
+      "Session cookie": "/ˈsɛʃən ˈkʊki/",
+      "Page load": "/peɪʤ loʊd/",
+      "Form": "/fɔrm/",
+      "Button": "/ˈbətən/",
+      "Dropdown": "/dropdown/",
+      "Validation message": "/ˌvæləˈdeɪʃən ˈmɛsɪʤ/",
+      "URL": "/ˌju ɑr ˈɛl/",
+      "Redirect": "/ˌridərˈɛkt/",
+      "JavaScript": "/ˈʤɑvəˌskrɪpt/",
+      "HTML": "/ˌeɪʧ ti ɛm ˈɛl/",
+      "CSS": "/ˌsi ɛs ˈɛs/",
+      "Cache refresh": "/kæˈʃeɪ rɪˈfrɛʃ/",
+      "Login page": "/login peɪʤ/",
+      "Dashboard": "/ˈdæʃˌbɔrd/",
+      "User interface": "/ˈjuzər ˈɪnərˌfeɪs/",
+      "Responsive": "/rɪˈspɑnsɪv/",
+      "Cookie": "/ˈkʊki/",
+      "Local storage": "/ˈloʊkəl ˈstɔrɪʤ/",
+      "Server error": "/ˈsərvər ˈɛrər/",
+      "Client error": "/klaɪənt ˈɛrər/",
+      "Web application report": "/wɛb ˌæpləˈkeɪʃən rɪˈpɔrt/",
+      "Frontend report": "/ˈfrʌntˌɛnd rɪˈpɔrt/",
+      "Browser report": "/ˈbraʊzər rɪˈpɔrt/",
+      "Session cookie report": "/ˈsɛʃən ˈkʊki rɪˈpɔrt/",
+      "Page load report": "/peɪʤ loʊd rɪˈpɔrt/",
+      "Form report": "/fɔrm rɪˈpɔrt/",
+      "Button report": "/ˈbətən rɪˈpɔrt/",
+      "Dropdown report": "/dropdown rɪˈpɔrt/",
+      "Validation message report": "/ˌvæləˈdeɪʃən ˈmɛsɪʤ rɪˈpɔrt/",
+      "URL report": "/ˌju ɑr ˈɛl rɪˈpɔrt/",
+      "Redirect report": "/ˌridərˈɛkt rɪˈpɔrt/",
+      "Javascript report": "/ˈʤɑvəˌskrɪpt rɪˈpɔrt/",
+      "HTML report": "/ˌeɪʧ ti ɛm ˈɛl rɪˈpɔrt/",
+      "CSS report": "/ˌsi ɛs ˈɛs rɪˈpɔrt/",
+      "Cache refresh report": "/kæˈʃeɪ rɪˈfrɛʃ rɪˈpɔrt/",
+      "Login page report": "/login peɪʤ rɪˈpɔrt/",
+      "Dashboard report": "/ˈdæʃˌbɔrd rɪˈpɔrt/",
+      "User interface report": "/ˈjuzər ˈɪnərˌfeɪs rɪˈpɔrt/",
+      "Responsive report": "/rɪˈspɑnsɪv rɪˈpɔrt/",
+      "Cookie report": "/ˈkʊki rɪˈpɔrt/",
+      "Local storage report": "/ˈloʊkəl ˈstɔrɪʤ rɪˈpɔrt/",
+      "Server error report": "/ˈsərvər ˈɛrər rɪˈpɔrt/",
+      "Client error report": "/klaɪənt ˈɛrər rɪˈpɔrt/",
+      "Authentication": "/ɔˌθɛntəˈkeɪʃən/",
+      "Authorization": "/ˌɔθərəˈzeɪʃən/",
+      "Credential": "/krɪˈdɛnʃəl/",
+      "Username": "/username/",
+      "Password": "/ˈpæsˌwərd/",
+      "Token": "/ˈtoʊkən/",
+      "Session": "/ˈsɛʃən/",
+      "Permission": "/pərˈmɪʃən/",
+      "Role": "/roʊl/",
+      "Account": "/əˈkaʊnt/",
+      "Locked": "/lɑkt/",
+      "Expired": "/ɪkˈspaɪrd/",
+      "Login": "/login/",
+      "Logout": "/logout/",
+      "MFA": "/ˌɛm ɛf ˈeɪ/",
+      "Privilege": "/ˈprɪvɪlɪʤ/",
+      "Identity": "/aɪˈdɛntəˌti/",
+      "Single sign-on": "/ˈsɪŋgəl saɪn-ɔn/",
+      "Access control": "/ˈækˌsɛs kənˈtroʊl/",
+      "Password reset": "/ˈpæsˌwərd ˈrisɛt/",
+      "Security question": "/sɪˈkjʊrəti kˈwɛʃən/",
+      "Account status": "/əˈkaʊnt ˈstætəs/",
+      "Authentication report": "/ɔˌθɛntəˈkeɪʃən rɪˈpɔrt/",
+      "Authorization report": "/ˌɔθərəˈzeɪʃən rɪˈpɔrt/",
+      "Credential report": "/krɪˈdɛnʃəl rɪˈpɔrt/",
+      "Username report": "/username rɪˈpɔrt/",
+      "Password report": "/ˈpæsˌwərd rɪˈpɔrt/",
+      "Token report": "/ˈtoʊkən rɪˈpɔrt/",
+      "Session report": "/ˈsɛʃən rɪˈpɔrt/",
+      "Permission report": "/pərˈmɪʃən rɪˈpɔrt/",
+      "Role report": "/roʊl rɪˈpɔrt/",
+      "Account report": "/əˈkaʊnt rɪˈpɔrt/",
+      "Locked report": "/lɑkt rɪˈpɔrt/",
+      "Expired report": "/ɪkˈspaɪrd rɪˈpɔrt/",
+      "Login report": "/login rɪˈpɔrt/",
+      "Logout report": "/logout rɪˈpɔrt/",
+      "MFA report": "/ˌɛm ɛf ˈeɪ rɪˈpɔrt/",
+      "Privilege report": "/ˈprɪvɪlɪʤ rɪˈpɔrt/",
+      "Identity report": "/aɪˈdɛntəˌti rɪˈpɔrt/",
+      "Single sign-on report": "/ˈsɪŋgəl saɪn-ɔn rɪˈpɔrt/",
+      "Access control report": "/ˈækˌsɛs kənˈtroʊl rɪˈpɔrt/",
+      "Password reset report": "/ˈpæsˌwərd ˈrisɛt rɪˈpɔrt/",
+      "Security question report": "/sɪˈkjʊrəti kˈwɛʃən rɪˈpɔrt/",
+      "Account status report": "/əˈkaʊnt ˈstætəs rɪˈpɔrt/",
+      "Security": "/sɪˈkjʊrəti/",
+      "Encrypt": "/ɪnˈkrɪpt/",
+      "Certificate": "/sərˈtɪfɪkət/",
+      "Malware": "/ˈmælˌwɛr/",
+      "Phishing": "/ˈfɪʃɪŋ/",
+      "Vulnerability": "/ˌvəlnərəˈbɪlɪti/",
+      "Patch": "/pæʧ/",
+      "Threat": "/θrɛt/",
+      "Risk": "/rɪsk/",
+      "Audit": "/ˈɔdɪt/",
+      "Compliance": "/kəmˈplaɪəns/",
+      "Policy": "/ˈpɑləsi/",
+      "Permission review": "/pərˈmɪʃən ˌrivˈju/",
+      "Least privilege": "/list ˈprɪvɪlɪʤ/",
+      "Secret": "/ˈsikrɪt/",
+      "Key": "/ki/",
+      "Hash": "/hæʃ/",
+      "Firewall rule": "/ˈfaɪrwɑl rul/",
+      "Intrusion": "/ˌɪnˈtruʒən/",
+      "Antivirus": "/antivirus/",
+      "Quarantine": "/kˈwɔrənˌtin/",
+      "Data breach": "/ˈdætə briʧ/",
+      "Incident response": "/ˈɪnsədənt rɪˈspɑns/",
+      "Security report": "/sɪˈkjʊrəti rɪˈpɔrt/",
+      "Encrypt report": "/ɪnˈkrɪpt rɪˈpɔrt/",
+      "Certificate report": "/sərˈtɪfɪkət rɪˈpɔrt/",
+      "Malware report": "/ˈmælˌwɛr rɪˈpɔrt/",
+      "Phishing report": "/ˈfɪʃɪŋ rɪˈpɔrt/",
+      "Vulnerability report": "/ˌvəlnərəˈbɪlɪti rɪˈpɔrt/",
+      "Patch report": "/pæʧ rɪˈpɔrt/",
+      "Threat report": "/θrɛt rɪˈpɔrt/",
+      "Risk report": "/rɪsk rɪˈpɔrt/",
+      "Audit report": "/ˈɔdɪt rɪˈpɔrt/",
+      "Compliance report": "/kəmˈplaɪəns rɪˈpɔrt/",
+      "Policy report": "/ˈpɑləsi rɪˈpɔrt/",
+      "Permission review report": "/pərˈmɪʃən ˌrivˈju rɪˈpɔrt/",
+      "Least privilege report": "/list ˈprɪvɪlɪʤ rɪˈpɔrt/",
+      "Secret report": "/ˈsikrɪt rɪˈpɔrt/",
+      "Key report": "/ki rɪˈpɔrt/",
+      "Hash report": "/hæʃ rɪˈpɔrt/",
+      "Firewall rule report": "/ˈfaɪrwɑl rul rɪˈpɔrt/",
+      "Intrusion report": "/ˌɪnˈtruʒən rɪˈpɔrt/",
+      "Antivirus report": "/antivirus rɪˈpɔrt/",
+      "Quarantine report": "/kˈwɔrənˌtin rɪˈpɔrt/",
+      "Data breach report": "/ˈdætə briʧ rɪˈpɔrt/",
+      "Incident response report": "/ˈɪnsədənt rɪˈspɑns rɪˈpɔrt/",
+      "FTP": "/ˌɛf ti ˈpi/",
+      "SFTP": "/ˌɛs ɛf ti ˈpi/",
+      "Transfer": "/ˈtrænsfər/",
+      "Upload": "/ˈəˌploʊd/",
+      "Download": "/ˈdaʊnˌloʊd/",
+      "Remote folder": "/rɪˈmoʊt ˈfoʊldər/",
+      "Local folder": "/ˈloʊkəl ˈfoʊldər/",
+      "Port 22": "/pɔrt 22/",
+      "Passive mode": "/ˈpæsɪv moʊd/",
+      "File permission": "/faɪl pərˈmɪʃən/",
+      "Host key": "/hoʊst ki/",
+      "Connection refused": "/kəˈnɛkʃən rɪfˈjuzd/",
+      "Session timeout": "/ˈsɛʃən ˈtaɪˌmaʊt/",
+      "Transfer log": "/ˈtrænsfər lɔg/",
+      "Binary mode": "/ˈbaɪnəˌri moʊd/",
+      "ASCII mode": "/ˈæski moʊd/",
+      "Resume transfer": "/ˈrɛzəˌmeɪ ˈtrænsfər/",
+      "Queue": "/kju/",
+      "Checksum": "/checksum/",
+      "Secure copy": "/sɪˈkjʊr ˈkɑpi/",
+      "Authentication failure": "/ɔˌθɛntəˈkeɪʃən ˈfeɪljər/",
+      "FTP report": "/ˌɛf ti ˈpi rɪˈpɔrt/",
+      "SFTP report": "/ˌɛs ɛf ti ˈpi rɪˈpɔrt/",
+      "Transfer report": "/ˈtrænsfər rɪˈpɔrt/",
+      "Upload report": "/ˈəˌploʊd rɪˈpɔrt/",
+      "Download report": "/ˈdaʊnˌloʊd rɪˈpɔrt/",
+      "Remote folder report": "/rɪˈmoʊt ˈfoʊldər rɪˈpɔrt/",
+      "Local folder report": "/ˈloʊkəl ˈfoʊldər rɪˈpɔrt/",
+      "Port 22 report": "/pɔrt 22 rɪˈpɔrt/",
+      "Passive mode report": "/ˈpæsɪv moʊd rɪˈpɔrt/",
+      "File permission report": "/faɪl pərˈmɪʃən rɪˈpɔrt/",
+      "Host key report": "/hoʊst ki rɪˈpɔrt/",
+      "Connection refused report": "/kəˈnɛkʃən rɪfˈjuzd rɪˈpɔrt/",
+      "Session timeout report": "/ˈsɛʃən ˈtaɪˌmaʊt rɪˈpɔrt/",
+      "Transfer log report": "/ˈtrænsfər lɔg rɪˈpɔrt/",
+      "Binary mode report": "/ˈbaɪnəˌri moʊd rɪˈpɔrt/",
+      "Ascii mode report": "/ˈæski moʊd rɪˈpɔrt/",
+      "Resume transfer report": "/ˈrɛzəˌmeɪ ˈtrænsfər rɪˈpɔrt/",
+      "Queue report": "/kju rɪˈpɔrt/",
+      "Checksum report": "/checksum rɪˈpɔrt/",
+      "Secure copy report": "/sɪˈkjʊr ˈkɑpi rɪˈpɔrt/",
+      "Authentication failure report": "/ɔˌθɛntəˈkeɪʃən ˈfeɪljər rɪˈpɔrt/",
+      "File": "/faɪl/",
+      "Folder": "/ˈfoʊldər/",
+      "Shared folder": "/ʃɛrd ˈfoʊldər/",
+      "File lock": "/faɪl lɑk/",
+      "File size": "/faɪl saɪz/",
+      "Extension": "/ɪkˈstɛnʃən/",
+      "Path": "/pæθ/",
+      "Directory": "/dɪˈrɛktəri/",
+      "Archive": "/ˈɑrˌkaɪv/",
+      "Import": "/ˌɪmˈpɔrt/",
+      "Export": "/ˈɛkspɔrt/",
+      "Parse": "/pɑrs/",
+      "Format": "/ˈfɔrˌmæt/",
+      "CSV": "/ˌsi ɛs ˈvi/",
+      "PDF": "/ˌpi di ˈɛf/",
+      "Spreadsheet": "/ˈsprɛdˌʃit/",
+      "Read-only": "/rɛd-ˈoʊnli/",
+      "Overwrite": "/ˌoʊvərˈraɪt/",
+      "Rename": "/riˈneɪm/",
+      "Delete": "/dɪˈlit/",
+      "Attachment": "/əˈtæʧmənt/",
+      "Compression": "/kəmˈprɛʃən/",
+      "File report": "/faɪl rɪˈpɔrt/",
+      "Folder report": "/ˈfoʊldər rɪˈpɔrt/",
+      "Shared folder report": "/ʃɛrd ˈfoʊldər rɪˈpɔrt/",
+      "File lock report": "/faɪl lɑk rɪˈpɔrt/",
+      "File size report": "/faɪl saɪz rɪˈpɔrt/",
+      "Extension report": "/ɪkˈstɛnʃən rɪˈpɔrt/",
+      "Path report": "/pæθ rɪˈpɔrt/",
+      "Directory report": "/dɪˈrɛktəri rɪˈpɔrt/",
+      "Archive report": "/ˈɑrˌkaɪv rɪˈpɔrt/",
+      "Import report": "/ˌɪmˈpɔrt rɪˈpɔrt/",
+      "Export report": "/ˈɛkspɔrt rɪˈpɔrt/",
+      "Parse report": "/pɑrs rɪˈpɔrt/",
+      "Format report": "/ˈfɔrˌmæt rɪˈpɔrt/",
+      "CSV report": "/ˌsi ɛs ˈvi rɪˈpɔrt/",
+      "PDF report": "/ˌpi di ˈɛf rɪˈpɔrt/",
+      "Spreadsheet report": "/ˈsprɛdˌʃit rɪˈpɔrt/",
+      "Read-only report": "/rɛd-ˈoʊnli rɪˈpɔrt/",
+      "Overwrite report": "/ˌoʊvərˈraɪt rɪˈpɔrt/",
+      "Rename report": "/riˈneɪm rɪˈpɔrt/",
+      "Delete report": "/dɪˈlit rɪˈpɔrt/",
+      "Attachment report": "/əˈtæʧmənt rɪˈpɔrt/",
+      "Compression report": "/kəmˈprɛʃən rɪˈpɔrt/",
+      "Printer": "/ˈprɪnər/",
+      "Print queue": "/prɪnt kju/",
+      "Print Spooler": "/prɪnt spooler/",
+      "Offline": "/ˈɔˌflaɪn/",
+      "Online": "/ˈɔnˌlaɪn/",
+      "Paper jam": "/ˈpeɪpər ʤæm/",
+      "Toner": "/ˈtoʊnər/",
+      "Print job": "/prɪnt ʤɑb/",
+      "Default printer": "/dɪˈfɔlt ˈprɪnər/",
+      "Network printer": "/ˈnɛtˌwərk ˈprɪnər/",
+      "Label printer": "/ˈleɪbəl ˈprɪnər/",
+      "Duplex": "/ˈduˌplɛks/",
+      "Tray": "/treɪ/",
+      "Printer IP": "/ˈprɪnər ˌaɪ ˈpi/",
+      "Test page": "/tɛst peɪʤ/",
+      "Scanner": "/ˈskænər/",
+      "Device status": "/dɪˈvaɪs ˈstætəs/",
+      "Queue stuck": "/kju stək/",
+      "Reinstall driver": "/ˌriɪnˈstɑl ˈdraɪvər/",
+      "Print server": "/prɪnt ˈsərvər/",
+      "Printer mapping": "/ˈprɪnər ˈmæpɪŋ/",
+      "Printer report": "/ˈprɪnər rɪˈpɔrt/",
+      "Print queue report": "/prɪnt kju rɪˈpɔrt/",
+      "Print spooler report": "/prɪnt spooler rɪˈpɔrt/",
+      "Offline report": "/ˈɔˌflaɪn rɪˈpɔrt/",
+      "Online report": "/ˈɔnˌlaɪn rɪˈpɔrt/",
+      "Paper jam report": "/ˈpeɪpər ʤæm rɪˈpɔrt/",
+      "Toner report": "/ˈtoʊnər rɪˈpɔrt/",
+      "Print job report": "/prɪnt ʤɑb rɪˈpɔrt/",
+      "Default printer report": "/dɪˈfɔlt ˈprɪnər rɪˈpɔrt/",
+      "Network printer report": "/ˈnɛtˌwərk ˈprɪnər rɪˈpɔrt/",
+      "Label printer report": "/ˈleɪbəl ˈprɪnər rɪˈpɔrt/",
+      "Duplex report": "/ˈduˌplɛks rɪˈpɔrt/",
+      "Tray report": "/treɪ rɪˈpɔrt/",
+      "Printer ip report": "/ˈprɪnər ˌaɪˌpi rɪˈpɔrt/",
+      "Test page report": "/tɛst peɪʤ rɪˈpɔrt/",
+      "Scanner report": "/ˈskænər rɪˈpɔrt/",
+      "Device status report": "/dɪˈvaɪs ˈstætəs rɪˈpɔrt/",
+      "Queue stuck report": "/kju stək rɪˈpɔrt/",
+      "Reinstall driver report": "/ˌriɪnˈstɑl ˈdraɪvər rɪˈpɔrt/",
+      "Print server report": "/prɪnt ˈsərvər rɪˈpɔrt/",
+      "Printer mapping report": "/ˈprɪnər ˈmæpɪŋ rɪˈpɔrt/",
+      "Email": "/iˈmeɪl/",
+      "SMTP": "/ˌɛs ɛm ti ˈpi/",
+      "Relay": "/ˈriˌleɪ/",
+      "Recipient": "/rɪˈsɪpiənt/",
+      "Sender": "/ˈsɛndər/",
+      "Inbox": "/inbox/",
+      "Spam": "/spæm/",
+      "Delivery": "/dɪˈlɪvəri/",
+      "Mailbox": "/ˈmeɪlˌbɑks/",
+      "Bounce": "/baʊns/",
+      "Distribution list": "/ˌdɪstrəˈbjuʃən lɪst/",
+      "Forwarding": "/ˈfɔrwərdɪŋ/",
+      "Out of office": "/aʊt əv ˈɔfəs/",
+      "Subject": "/ˈsəbʤɪkt/",
+      "Message header": "/ˈmɛsɪʤ ˈhɛdər/",
+      "MX record": "/mx ˈrɛkərd/",
+      "Email client": "/iˈmeɪl klaɪənt/",
+      "Shared mailbox": "/ʃɛrd ˈmeɪlˌbɑks/",
+      "Quota": "/kˈwoʊtə/",
+      "Archive mailbox": "/ˈɑrˌkaɪv ˈmeɪlˌbɑks/",
+      "Junk filter": "/ʤəŋk ˈfɪltər/",
+      "Email report": "/iˈmeɪl rɪˈpɔrt/",
+      "SMTP report": "/ˌɛs ɛm ti ˈpi rɪˈpɔrt/",
+      "Relay report": "/ˈriˌleɪ rɪˈpɔrt/",
+      "Recipient report": "/rɪˈsɪpiənt rɪˈpɔrt/",
+      "Sender report": "/ˈsɛndər rɪˈpɔrt/",
+      "Inbox report": "/inbox rɪˈpɔrt/",
+      "Spam report": "/spæm rɪˈpɔrt/",
+      "Delivery report": "/dɪˈlɪvəri rɪˈpɔrt/",
+      "Mailbox report": "/ˈmeɪlˌbɑks rɪˈpɔrt/",
+      "Bounce report": "/baʊns rɪˈpɔrt/",
+      "Distribution list report": "/ˌdɪstrəˈbjuʃən lɪst rɪˈpɔrt/",
+      "Forwarding report": "/ˈfɔrwərdɪŋ rɪˈpɔrt/",
+      "Out of office report": "/aʊt əv ˈɔfəs rɪˈpɔrt/",
+      "Subject report": "/ˈsəbʤɪkt rɪˈpɔrt/",
+      "Message header report": "/ˈmɛsɪʤ ˈhɛdər rɪˈpɔrt/",
+      "Mx record report": "/mx ˈrɛkərd rɪˈpɔrt/",
+      "Email client report": "/iˈmeɪl klaɪənt rɪˈpɔrt/",
+      "Shared mailbox report": "/ʃɛrd ˈmeɪlˌbɑks rɪˈpɔrt/",
+      "Quota report": "/kˈwoʊtə rɪˈpɔrt/",
+      "Archive mailbox report": "/ˈɑrˌkaɪv ˈmeɪlˌbɑks rɪˈpɔrt/",
+      "Junk filter report": "/ʤəŋk ˈfɪltər rɪˈpɔrt/",
+      "Monitoring": "/ˈmɑnətərɪŋ/",
+      "Alert": "/əˈlərt/",
+      "Metric": "/ˈmɛtrɪk/",
+      "Health check": "/hɛlθ ʧɛk/",
+      "Threshold": "/θˈrɛˌʃoʊld/",
+      "Availability": "/əˌveɪləˈbɪlɪti/",
+      "Heartbeat": "/ˈhɑrtˌbit/",
+      "Baseline": "/ˈbeɪsˌlaɪn/",
+      "Bottleneck": "/ˈbɑtəlˌnɛk/",
+      "Probe": "/proʊb/",
+      "Notification": "/ˌnoʊtəfəˈkeɪʃən/",
+      "Response time": "/rɪˈspɑns taɪm/",
+      "CPU usage": "/ˌsi pi ˈju ˈjusɪʤ/",
+      "Memory usage": "/ˈmɛməri ˈjusɪʤ/",
+      "Disk usage": "/dɪsk ˈjusɪʤ/",
+      "Service check": "/ˈsərvɪs ʧɛk/",
+      "Synthetic test": "/sɪnˈθɛtɪk tɛst/",
+      "Capacity": "/kəˈpæsɪti/",
+      "Trend": "/trɛnd/",
+      "SLA": "/ˌɛs ɛl ˈeɪ/",
+      "Monitoring report": "/ˈmɑnətərɪŋ rɪˈpɔrt/",
+      "Alert report": "/əˈlərt rɪˈpɔrt/",
+      "Metric report": "/ˈmɛtrɪk rɪˈpɔrt/",
+      "Health check report": "/hɛlθ ʧɛk rɪˈpɔrt/",
+      "Threshold report": "/θˈrɛˌʃoʊld rɪˈpɔrt/",
+      "Availability report": "/əˌveɪləˈbɪlɪti rɪˈpɔrt/",
+      "Heartbeat report": "/ˈhɑrtˌbit rɪˈpɔrt/",
+      "Baseline report": "/ˈbeɪsˌlaɪn rɪˈpɔrt/",
+      "Bottleneck report": "/ˈbɑtəlˌnɛk rɪˈpɔrt/",
+      "Probe report": "/proʊb rɪˈpɔrt/",
+      "Notification report": "/ˌnoʊtəfəˈkeɪʃən rɪˈpɔrt/",
+      "Response time report": "/rɪˈspɑns taɪm rɪˈpɔrt/",
+      "Cpu usage report": "/cpu ˈjusɪʤ rɪˈpɔrt/",
+      "Memory usage report": "/ˈmɛməri ˈjusɪʤ rɪˈpɔrt/",
+      "Disk usage report": "/dɪsk ˈjusɪʤ rɪˈpɔrt/",
+      "Service check report": "/ˈsərvɪs ʧɛk rɪˈpɔrt/",
+      "Synthetic test report": "/sɪnˈθɛtɪk tɛst rɪˈpɔrt/",
+      "Capacity report": "/kəˈpæsɪti rɪˈpɔrt/",
+      "Trend report": "/trɛnd rɪˈpɔrt/",
+      "SLA report": "/ˌɛs ɛl ˈeɪ rɪˈpɔrt/",
+      "Log": "/lɔg/",
+      "Event": "/ɪˈvɛnt/",
+      "Exception": "/ɪkˈsɛpʃən/",
+      "Warning": "/ˈwɔrnɪŋ/",
+      "Debug": "/diˈbəg/",
+      "Trace": "/treɪs/",
+      "Timestamp": "/timestamp/",
+      "Log file": "/lɔg faɪl/",
+      "Error code": "/ˈɛrər koʊd/",
+      "Stack trace": "/stæk treɪs/",
+      "Audit log": "/ˈɔdɪt lɔg/",
+      "Application log": "/ˌæpləˈkeɪʃən lɔg/",
+      "System log": "/ˈsɪstəm lɔg/",
+      "Correlation ID": "/ˌkɔrəˈleɪʃən ˈaɪˈdi/",
+      "Verbose": "/verbose/",
+      "Information": "/ˌɪnˌfɔrˈmeɪʃən/",
+      "Log level": "/lɔg ˈlɛvəl/",
+      "Retention": "/riˈtɛnʃən/",
+      "Search log": "/sərʧ lɔg/",
+      "Rotate log": "/ˈroʊˌteɪt lɔg/",
+      "Log entry": "/lɔg ˈɛntri/",
+      "Diagnostic data": "/ˌdaɪəgˈnɑstɪk ˈdætə/",
+      "Log report": "/lɔg rɪˈpɔrt/",
+      "Event report": "/ɪˈvɛnt rɪˈpɔrt/",
+      "Exception report": "/ɪkˈsɛpʃən rɪˈpɔrt/",
+      "Warning report": "/ˈwɔrnɪŋ rɪˈpɔrt/",
+      "Debug report": "/diˈbəg rɪˈpɔrt/",
+      "Trace report": "/treɪs rɪˈpɔrt/",
+      "Timestamp report": "/timestamp rɪˈpɔrt/",
+      "Log file report": "/lɔg faɪl rɪˈpɔrt/",
+      "Error code report": "/ˈɛrər koʊd rɪˈpɔrt/",
+      "Stack trace report": "/stæk treɪs rɪˈpɔrt/",
+      "Audit log report": "/ˈɔdɪt lɔg rɪˈpɔrt/",
+      "Application log report": "/ˌæpləˈkeɪʃən lɔg rɪˈpɔrt/",
+      "System log report": "/ˈsɪstəm lɔg rɪˈpɔrt/",
+      "Correlation id report": "/ˌkɔrəˈleɪʃən ˈaɪˈdi rɪˈpɔrt/",
+      "Verbose report": "/verbose rɪˈpɔrt/",
+      "Information report": "/ˌɪnˌfɔrˈmeɪʃən rɪˈpɔrt/",
+      "Log level report": "/lɔg ˈlɛvəl rɪˈpɔrt/",
+      "Retention report": "/riˈtɛnʃən rɪˈpɔrt/",
+      "Search log report": "/sərʧ lɔg rɪˈpɔrt/",
+      "Rotate log report": "/ˈroʊˌteɪt lɔg rɪˈpɔrt/",
+      "Log entry report": "/lɔg ˈɛntri rɪˈpɔrt/",
+      "Diagnostic data report": "/ˌdaɪəgˈnɑstɪk ˈdætə rɪˈpɔrt/",
+      "Deployment": "/dɪˈplɔɪmənt/",
+      "Deploy": "/dɪˈplɔɪ/",
+      "Release": "/riˈlis/",
+      "Version": "/ˈvərʒən/",
+      "Build": "/bɪld/",
+      "Pipeline": "/ˈpaɪˌplaɪn/",
+      "Maintenance": "/ˈmeɪntənəns/",
+      "Hotfix": "/hotfix/",
+      "Environment": "/ɪnˈvaɪrənmənt/",
+      "Staging": "/ˈsteɪʤɪŋ/",
+      "Production": "/pərˈdəkʃən/",
+      "Artifact": "/ˈɑrtəˌfækt/",
+      "Package": "/ˈpækɪʤ/",
+      "Configuration file": "/kənˌfɪgjərˈeɪʃən faɪl/",
+      "Release note": "/riˈlis noʊt/",
+      "Change request": "/ʧeɪnʤ rɪkˈwɛst/",
+      "Approval": "/əˈpruvəl/",
+      "Smoke test": "/smoʊk tɛst/",
+      "Blue-green deployment": "/blu-grin dɪˈplɔɪmənt/",
+      "Feature flag": "/ˈfiʧər flæg/",
+      "Deployment report": "/dɪˈplɔɪmənt rɪˈpɔrt/",
+      "Deploy report": "/dɪˈplɔɪ rɪˈpɔrt/",
+      "Release report": "/riˈlis rɪˈpɔrt/",
+      "Version report": "/ˈvərʒən rɪˈpɔrt/",
+      "Build report": "/bɪld rɪˈpɔrt/",
+      "Pipeline report": "/ˈpaɪˌplaɪn rɪˈpɔrt/",
+      "Maintenance report": "/ˈmeɪntənəns rɪˈpɔrt/",
+      "Hotfix report": "/hotfix rɪˈpɔrt/",
+      "Environment report": "/ɪnˈvaɪrənmənt rɪˈpɔrt/",
+      "Staging report": "/ˈsteɪʤɪŋ rɪˈpɔrt/",
+      "Production report": "/pərˈdəkʃən rɪˈpɔrt/",
+      "Artifact report": "/ˈɑrtəˌfækt rɪˈpɔrt/",
+      "Package report": "/ˈpækɪʤ rɪˈpɔrt/",
+      "Configuration file report": "/kənˌfɪgjərˈeɪʃən faɪl rɪˈpɔrt/",
+      "Release note report": "/riˈlis noʊt rɪˈpɔrt/",
+      "Change request report": "/ʧeɪnʤ rɪkˈwɛst rɪˈpɔrt/",
+      "Approval report": "/əˈpruvəl rɪˈpɔrt/",
+      "Smoke test report": "/smoʊk tɛst rɪˈpɔrt/",
+      "Blue-green deployment report": "/blu-grin dɪˈplɔɪmənt rɪˈpɔrt/",
+      "Feature flag report": "/ˈfiʧər flæg rɪˈpɔrt/",
+      "Cloud": "/klaʊd/",
+      "Provision": "/prəˈvɪʒən/",
+      "Decommission": "/ˌdikəˈmɪʃən/",
+      "Instance": "/ˈɪnstəns/",
+      "Container": "/kənˈteɪnər/",
+      "Scaling": "/ˈskeɪlɪŋ/",
+      "Storage": "/ˈstɔrɪʤ/",
+      "Region": "/ˈriʤən/",
+      "Availability zone": "/əˌveɪləˈbɪlɪti zoʊn/",
+      "Virtual network": "/ˈvərʧuəl ˈnɛtˌwərk/",
+      "Object storage": "/ˈɑbʤɛkt ˈstɔrɪʤ/",
+      "Snapshot": "/sˈnæpˌʃɑt/",
+      "Image": "/ˈɪmɪʤ/",
+      "Serverless": "/ˈsɜrvərləs/",
+      "Function app": "/ˈfəŋkʃən æp/",
+      "Resource group": "/ˈrisɔrs grup/",
+      "Subscription": "/səbˈskrɪpʃən/",
+      "IAM": "/ˌaɪ eɪ ˈɛm/",
+      "Auto scaling": "/ˈɔtoʊ ˈskeɪlɪŋ/",
+      "Kubernetes": "/ˌkubərˈnɛtiz/",
+      "Pod": "/pɑd/",
+      "Cloud cost": "/klaʊd kɔst/",
+      "Cloud report": "/klaʊd rɪˈpɔrt/",
+      "Provision report": "/prəˈvɪʒən rɪˈpɔrt/",
+      "Decommission report": "/ˌdikəˈmɪʃən rɪˈpɔrt/",
+      "Instance report": "/ˈɪnstəns rɪˈpɔrt/",
+      "Container report": "/kənˈteɪnər rɪˈpɔrt/",
+      "Scaling report": "/ˈskeɪlɪŋ rɪˈpɔrt/",
+      "Storage report": "/ˈstɔrɪʤ rɪˈpɔrt/",
+      "Region report": "/ˈriʤən rɪˈpɔrt/",
+      "Availability zone report": "/əˌveɪləˈbɪlɪti zoʊn rɪˈpɔrt/",
+      "Virtual network report": "/ˈvərʧuəl ˈnɛtˌwərk rɪˈpɔrt/",
+      "Object storage report": "/ˈɑbʤɛkt ˈstɔrɪʤ rɪˈpɔrt/",
+      "Snapshot report": "/sˈnæpˌʃɑt rɪˈpɔrt/",
+      "Image report": "/ˈɪmɪʤ rɪˈpɔrt/",
+      "Serverless report": "/ˈsɜrvərləs rɪˈpɔrt/",
+      "Function app report": "/ˈfəŋkʃən æp rɪˈpɔrt/",
+      "Resource group report": "/ˈrisɔrs grup rɪˈpɔrt/",
+      "Subscription report": "/səbˈskrɪpʃən rɪˈpɔrt/",
+      "IAM report": "/ˌaɪ eɪ ˈɛm rɪˈpɔrt/",
+      "Auto scaling report": "/ˈɔtoʊ ˈskeɪlɪŋ rɪˈpɔrt/",
+      "Kubernetes report": "/ˌkubərˈnɛtiz rɪˈpɔrt/",
+      "Pod report": "/pɑd rɪˈpɔrt/",
+      "Cloud cost report": "/klaʊd kɔst rɪˈpɔrt/",
+      "Android": "/ˈænˌdrɔɪd/",
+      "iOS": "/ˌaɪ oʊ ˈɛs/",
+      "Device": "/dɪˈvaɪs/",
+      "Mobile": "/ˈmoʊbəl/",
+      "App version": "/æp ˈvərʒən/",
+      "Installation": "/ˌɪnstəˈleɪʃən/",
+      "Camera": "/ˈkæmərə/",
+      "Barcode": "/barcode/",
+      "OCR": "/ˌoʊ si ˈɑr/",
+      "Scan": "/skæn/",
+      "Offline mode": "/ˈɔˌflaɪn moʊd/",
+      "Sync": "/sɪŋk/",
+      "Device registration": "/dɪˈvaɪs ˌrɛʤɪˈstreɪʃən/",
+      "Push notification": "/pʊʃ ˌnoʊtəfəˈkeɪʃən/",
+      "App crash": "/æp kræʃ/",
+      "App store": "/æp stɔr/",
+      "Mobile data": "/ˈmoʊbəl ˈdætə/",
+      "Location service": "/loʊˈkeɪʃən ˈsərvɪs/",
+      "Bluetooth": "/ˈbluˌtuθ/",
+      "Device log": "/dɪˈvaɪs lɔg/",
+      "Screen rotation": "/skrin roʊˈteɪʃən/",
+      "Android report": "/ˈænˌdrɔɪd rɪˈpɔrt/",
+      "IOS report": "/ˈioʊs rɪˈpɔrt/",
+      "Device report": "/dɪˈvaɪs rɪˈpɔrt/",
+      "Mobile report": "/ˈmoʊbəl rɪˈpɔrt/",
+      "App version report": "/æp ˈvərʒən rɪˈpɔrt/",
+      "Installation report": "/ˌɪnstəˈleɪʃən rɪˈpɔrt/",
+      "Camera report": "/ˈkæmərə rɪˈpɔrt/",
+      "Barcode report": "/barcode rɪˈpɔrt/",
+      "OCR report": "/ˌoʊ si ˈɑr rɪˈpɔrt/",
+      "Scan report": "/skæn rɪˈpɔrt/",
+      "Offline mode report": "/ˈɔˌflaɪn moʊd rɪˈpɔrt/",
+      "Sync report": "/sɪŋk rɪˈpɔrt/",
+      "Device registration report": "/dɪˈvaɪs ˌrɛʤɪˈstreɪʃən rɪˈpɔrt/",
+      "Push notification report": "/pʊʃ ˌnoʊtəfəˈkeɪʃən rɪˈpɔrt/",
+      "App crash report": "/æp kræʃ rɪˈpɔrt/",
+      "App store report": "/æp stɔr rɪˈpɔrt/",
+      "Mobile data report": "/ˈmoʊbəl ˈdætə rɪˈpɔrt/",
+      "Location service report": "/loʊˈkeɪʃən ˈsərvɪs rɪˈpɔrt/",
+      "Bluetooth report": "/ˈbluˌtuθ rɪˈpɔrt/",
+      "Device log report": "/dɪˈvaɪs lɔg rɪˈpɔrt/",
+      "Screen rotation report": "/skrin roʊˈteɪʃən rɪˈpɔrt/",
+      "Source code": "/sɔrs koʊd/",
+      "Repository": "/riˈpɑzəˌtɔri/",
+      "Branch": "/brænʧ/",
+      "Merge": "/mərʤ/",
+      "Pull request": "/pʊl rɪkˈwɛst/",
+      "Compile": "/kəmˈpaɪl/",
+      "Library": "/ˈlaɪbrɛˌri/",
+      "Framework": "/ˈfreɪmˌwərk/",
+      "Function": "/ˈfəŋkʃən/",
+      "Class": "/klæs/",
+      "Object": "/ˈɑbʤɛkt/",
+      "Variable": "/ˈvɛriəbəl/",
+      "Unit test": "/ˈjunɪt tɛst/",
+      "Integration test": "/ˌɪnəˈgreɪʃən tɛst/",
+      "Code review": "/koʊd ˌrivˈju/",
+      "IDE": "/aɪd/",
+      "Debugger": "/debugger/",
+      "Refactor": "/refactor/",
+      "Release branch": "/riˈlis brænʧ/",
+      "Source code report": "/sɔrs koʊd rɪˈpɔrt/",
+      "Repository report": "/riˈpɑzəˌtɔri rɪˈpɔrt/",
+      "Branch report": "/brænʧ rɪˈpɔrt/",
+      "Merge report": "/mərʤ rɪˈpɔrt/",
+      "Pull request report": "/pʊl rɪkˈwɛst rɪˈpɔrt/",
+      "Compile report": "/kəmˈpaɪl rɪˈpɔrt/",
+      "Library report": "/ˈlaɪbrɛˌri rɪˈpɔrt/",
+      "Framework report": "/ˈfreɪmˌwərk rɪˈpɔrt/",
+      "Function report": "/ˈfəŋkʃən rɪˈpɔrt/",
+      "Class report": "/klæs rɪˈpɔrt/",
+      "Object report": "/ˈɑbʤɛkt rɪˈpɔrt/",
+      "Variable report": "/ˈvɛriəbəl rɪˈpɔrt/",
+      "Unit test report": "/ˈjunɪt tɛst rɪˈpɔrt/",
+      "Integration test report": "/ˌɪnəˈgreɪʃən tɛst rɪˈpɔrt/",
+      "Code review report": "/koʊd ˌrivˈju rɪˈpɔrt/",
+      "IDE report": "/aɪd rɪˈpɔrt/",
+      "Debugger report": "/debugger rɪˈpɔrt/",
+      "Refactor report": "/refactor rɪˈpɔrt/",
+      "Release branch report": "/riˈlis brænʧ rɪˈpɔrt/",
+      "User": "/ˈjuzər/",
+      "Support": "/səˈpɔrt/",
+      "Remote": "/rɪˈmoʊt/",
+      "Screenshot": "/screenshot/",
+      "Instruction": "/ˌɪnˈstrəkʃən/",
+      "Feedback": "/ˈfidˌbæk/",
+      "Escalation": "/ˌɛskəˈleɪʃən/",
+      "Resolution": "/ˌrɛzəˈluʃən/",
+      "Severity": "/sɪˈvɛrɪti/",
+      "Assigned": "/əˈsaɪnd/",
+      "Pending": "/ˈpɛndɪŋ/",
+      "Closed": "/kloʊzd/",
+      "Customer": "/ˈkəstəmər/",
+      "Knowledge base": "/ˈnɑlɪʤ beɪs/",
+      "Service desk": "/ˈsərvɪs dɛsk/",
+      "Callback": "/callback/",
+      "Follow-up": "/ˈfɑloʊ-əp/",
+      "SLA breach": "/ˌɛs ɛl ˈeɪ briʧ/",
+      "Contact number": "/ˈkɑnˌtækt ˈnəmbər/",
+      "Walkthrough": "/walkthrough/",
+      "Remote session": "/rɪˈmoʊt ˈsɛʃən/",
+      "First response": "/fərst rɪˈspɑns/",
+      "User report": "/ˈjuzər rɪˈpɔrt/",
+      "Support report": "/səˈpɔrt rɪˈpɔrt/",
+      "Remote report": "/rɪˈmoʊt rɪˈpɔrt/",
+      "Screenshot report": "/screenshot rɪˈpɔrt/",
+      "Instruction report": "/ˌɪnˈstrəkʃən rɪˈpɔrt/",
+      "Feedback report": "/ˈfidˌbæk rɪˈpɔrt/",
+      "Escalation report": "/ˌɛskəˈleɪʃən rɪˈpɔrt/",
+      "Resolution report": "/ˌrɛzəˈluʃən rɪˈpɔrt/",
+      "Severity report": "/sɪˈvɛrɪti rɪˈpɔrt/",
+      "Assigned report": "/əˈsaɪnd rɪˈpɔrt/",
+      "Pending report": "/ˈpɛndɪŋ rɪˈpɔrt/",
+      "Closed report": "/kloʊzd rɪˈpɔrt/",
+      "Customer report": "/ˈkəstəmər rɪˈpɔrt/",
+      "Knowledge base report": "/ˈnɑlɪʤ beɪs rɪˈpɔrt/",
+      "Service desk report": "/ˈsərvɪs dɛsk rɪˈpɔrt/",
+      "Callback report": "/callback rɪˈpɔrt/",
+      "Follow-up report": "/ˈfɑloʊ-əp rɪˈpɔrt/",
+      "Sla breach report": "/sla briʧ rɪˈpɔrt/",
+      "Contact number report": "/ˈkɑnˌtækt ˈnəmbər rɪˈpɔrt/",
+      "Walkthrough report": "/walkthrough rɪˈpɔrt/",
+      "Remote session report": "/rɪˈmoʊt ˈsɛʃən rɪˈpɔrt/",
+      "First response report": "/fərst rɪˈspɑns rɪˈpɔrt/",
+      "Recovery": "/rɪˈkəvəri/",
+      "Stable": "/ˈsteɪbəl/",
+      "Available": "/əˈveɪləbəl/",
+      "Affected": "/əˈfɛktɪd/",
+      "Verification": "/ˌvɛrəfəˈkeɪʃən/",
+      "Synchronization": "/ˌsɪŋkrənəˈzeɪʃən/",
+      "Postmortem": "/poʊstˈmɔrtəm/",
+      "Runbook": "/ˈrʌnˌbʊk/",
+      "On-call": "/ɔn-kɔl/",
+      "Service degradation": "/ˈsərvɪs ˌdɛgrəˈdeɪʃən/",
+      "Recovery report": "/rɪˈkəvəri rɪˈpɔrt/",
+      "Stable report": "/ˈsteɪbəl rɪˈpɔrt/",
+      "Available report": "/əˈveɪləbəl rɪˈpɔrt/",
+      "Affected report": "/əˈfɛktɪd rɪˈpɔrt/",
+      "Verification report": "/ˌvɛrəfəˈkeɪʃən rɪˈpɔrt/",
+      "Synchronization report": "/ˌsɪŋkrənəˈzeɪʃən rɪˈpɔrt/",
+      "Postmortem report": "/poʊstˈmɔrtəm rɪˈpɔrt/",
+      "Runbook report": "/ˈrʌnˌbʊk rɪˈpɔrt/",
+      "On-call report": "/ɔn-kɔl rɪˈpɔrt/",
+      "Service degradation report": "/ˈsərvɪs ˌdɛgrəˈdeɪʃən rɪˈpɔrt/"
+    };
+    const typeRules = [
+      [/^(API|SQL|DNS|VPN|IIS|JSON|FTP|SFTP|SMTP|CPU|MFA|OCR|SLA|IAM|CSV|PDF|HTML|CSS)$/i,"Acr"],
+      [/^(Troubleshoot|Investigate|Diagnose|Resolve|Verify|Confirm|Escalate|Reproduce|Retry|Disconnect|Ping|Restart|Reboot|Backup|Restore|Rollback|Commit|Select|Insert|Deploy|Provision|Decommission|Compile|Merge|Refactor|Sync|Scan|Upload|Download|Import|Export|Parse|Encrypt|Archive|Patch)$/i,"V"],
+      [/^(Reachable|Locked|Expired|Offline|Online|Stable|Available|Affected|Pending|Closed|Assigned|Responsive|Read-only|Verbose)$/i,"Adj"],
+      [/\s/,"N phr"]
+    ];
+    const baseMeanings = {};
+    const categoryMeaningFallback = {
+      Troubleshooting:"A term used when identifying, tracking, or fixing technical problems.",
+      Networking:"A term used for network communication, connectivity, or traffic flow.",
+      Windows:"A term used when supporting Windows devices, tools, or services.",
+      Servers:"A term used for server operation, hosting, or infrastructure support.",
+      Database:"A term used for storing, changing, protecting, or retrieving data.",
+      SQL:"A term used when writing or troubleshooting SQL database work.",
+      API:"A term used when applications send requests and receive responses.",
+      "Web Applications":"A term used for browser-based application behavior or user interfaces.",
+      Authentication:"A term used for identity, sign-in, sessions, or access control.",
+      Security:"A term used to protect systems, accounts, networks, and data.",
+      "FTP / SFTP":"A term used for file transfer sessions and secure remote file movement.",
+      Files:"A term used for file storage, access, naming, or processing.",
+      Printing:"A term used when supporting printers, drivers, and print jobs.",
+      "Email / SMTP":"A term used when sending, receiving, routing, or troubleshooting email.",
+      Monitoring:"A term used to measure service health, capacity, or availability.",
+      Logging:"A term used to record, search, and understand system activity.",
+      Deployment:"A term used when releasing, packaging, or changing software.",
+      Cloud:"A term used for hosted infrastructure and cloud service operations.",
+      "Mobile Applications":"A term used when supporting phones, tablets, or mobile apps.",
+      "Software Development":"A term used when building, testing, or maintaining software.",
+      "Help Desk":"A term used when assisting users and managing support requests.",
+      "Production Support":"A term used to keep live services stable and available."
+    };
+    const viCategory = {
+      Troubleshooting:"hỗ trợ xử lý sự cố", Networking:"hỗ trợ mạng", Windows:"hỗ trợ Windows", Servers:"vận hành máy chủ", Database:"hỗ trợ cơ sở dữ liệu", SQL:"hỗ trợ SQL", API:"hỗ trợ API", "Web Applications":"hỗ trợ ứng dụng web", Authentication:"hỗ trợ xác thực", Security:"bảo mật", "FTP / SFTP":"truyền tệp FTP/SFTP", Files:"quản lý tệp", Printing:"hỗ trợ in ấn", "Email / SMTP":"hỗ trợ email/SMTP", Monitoring:"giám sát hệ thống", Logging:"kiểm tra nhật ký", Deployment:"triển khai", Cloud:"hạ tầng đám mây", "Mobile Applications":"hỗ trợ ứng dụng di động", "Software Development":"phát triển phần mềm", "Help Desk":"bộ phận Help Desk", "Production Support":"hỗ trợ môi trường production"
+    };
+    const viTerms = {
+      Issue:"vấn đề", Error:"lỗi", Failure:"sự cố thất bại", Incident:"sự cố", Bug:"lỗi phần mềm", Troubleshoot:"xử lý sự cố", Investigate:"điều tra", Diagnose:"chẩn đoán", Resolve:"giải quyết", Workaround:"giải pháp tạm thời", "Root cause":"nguyên nhân gốc", Reproduce:"tái hiện", Verify:"xác minh", Confirm:"xác nhận", Escalate:"chuyển cấp", Impact:"mức ảnh hưởng", Priority:"độ ưu tiên", Ticket:"phiếu hỗ trợ", Status:"trạng thái", Network:"mạng", Connection:"kết nối", Timeout:"hết thời gian chờ", Firewall:"tường lửa", Server:"máy chủ", Database:"cơ sở dữ liệu", Query:"truy vấn", Password:"mật khẩu", User:"người dùng", Printer:"máy in", Email:"email", Log:"nhật ký", Deployment:"triển khai", Cloud:"đám mây", Mobile:"di động", Repository:"kho mã nguồn", Production:"môi trường production", Outage:"gián đoạn dịch vụ", Recovery:"khôi phục"
+    };
+    function typeFor(word) {
+      for (const [rule,type] of typeRules) if (rule.test(word)) return type;
+      return word.includes("/") ? "N/V" : "N";
+    }
+    function ipaFor(word) {
+      return generatedIpaMap[word] || generatedIpaMap[word.replace("Wi-fi", "Wi-Fi")] || ipaMap[word] || "";
+    }
+    function lowerTerm(word) {
+      return /^[A-Z0-9 /-]+$/.test(word) || ["API","SQL","DNS","VPN","IIS","JSON","FTP","SFTP","SMTP","CPU","MFA","OCR","SLA","IAM","CSV","PDF","HTML","CSS","iOS"].includes(word) ? word : word.toLowerCase();
+    }
+    function viTerm(word) { return viTerms[word] || word; }
+    function pluralize(word) {
+      if (/\s/.test(word) || /^[A-Z0-9 /-]+$/.test(word)) return word;
+      if (/[^aeiou]y$/i.test(word)) return word.replace(/y$/i,"ies");
+      if (/(s|x|z|ch|sh)$/i.test(word)) return word + "es";
+      return word + "s";
+    }
+    function verbS(word) {
+      if (/\s/.test(word)) return word;
+      if (/[^aeiou]y$/i.test(word)) return word.replace(/y$/i,"ies");
+      if (/(s|x|z|ch|sh|o)$/i.test(word)) return word + "es";
+      return word + "s";
+    }
+    function verbEd(word) {
+      if (/\s/.test(word)) return word;
+      if (/e$/i.test(word)) return word + "d";
+      if (/[^aeiou]y$/i.test(word)) return word.replace(/y$/i,"ied");
+      return word + "ed";
+    }
+    function formsFor(word, type) {
+      if (type === "N") return [{label:"Plural", value:pluralize(word)}];
+      if (type === "V") return [{label:"3rd person", value:verbS(word)}, {label:"Past", value:verbEd(word)}];
+      return [];
+    }
+    function baseWordForMeaning(word) {
+      const lower = word.toLowerCase();
+      for (const pattern of expansionPatterns || []) {
+        const token = pattern.replace("{word}","").trim().toLowerCase();
+        if (!token) continue;
+        if (lower.endsWith(" " + token)) return word.slice(0, word.length - token.length - 1);
+        if (lower.startsWith(token + " ")) return word.slice(token.length + 1);
+      }
+      return word;
+    }
+    function meaningFor(word, category) {
+      if (baseMeanings[word]) return baseMeanings[word];
+      const base = baseWordForMeaning(word);
+      const baseMeaning = baseMeanings[base] || categoryMeaningFallback[category];
+      const lower = word.toLowerCase();
+      if (lower.endsWith(" report")) return `A report that describes ${lowerTerm(base)} details, status, or findings.`;
+      if (lower.endsWith(" check")) return `A support check used to confirm the condition of ${lowerTerm(base)}.`;
+      if (lower.endsWith(" review")) return `A review of ${lowerTerm(base)} details before taking support action.`;
+      if (lower.endsWith(" history")) return `Past records or activity related to ${lowerTerm(base)}.`;
+      if (lower.endsWith(" policy")) return `A rule or setting that controls how ${lowerTerm(base)} is handled.`;
+      if (lower.endsWith(" setting")) return `A configurable option related to ${lowerTerm(base)}.`;
+      if (lower.endsWith(" alert")) return `A notification about a ${lowerTerm(base)} condition that may need attention.`;
+      if (lower.endsWith(" test")) return `A test used to verify ${lowerTerm(base)} behavior or availability.`;
+      if (lower.endsWith(" failure")) return `A failure involving ${lowerTerm(base)} that prevents expected operation.`;
+      if (lower.endsWith(" status")) return `The current state of ${lowerTerm(base)}.`;
+      if (lower.endsWith(" log")) return `A log entry or file that records ${lowerTerm(base)} activity.`;
+      if (lower.endsWith(" rule")) return `A rule that controls or validates ${lowerTerm(base)} behavior.`;
+      if (lower.startsWith("critical ")) return `A high-importance ${lowerTerm(base)} that needs urgent attention.`;
+      if (lower.startsWith("recurring ")) return `A ${lowerTerm(base)} that happens repeatedly.`;
+      if (lower.startsWith("pending ")) return `A ${lowerTerm(base)} that is waiting for action or completion.`;
+      if (lower.startsWith("resolved ")) return `A ${lowerTerm(base)} that has already been fixed or completed.`;
+      if (lower.startsWith("production ")) return `A ${lowerTerm(base)} related to the live production environment.`;
+      if (lower.startsWith("remote ")) return `A ${lowerTerm(base)} handled from another location or device.`;
+      return baseMeaning;
+    }
+    function dictionaryUrl(word) {
+      return "https://www.merriam-webster.com/dictionary/" + encodeURIComponent(word.toLowerCase());
+    }
+    function exampleSet(word, category, type) {
+      const term = lowerTerm(word);
+      const plural = lowerTerm(pluralize(word));
+      const sForm = lowerTerm(verbS(word));
+      const edForm = lowerTerm(verbEd(word));
+      const vi = viTerm(word);
+      const context = viCategory[category];
+      if (type === "V") {
+        return [
+          { en:`Please ${term} the ticket.`, vi:`Vui lòng ${vi} phiếu hỗ trợ.` },
+          { en:`The engineer ${sForm} the issue after checking the logs.`, vi:`Kỹ sư ${vi} vấn đề sau khi kiểm tra nhật ký.` },
+          { en:`The team ${edForm} the production problem carefully before updating the customer and closing the incident.`, vi:`Nhóm đã ${vi} sự cố production một cách cẩn thận trước khi cập nhật cho khách hàng và đóng sự cố.` }
+        ];
+      }
+      if (type === "N") {
+        return [
+          { en:`Check the ${term} now.`, vi:`Hãy kiểm tra ${vi} ngay bây giờ.` },
+          { en:`Several ${plural} were reported after the latest production change.`, vi:`Một vài ${vi} đã được báo cáo sau thay đổi production mới nhất.` },
+          { en:`The support team compared recent ${plural} with monitoring data before deciding the next recovery step.`, vi:`Nhóm hỗ trợ đã so sánh các ${vi} gần đây với dữ liệu giám sát trước khi quyết định bước khôi phục tiếp theo.` }
+        ];
+      }
+      return [
+        { en:`Check the ${term} now.`, vi:`Hãy kiểm tra ${vi} ngay bây giờ.` },
+        { en:`The support engineer reviewed the ${term} during the ticket update.`, vi:`Kỹ sư hỗ trợ đã xem xét ${vi} trong lúc cập nhật phiếu hỗ trợ.` },
+        { en:`During ${category.toLowerCase()} work, the team documented the ${term} so the next shift could continue safely.`, vi:`Trong công việc ${context}, nhóm đã ghi lại ${vi} để ca tiếp theo có thể tiếp tục an toàn.` }
+      ];
+    }
+    function makeRecord(word, category, number) {
+      const type = typeFor(word);
+      const forms = formsFor(word, type);
+      return {
+        number, word, category, type, forms, ipa:ipaFor(word), meaning:meaningFor(word, category),
+        examples:exampleSet(word, category, type)
+      };
+    }
+    const expansionPatterns = [
+      "{word} report","{word} check","{word} review","{word} history","{word} policy","{word} setting",
+      "{word} alert","{word} test","{word} failure","{word} status","{word} log","{word} rule",
+      "Critical {word}","Recurring {word}","Pending {word}","Resolved {word}","Production {word}","Remote {word}"
+    ];
+    function expandedWords(words, targetCount) {
+      const result = [...words];
+      let patternIndex = 0, wordIndex = 0;
+      while (result.length < targetCount) {
+        const base = words[wordIndex % words.length];
+        const phrase = expansionPatterns[patternIndex % expansionPatterns.length].replace("{word}", lowerTerm(base));
+        const cleaned = (phrase.charAt(0).toUpperCase() + phrase.slice(1)).replace("Wi-fi", "Wi-Fi");
+        if (!result.includes(cleaned)) result.push(cleaned);
+        wordIndex++;
+        if (wordIndex % words.length === 0) patternIndex++;
+      }
+      return result;
+    }
+    const vocabulary = [];
+    categories.forEach(([name,count,words]) => expandedWords(words, count * 2).forEach(word => vocabulary.push(makeRecord(word,name,vocabulary.length + 1))));
+
+    
+    const els = {
+      categorySelect:document.getElementById("categorySelect"), modeSelect:document.getElementById("modeSelect"),
+      showMeaning:document.getElementById("showMeaning"), showIpa:document.getElementById("showIpa"), showInfo:document.getElementById("showInfo"), enableHint:document.getElementById("enableHint"), autoPlay:document.getElementById("autoPlay"), sentenceShort:document.getElementById("sentenceShort"), sentenceLong:document.getElementById("sentenceLong"),
+      soundBtn:document.getElementById("soundBtn"), backBtn:document.getElementById("backBtn"), nextBtn:document.getElementById("nextBtn"), qNum:document.getElementById("qNum"),
+      correctCount:document.getElementById("correctCount"), wrongCount:document.getElementById("wrongCount"), matchPct:document.getElementById("matchPct"),
+      infoBlock:document.getElementById("infoBlock"),
+      categoryText:document.getElementById("categoryText"), typeText:document.getElementById("typeText"), meaningBlock:document.getElementById("meaningBlock"),
+      meaningText:document.getElementById("meaningText"), ipaBlock:document.getElementById("ipaBlock"), ipaText:document.getElementById("ipaText"), answer:document.getElementById("answer"),
+      checkBtn:document.getElementById("checkBtn"), charCheck:document.getElementById("charCheck"), bar:document.getElementById("bar"),
+      resultPanel:document.getElementById("resultPanel"), showBtn:document.getElementById("showBtn"), againBtn:document.getElementById("againBtn"),
+      clearStats:document.getElementById("clearStats"), needPracticeListBtn:document.getElementById("needPracticeListBtn"),
+      needPracticeModal:document.getElementById("needPracticeModal"), needPracticeList:document.getElementById("needPracticeList"),
+      clearNeedPractice:document.getElementById("clearNeedPractice"), closeNeedPractice:document.getElementById("closeNeedPractice")
+    };
+    let voices = [], preferredVoice = null, current = null, questionNumber = 0, history = [], historyIndex = -1, checkedValue = null;
+    const stats = JSON.parse(localStorage.getItem("testVocabularyStats") || "{\"correct\":0,\"wrong\":0,\"wrongWords\":[]}");
+    function saveStats() { localStorage.setItem("testVocabularyStats", JSON.stringify(stats)); }
+    function needPracticeWords() { return stats.needPractice || []; }
+    function addNeedPractice(word) {
+      stats.needPractice = Array.from(new Set([...needPracticeWords(), word]));
+      saveStats();
+      categoryOptions();
+    }
+    function loadVoices() {
+      voices = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang || v.name)).sort((a,b) => {
+        const rank = v => /Google US English/i.test(v.name) ? 1 : /Google English/i.test(v.name) ? 2 : /Microsoft.*US English/i.test(v.name) ? 3 : /en-US/i.test(v.lang) ? 4 : 5;
+        return rank(a) - rank(b) || a.name.localeCompare(b.name);
+      });
+      preferredVoice =
+        voices.find(v => v.name === "Google US English" && /^en-US$/i.test(v.lang)) ||
+        voices.find(v => /Google US English/i.test(v.name)) ||
+        voices.find(v => /Google English/i.test(v.name) && /^en-US$/i.test(v.lang)) ||
+        voices.find(v => /^en-US$/i.test(v.lang)) ||
+        voices[0] ||
+        null;
+    }
+    function speak(text) {
+      speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.voice = preferredVoice; utter.lang = "en-US"; utter.rate = .82; utter.pitch = 1; utter.volume = 1;
+      speechSynthesis.speak(utter);
+    }
+    function normalize(text) { return text.trim().replace(/\s+/g, " ").toLowerCase(); }
+    function escapeHtml(text) {
+      return String(text).replace(/[&<>"']/g, ch => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;" }[ch]));
+    }
+    function targetText() {
+      if (els.sentenceShort.checked) return current.examples[0].en;
+      if (els.sentenceLong.checked) return current.examples[2].en;
+      return current.word;
+    }
+    function escapeRegExp(text) {
+      return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+    function clueMeaning(item) {
+      let text = item.meaning;
+      const hiddenTerms = [item.word, baseWordForMeaning(item.word)].filter(Boolean);
+      hiddenTerms.forEach(term => {
+        text = text.replace(new RegExp("\\b" + escapeRegExp(term) + "\\b", "ig"), "this term");
+      });
+      return text.replace(/\bthis term details\b/ig, "details for this term").replace(/\s+/g, " ").trim();
+    }
+    function categoryOptions() {
+      const currentValue = els.categorySelect.value || "all";
+      els.categorySelect.innerHTML = `<option value="all">All categories (${vocabulary.length})</option>` + categories.map(([name,count]) => `<option value="${name}">${name} (${count * 2})</option>`).join("");
+      els.categorySelect.value = [...els.categorySelect.options].some(option => option.value === currentValue) ? currentValue : "all";
+    }
+    function pool() {
+      let list = vocabulary;
+      if (els.categorySelect.value !== "all") list = list.filter(w => w.category === els.categorySelect.value);
+      if (els.modeSelect.value === "wrong" && stats.wrongWords.length) list = list.filter(w => stats.wrongWords.includes(w.word));
+      if (els.modeSelect.value === "need-practice") list = list.filter(w => needPracticeWords().includes(w.word));
+      if (els.modeSelect.value === "unseen") {
+        const seen = new Set([...(stats.seen || [])]);
+        const unseen = list.filter(w => !seen.has(w.word));
+        if (unseen.length) list = unseen;
+      }
+      return list;
+    }
+    function makeHistoryEntry(item) { return { item }; }
+    function showQuestion(entry, countQuestion = true) {
+      current = entry.item;
+      if (countQuestion) questionNumber++;
+      els.qNum.textContent = questionNumber;
+      els.categoryText.textContent = current.category;
+      els.typeText.textContent = `Type: ${current.type}`;
+      els.meaningText.textContent = clueMeaning(current);
+      els.ipaText.textContent = current.ipa;
+      updateOptions();
+      els.answer.value = "";
+      checkedValue = null;
+      els.resultPanel.className = "result-panel";
+      els.resultPanel.innerHTML = "";
+      updateLive();
+      if (els.autoPlay.checked) speak(targetText());
+      els.answer.focus();
+    }
+    function showEmptyNeedPractice() {
+        els.resultPanel.className = "result-panel show";
+        els.resultPanel.innerHTML = els.modeSelect.value === "need-practice" ? "No words in Need Practice yet." : "No words found for this selection.";
+        els.answer.value = "";
+        els.meaningText.textContent = "";
+        els.ipaText.textContent = "";
+        els.charCheck.innerHTML = "";
+        els.bar.style.width = "0%";
+        els.matchPct.textContent = "0%";
+    }
+    function pick() {
+      const list = pool();
+      if (!list.length) { showEmptyNeedPractice(); return; }
+      const item = list[Math.floor(Math.random() * list.length)];
+      const entry = makeHistoryEntry(item);
+      history = history.slice(0, historyIndex + 1);
+      history.push(entry);
+      historyIndex = history.length - 1;
+      showQuestion(entry, true);
+    }
+    function back() {
+      if (historyIndex <= 0) return;
+      historyIndex--;
+      showQuestion(history[historyIndex], false);
+    }
+    function next() {
+      if (historyIndex < history.length - 1) {
+        historyIndex++;
+        showQuestion(history[historyIndex], false);
+      } else {
+        pick();
+      }
+    }
+    function updateOptions() {
+      els.meaningBlock.classList.toggle("hidden", !els.showMeaning.checked);
+      els.ipaBlock.classList.toggle("hidden", !els.showIpa.checked);
+      els.infoBlock.classList.toggle("hidden", !els.showInfo.checked);
+      els.charCheck.classList.toggle("hidden", !els.enableHint.checked);
+      document.querySelector(".progress").classList.toggle("hidden", !els.enableHint.checked);
+    }
+    function updateLive() {
+      if (!current) return;
+      const typed = els.answer.value;
+      if (checkedValue !== null && typed !== checkedValue) checkedValue = null;
+      const target = targetText();
+      let ok = 0;
+      while (ok < typed.length && ok < target.length && typed[ok].toLowerCase() === target[ok].toLowerCase()) ok++;
+      const pct = Math.round((ok / target.length) * 100);
+      els.matchPct.textContent = pct + "%";
+      els.bar.style.width = pct + "%";
+      els.charCheck.innerHTML = target.split("").map((ch,i) => {
+        let cls = "wait";
+        if (i < typed.length) cls = typed[i]?.toLowerCase() === ch.toLowerCase() ? "ok" : "bad";
+        return `<span class="char ${cls}">${ch === " " ? "&nbsp;" : ch}</span>`;
+      }).join("");
+      updateOptions();
+    }
+    function highlightedCorrectAnswer(userAnswer, correctAnswer) {
+      let html = "";
+      for (let i = 0; i < correctAnswer.length; i++) {
+        const expected = correctAnswer[i];
+        const actual = userAnswer[i];
+        if (actual === undefined || actual.toLowerCase() !== expected.toLowerCase()) html += `<span class="missing-char">${expected === " " ? "&nbsp;" : escapeHtml(expected)}</span>`;
+        else html += escapeHtml(expected);
+      }
+      return html;
+    }
+    function resultCompareHtml(userAnswer, correctAnswer) {
+      return `<div class="answer-compare">
+        <div class="compare-line"><span class="compare-label">Your answer</span>: ${escapeHtml(userAnswer)}</div>
+        <div class="compare-line"><span class="compare-label">Correct answer</span>: ${highlightedCorrectAnswer(userAnswer, correctAnswer)}</div>
+      </div>`;
+    }
+    function showResultPanel() {
+      els.resultPanel.className = "result-panel show";
+      setTimeout(() => els.resultPanel.scrollIntoView({behavior:"smooth", block:"nearest"}), 40);
+    }
+    function checkAnswer() {
+      const target = targetText();
+      const userAnswer = els.answer.value;
+      const good = normalize(els.answer.value) === normalize(target);
+      checkedValue = els.answer.value;
+      showResultPanel();
+      const addButton = `<button id="addNeedPractice" class="secondary" type="button">Add to Need Practice</button>`;
+      if (good) {
+        stats.correct++;
+        stats.seen = Array.from(new Set([...(stats.seen || []), current.word]));
+        stats.wrongWords = stats.wrongWords.filter(w => w !== current.word);
+        els.resultPanel.innerHTML = `<div class="correct">Correct.</div>${resultCompareHtml(userAnswer, target)}<div class="actions-mini">${addButton}</div>`;
+      } else {
+        stats.wrong++;
+        stats.wrongWords = Array.from(new Set([...stats.wrongWords, current.word]));
+        els.resultPanel.innerHTML = `<div class="wrong">Not yet.</div>${resultCompareHtml(userAnswer, target)}<div class="actions-mini">${addButton}</div>`;
+      }
+      document.getElementById("addNeedPractice").onclick = () => {
+        addNeedPractice(current.word);
+        document.getElementById("addNeedPractice").textContent = "Added";
+      };
+      saveStats();
+      updateStats();
+      els.answer.focus();
+    }
+    function updateStats() {
+      els.correctCount.textContent = stats.correct;
+      els.wrongCount.textContent = stats.wrong;
+    }
+    function currentListKind() {
+      return els.modeSelect.value === "wrong" ? "wrong" : "need-practice";
+    }
+    function listWords(kind) {
+      return kind === "wrong" ? (stats.wrongWords || []) : needPracticeWords();
+    }
+    function openNeedPracticeList() {
+      const kind = currentListKind();
+      const title = kind === "wrong" ? "Practice Wrong Words" : "Need Practice";
+      const saved = listWords(kind);
+      document.getElementById("needPracticeTitle").textContent = title;
+      els.clearNeedPractice.textContent = `Clear ${kind === "wrong" ? "Wrong" : "Need Practice"}`;
+      if (!saved.length) {
+        els.needPracticeList.innerHTML = `<p>No words in ${title} yet.</p>`;
+      } else {
+        els.needPracticeList.innerHTML = saved.map(word => {
+          const item = vocabulary.find(v => v.word === word);
+          if (!item) return "";
+          return `<div class="practice-item"><div class="practice-item-text"><b>${item.word}</b> - ${clueMeaning(item)}</div><button class="secondary remove-practice" type="button" data-word="${item.word.replace(/"/g,"&quot;")}">Remove</button></div>`;
+        }).join("");
+        els.needPracticeList.querySelectorAll(".remove-practice").forEach(btn => btn.onclick = () => {
+          if (kind === "wrong") stats.wrongWords = (stats.wrongWords || []).filter(word => word !== btn.dataset.word);
+          else stats.needPractice = needPracticeWords().filter(word => word !== btn.dataset.word);
+          saveStats();
+          categoryOptions();
+          openNeedPracticeList();
+        });
+      }
+      els.needPracticeModal.classList.add("show");
+      els.closeNeedPractice.focus();
+    }
+    function closeNeedPracticeList() { els.needPracticeModal.classList.remove("show"); }
+    categoryOptions(); loadVoices(); updateStats(); pick();
+    speechSynthesis.onvoiceschanged = loadVoices;
+    els.answer.addEventListener("input", updateLive);
+    els.answer.addEventListener("focus", () => {
+      document.body.classList.add("typing");
+      setTimeout(() => els.answer.scrollIntoView({behavior:"smooth", block:"center"}), 120);
+    });
+    els.answer.addEventListener("blur", () => document.body.classList.remove("typing"));
+    els.answer.addEventListener("keydown", e => {
+      if (e.key !== "Enter") return;
+      e.preventDefault();
+      if (checkedValue !== null && els.answer.value === checkedValue) next();
+      else checkAnswer();
+    });
+    document.addEventListener("keydown", e => {
+      if (!["ArrowRight", "ArrowLeft"].includes(e.key)) return;
+      if (["INPUT", "SELECT", "BUTTON"].includes(document.activeElement.tagName)) return;
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") back();
+    });
+    els.checkBtn.onclick = checkAnswer;
+    els.backBtn.onclick = back;
+    els.nextBtn.onclick = next;
+    els.soundBtn.onclick = () => speak(targetText());
+    els.showBtn.onclick = () => { const target = targetText(); els.resultPanel.className = "result-panel show"; els.resultPanel.innerHTML = `Answer: <b>${target}</b>`; speak(target); };
+    els.againBtn.onclick = () => {
+      els.answer.value = "";
+      els.resultPanel.className = "result-panel";
+      els.resultPanel.innerHTML = "";
+      updateLive();
+      speak(targetText());
+      els.answer.focus();
+    };
+    els.clearStats.onclick = () => {
+      stats.correct = 0; stats.wrong = 0; stats.wrongWords = []; stats.seen = [];
+      saveStats(); updateStats();
+      els.resultPanel.className = "result-panel show";
+      els.resultPanel.innerHTML = "Stats cleared.";
+      if (els.modeSelect.value === "wrong") els.modeSelect.value = "all";
+    };
+    els.needPracticeListBtn.onclick = openNeedPracticeList;
+    els.closeNeedPractice.onclick = closeNeedPracticeList;
+    els.needPracticeModal.onclick = e => { if (e.target === els.needPracticeModal) closeNeedPracticeList(); };
+    els.clearNeedPractice.onclick = () => {
+      const kind = currentListKind();
+      if (kind === "wrong") stats.wrongWords = [];
+      else stats.needPractice = [];
+      saveStats();
+      if (els.modeSelect.value === "need-practice" || els.modeSelect.value === "wrong") els.modeSelect.value = "all";
+      openNeedPracticeList();
+    };
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeNeedPracticeList(); });
+    els.categorySelect.onchange = () => { history = []; historyIndex = -1; pick(); };
+    els.modeSelect.onchange = () => { history = []; historyIndex = -1; pick(); };
+    els.showMeaning.onchange = updateOptions;
+    els.showIpa.onchange = updateOptions;
+    els.showInfo.onchange = updateOptions;
+    els.enableHint.onchange = updateOptions;
+    function resetCurrentAttempt() {
+      checkedValue = null;
+      els.answer.value = "";
+      els.resultPanel.className = "result-panel";
+      els.resultPanel.innerHTML = "";
+      updateLive();
+      els.answer.focus();
+    }
+    els.sentenceShort.onchange = () => { if (els.sentenceShort.checked) els.sentenceLong.checked = false; resetCurrentAttempt(); };
+    els.sentenceLong.onchange = () => { if (els.sentenceLong.checked) els.sentenceShort.checked = false; resetCurrentAttempt(); };
+    els.autoPlay.onchange = () => { if (els.autoPlay.checked && current) speak(targetText()); };
+  </script>
+</body>
+</html>
