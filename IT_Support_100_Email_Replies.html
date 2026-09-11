@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT Support 100 Email Replies</title>
+  <style>
+    html { scroll-behavior:smooth; }
+    :root { --bg:#f4f7fb; --card:#fff; --text:#172033; --muted:#65728a; --line:#d9e3f0; --blue:#1769d2; --dark:#0b4fa8; --soft:#eaf2ff; --green:#137a4c; --red:#c33030; --shadow:0 10px 30px rgba(23,32,51,.08); }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Arial, Helvetica, sans-serif; line-height:1.5; }
+    .wrap { max-width:1120px; margin:0 auto; padding:0 16px; }
+    header { background:linear-gradient(180deg,#fff,#f7fbff); border-bottom:1px solid var(--line); padding:26px 0 18px; }
+    h1 { margin:0 0 14px; font-size:clamp(26px,4vw,40px); letter-spacing:0; }
+    h2 { margin:0 0 12px; font-size:24px; }
+    h3 { margin:0; font-size:22px; }
+    button, select, input, textarea { font:inherit; }
+    button { border:1px solid var(--blue); background:var(--blue); color:#fff; border-radius:6px; padding:9px 12px; font-weight:700; cursor:pointer; }
+    button:hover { background:var(--dark); }
+    button.secondary { background:#fff; color:var(--blue); }
+    button.secondary:hover { background:var(--soft); }
+    button.icon { min-width:36px; padding:6px 8px; }
+    button.reading { background:#0b7a59; border-color:#0b7a59; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible { outline:3px solid #9fc5ff; outline-offset:2px; }
+    select, input, textarea { border:1px solid #bac7d9; border-radius:6px; padding:10px 12px; background:#fff; color:var(--text); }
+    .voice-row, .cat-menu, .practice-panel, .category { background:var(--card); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); }
+    .voice-row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; padding:12px; margin-bottom:16px; }
+    .voice-row select { min-width:260px; flex:1; }
+    .cat-menu { padding:16px; scroll-margin-top:90px; }
+    .cat-buttons { display:flex; flex-wrap:wrap; gap:8px; }
+    .cat-buttons button { background:#fff; color:var(--blue); }
+    .cat-buttons button.active, .cat-buttons button:hover { background:var(--blue); color:#fff; }
+    .cat-buttons button.muted { opacity:.35; }
+    .toolbar { position:sticky; top:0; z-index:20; background:#fff; border-bottom:1px solid var(--line); box-shadow:0 4px 14px rgba(23,32,51,.08); }
+    .toolbar .wrap { display:flex; gap:10px; align-items:center; flex-wrap:wrap; padding:10px 16px; }
+    .toolbar label { font-weight:700; }
+    .toolbar input { min-width:270px; flex:1; }
+    main { padding:18px 0 32px; }
+    .practice-panel { display:none; padding:16px; margin-top:16px; }
+    .practice-panel.open { display:block; }
+    .practice-actions { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:10px 0; }
+    .practice-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .original, textarea { min-height:260px; }
+    .original { background:#fbfdff; border:1px solid var(--line); border-radius:8px; padding:12px; white-space:pre-wrap; overflow:auto; }
+    textarea { width:100%; resize:vertical; }
+    .typed-ok { background:#dff6ea; color:#064b2d; }
+    .typed-bad { background:#ffe0e0; color:#8c1717; }
+    .stats { color:var(--muted); font-weight:700; }
+    .category { margin-bottom:22px; overflow:hidden; scroll-margin-top:82px; }
+    .cat-head, .cat-foot { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 16px; background:#fbfdff; border-bottom:1px solid var(--line); }
+    .cat-foot { border-top:1px solid var(--line); border-bottom:0; justify-content:flex-end; }
+    .cards { display:grid; gap:14px; padding:14px; }
+    .email-card { background:#fff; border:1px solid var(--line); border-radius:8px; padding:16px; }
+    .email-card:hover { border-color:#b8cceb; }
+    .card-title { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+    .card-title h4 { margin:0; font-size:20px; }
+    .meta { color:var(--muted); font-size:14px; font-weight:700; }
+    .subject { margin:8px 0 12px; color:#293a55; }
+    .email-section { border-top:1px solid var(--line); padding-top:12px; margin-top:12px; }
+    .section-title { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; font-weight:800; color:#14223a; }
+    .email-text { white-space:pre-wrap; background:#f8fbff; border:1px solid #edf3fb; border-radius:8px; padding:12px; }
+    .section-actions { display:flex; gap:8px; flex-wrap:wrap; }
+    #floatTop { position:fixed; right:18px; bottom:18px; z-index:30; display:none; width:52px; height:52px; padding:0; border-radius:50%; box-shadow:var(--shadow); }
+    #floatTop.show { display:block; }
+    .modal-backdrop { position:fixed; inset:0; background:rgba(8,20,38,.55); display:none; align-items:center; justify-content:center; padding:16px; z-index:40; }
+    .modal { width:min(900px,100%); max-height:90vh; overflow:auto; background:#fff; border-radius:8px; padding:18px; box-shadow:0 24px 70px rgba(0,0,0,.25); }
+    .modal h2 { font-size:18px; color:var(--dark); margin:0 0 8px; }
+    .modal pre { white-space:pre-wrap; font-family:inherit; background:#f8fbff; border:1px solid var(--line); border-radius:8px; padding:12px; }
+    .modal-actions { display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
+    .hidden { display:none !important; }
+    @media (max-width:720px) {
+      .toolbar { position:static; box-shadow:none; }
+      .toolbar .wrap, .voice-row, .cat-head, .card-title, .section-title { align-items:stretch; }
+      .toolbar input, .toolbar select, .voice-row select, .voice-row button { width:100%; min-width:0; }
+      .practice-grid { grid-template-columns:1fr; }
+      .cat-foot .top-btn, .cat-head .top-btn { width:100%; }
+      .email-card { padding:12px; }
+      .section-actions button { flex:1; }
+    }
+    @media print {
+      .voice-row, .toolbar, .cat-menu, .practice-panel, .top-btn, #floatTop, .section-actions, .modal-backdrop { display:none !important; }
+      body { background:#fff; color:#000; }
+      .category, .email-card { box-shadow:none; border:0; break-inside:auto; }
+      .email-card { break-inside:avoid; }
+      .email-text { border:0; background:#fff; padding:0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>IT Support 100 Email Replies • 20 Categories</h1>
+      <div class="voice-row">
+        <select id="voiceSelect" aria-label="English voice"></select>
+        <button id="testVoice" type="button">🔊 Test Voice</button>
+        <button id="stopSpeech" class="secondary" type="button">■ Stop Reading</button>
+        <button id="practiceToggle" type="button">✍ Practice Writing</button>
+      </div>
+      <section id="top-categories" class="cat-menu" aria-labelledby="catTitle">
+        <h2 id="catTitle">IT Support Email Categories</h2>
+        <div id="categoryButtons" class="cat-buttons"></div>
+      </section>
+      <section id="practicePanel" class="practice-panel" aria-live="polite">
+        <h2 id="practiceTitle">Practice Writing</h2>
+        <div class="practice-actions">
+          <button id="modeShort" class="secondary" type="button">Short</button>
+          <button id="modeLong" type="button">Long</button>
+          <button id="clearPractice" class="secondary" type="button">Clear</button>
+          <span id="practiceStats" class="stats">0% matched</span>
+        </div>
+        <div class="practice-grid">
+          <div id="originalText" class="original"></div>
+          <textarea id="practiceInput" placeholder="Type your email here..." aria-label="Type your email here"></textarea>
+        </div>
+      </section>
+    </div>
+  </header>
+  <nav class="toolbar" aria-label="Sticky navigation">
+    <div class="wrap">
+      <label for="categorySelect">Category:</label>
+      <select id="categorySelect"></select>
+      <label for="searchBox">Search:</label>
+      <input id="searchBox" type="search" placeholder="Search email, issue, subject..." aria-label="Search email, issue, subject">
+      <button class="secondary top-btn" type="button" data-top>↑ Top</button>
+    </div>
+  </nav>
+  <main class="wrap" id="content"></main>
+  <button id="floatTop" type="button" aria-label="Back to top">↑ Top</button>
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal">
+      <h2>English</h2>
+      <pre id="modalEnglish"></pre>
+      <h2>Vietnamese</h2>
+      <pre id="modalVietnamese"></pre>
+      <div class="modal-actions">
+        <button id="modalRead" type="button" aria-label="Read English">🔊</button>
+        <button id="modalClose" class="secondary" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const topics = ["Network Connectivity","Intermittent Network","VPN Connection","Wi-Fi Access","DNS Resolution","Firewall Access","Login Failure","Account Locked","Password Reset","User Permission","Token Expired","MFA Issue","Application Unavailable","Application Slow","Application Crash","Service Stopped","IIS Application Pool","Configuration Error","API Error 500","API Timeout","API Unauthorized","API Bad Request","API Client Difference","API Performance","Printer Not Printing","Print Queue Stuck","Printer Offline","Printer IP Changed","Missing File","Incomplete File","File Locked","Invalid File Format","FTP Transfer Failure","SFTP Connection","Shared Folder Access","File Reprocessing","Database Unavailable","Slow SQL Query","Database Blocking","Database Deadlock","Database Restore","Database Backup","Missing Database Record","Duplicate Records","Data Truncation","Data Synchronization","High CPU","Low Memory","Low Disk Space","Server Restart","Server Outage","Scheduled Task Failure","Background Job Failure","Deployment Failure","Deployment Completed","Rollback Required","Version Mismatch","Email Not Received","SMTP Connection","SMTP Relay Rejected","Delayed Email","Attachment Missing","Certificate Expired","SSL Connection","Access Denied","Remote Access","Browser Cache","CORS Error","Mobile App Connection","Android App Error","Device Registration","SAP Feed Missing","SAP File Processing","Shipment Data Missing","Railcar Not Found","BOL Not Found","Material Mismatch","OCR Read Failure","Camera Offline","Video Processing","Report Generation","PDF Generation","User Reported Lost Data","Data Recovery","Production Incident","Recurring Issue","Unable to Reproduce","Need More Information","Waiting for Customer","Waiting for Vendor","Escalated to Infrastructure","Escalated to Development","Temporary Workaround","Permanent Fix Applied","Monitoring After Fix","Request User Testing","Issue Resolved","Ticket Closure","Maintenance Notification","Maintenance Completed"];
+    const categoryNames = ["Troubleshooting","Networking","Windows","Servers","Database / SQL","API","Web Applications","Authentication / Security","FTP / SFTP / Files","Printing","Email / SMTP","Monitoring / Logging","Deployment","Cloud","Mobile Applications","Software Development","Help Desk","Production Support","Customer Communication","Incident Follow-up"];
+    const details = {
+      "Network Connectivity":["network path, gateway, DNS, firewall, and server reachability","run ping and traceroute tests and compare current traffic with normal behavior","connection stability"],
+      "Intermittent Network":["packet loss, latency, Wi-Fi stability, and network logs","test from multiple devices and locations to identify the pattern","intermittent connection"],
+      "VPN Connection":["VPN profile, credentials, MFA prompt, and tunnel status","review VPN logs and confirm whether the internal resources are reachable","VPN access"],
+      "Wi-Fi Access":["wireless signal, access point status, and device network settings","compare affected devices and confirm whether authentication succeeds","Wi-Fi access"],
+      "DNS Resolution":["DNS lookup results, resolver settings, and cached records","flush DNS cache and test the hostname from the affected network","DNS resolution"],
+      "Firewall Access":["source, destination, port, protocol, and firewall policy","validate the requested rule and confirm traffic is allowed safely","firewall access"],
+      "API Timeout":["endpoint response time, backend dependencies, database calls, and API logs","test the request with the same payload and monitor response duration","API timeout"],
+      "Printer Not Printing":["printer status, print queue, Print Spooler, driver, and network communication","clear stuck jobs and send a test page after service restart","printing issue"],
+      "Missing File":["source and destination folders, upload status, file lock, file size, and transfer logs","confirm whether the processing service received the expected file","missing file"],
+      "SFTP Connection":["host key, port 22, credentials, folder permissions, and transfer log","test the connection from the support workstation and server side","SFTP connection"],
+      "Slow SQL Query":["execution plan, indexes, blocking sessions, and query parameters","compare query duration with the normal baseline and recent changes","SQL performance"],
+      "Database Deadlock":["deadlock graph, locked resources, transaction timing, and application logs","identify the sessions involved and confirm whether retry logic succeeded","database deadlock"],
+      "High CPU":["process usage, service activity, scheduled jobs, and recent deployments","compare CPU metrics with the baseline and capture logs during the spike","high CPU usage"],
+      "Production Incident":["service impact, affected users, monitoring alerts, logs, and recovery actions","coordinate investigation, mitigation, and next update timing","production incident"]
+    };
+    const viTerms = { investigated:"đang kiểm tra", reviewed:"đã xem xét", monitoring:"tiếp tục giám sát", resolved:"đã được xử lý" };
+    function categoryId(name) { return "cat-" + name.toLowerCase().replace(/[^a-z0-9]+/g,"-"); }
+    function scenarioCategory(title) {
+      if (/Network|VPN|Wi-Fi|DNS|Firewall/i.test(title)) return "Networking";
+      if (/Browser Cache/i.test(title)) return "Windows";
+      if (/Server Outage/i.test(title)) return "Cloud";
+      if (/Login|Account|Password|Permission|Token|MFA|Certificate|SSL|Access Denied|Remote Access/i.test(title)) return "Authentication / Security";
+      if (/Application|Browser|CORS/i.test(title)) return "Web Applications";
+      if (/Service Stopped|IIS|Configuration|Server|CPU|Memory|Disk|Scheduled Task|Background Job/i.test(title)) return "Servers";
+      if (/Database|SQL|Record|Duplicate|Truncation|Synchronization/i.test(title)) return "Database / SQL";
+      if (/API/i.test(title)) return "API";
+      if (/Printer|Print/i.test(title)) return "Printing";
+      if (/File|FTP|SFTP|Folder|SAP|Shipment|Railcar|BOL|Material|OCR|Camera|Video|Report|PDF/i.test(title)) return "FTP / SFTP / Files";
+      if (/Email|SMTP|Attachment/i.test(title)) return "Email / SMTP";
+      if (/Deployment|Rollback|Version|Maintenance/i.test(title)) return "Deployment";
+      if (/Mobile|Android|Device Registration/i.test(title)) return "Mobile Applications";
+      if (/Escalated to Development/i.test(title)) return "Software Development";
+      if (/Monitoring/i.test(title)) return "Monitoring / Logging";
+      if (/Production/i.test(title)) return "Production Support";
+      if (/Need More Information|Waiting|Request User Testing|Ticket Closure/i.test(title)) return "Customer Communication";
+      if (/Resolved|Permanent Fix|Temporary Workaround|Recurring|Unable to Reproduce/i.test(title)) return "Incident Follow-up";
+      if (/Lost Data|Recovery/i.test(title)) return "Help Desk";
+      return "Troubleshooting";
+    }
+    function info(title) {
+      return details[title] || [`${title.toLowerCase()} details, related logs, user impact, and recent changes`,`reproduce the behavior and verify the current status in the affected environment`, title.toLowerCase()];
+    }
+    function emailText(title, long) {
+      const [problem, test, label] = info(title);
+      if (!long) return `Hello Team,\n\nWe are currently investigating the ${label}.\n\nOur team is reviewing ${problem}. We are also performing basic validation to confirm the current behavior and identify the next support action.\n\nWe will provide another update once we have more information.\n\nRegards,\n[Your Name]`;
+      return `Hello Team,\n\nWe have been investigating the ${label} and reviewing ${problem}.\n\nAt this time, we are working to confirm the scope, identify any recent changes, and determine whether the issue is isolated or affecting multiple users or systems. We are also testing the behavior by trying to ${test}.\n\nThe current status is still under review. If we identify a service interruption, configuration problem, permission issue, or dependency failure, we will take the appropriate corrective action and share the result with the team.\n\nWe will continue monitoring the system and will provide another update after we confirm the root cause, complete testing, or need additional information from the affected users.\n\nRegards,\n[Your Name]`;
+    }
+    function viEmail(title, long) {
+      const [problem,, label] = info(title);
+      if (!long) return `Hello Team,\n\nChúng tôi hiện đang kiểm tra ${label}.\n\nNhóm hỗ trợ đang xem xét ${problem}. Chúng tôi cũng đang kiểm tra cơ bản để xác nhận tình trạng hiện tại và xác định bước hỗ trợ tiếp theo.\n\nChúng tôi sẽ cập nhật thêm khi có thêm thông tin.\n\nRegards,\n[Your Name]`;
+      return `Hello Team,\n\nChúng tôi đang kiểm tra ${label} và xem xét ${problem}.\n\nHiện tại, chúng tôi đang xác nhận phạm vi ảnh hưởng, kiểm tra các thay đổi gần đây và xác định sự cố chỉ xảy ra với một người dùng hay ảnh hưởng đến nhiều người dùng hoặc hệ thống. Nhóm cũng đang thực hiện các bước kiểm thử phù hợp trong môi trường bị ảnh hưởng.\n\nTrạng thái hiện tại vẫn đang được xem xét. Nếu phát hiện gián đoạn dịch vụ, lỗi cấu hình, lỗi quyền truy cập hoặc lỗi phụ thuộc hệ thống, chúng tôi sẽ thực hiện hành động khắc phục phù hợp và thông báo kết quả cho nhóm.\n\nChúng tôi sẽ tiếp tục giám sát hệ thống và cập nhật thêm sau khi xác nhận nguyên nhân gốc, hoàn tất kiểm thử hoặc cần thêm thông tin từ người dùng bị ảnh hưởng.\n\nRegards,\n[Your Name]`;
+    }
+    const scenarios = topics.map((title,i) => ({ number:i+1, title, category:scenarioCategory(title), subject:title, short:emailText(title,false), long:emailText(title,true), viShort:viEmail(title,false), viLong:viEmail(title,true) }));
+    const categoryPlan = categoryNames.map(name => [name, scenarios.filter(s => s.category === name).length]);
+    const els = { buttons:document.getElementById("categoryButtons"), select:document.getElementById("categorySelect"), content:document.getElementById("content"), search:document.getElementById("searchBox"), voice:document.getElementById("voiceSelect"), test:document.getElementById("testVoice"), stop:document.getElementById("stopSpeech"), floatTop:document.getElementById("floatTop"), modal:document.getElementById("modalBackdrop"), modalEnglish:document.getElementById("modalEnglish"), modalVietnamese:document.getElementById("modalVietnamese"), modalRead:document.getElementById("modalRead"), modalClose:document.getElementById("modalClose"), practiceToggle:document.getElementById("practiceToggle"), practicePanel:document.getElementById("practicePanel"), practiceTitle:document.getElementById("practiceTitle"), modeShort:document.getElementById("modeShort"), modeLong:document.getElementById("modeLong"), clearPractice:document.getElementById("clearPractice"), originalText:document.getElementById("originalText"), practiceInput:document.getElementById("practiceInput"), practiceStats:document.getElementById("practiceStats") };
+    let voices = [], currentScenario = scenarios[0], practiceMode = "long", modalEnglish = "";
+    function loadVoices() {
+      voices = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang || v.name)).sort((a,b) => {
+        const rank = v => /Google US English/i.test(v.name) ? 1 : /Google English/i.test(v.name) ? 2 : /Microsoft.*US English/i.test(v.name) ? 3 : /en-US/i.test(v.lang) ? 4 : 5;
+        return rank(a) - rank(b) || a.name.localeCompare(b.name);
+      });
+      els.voice.innerHTML = voices.map(v => `<option value="${v.name}">${v.name}</option>`).join("") || "<option>Default English voice</option>";
+    }
+    function speak(text, button) {
+      speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.voice = voices.find(v => v.name === els.voice.value) || voices[0] || null;
+      utter.lang = "en-US"; utter.rate = .88; utter.pitch = 1; utter.volume = 1;
+      if (button) { button.classList.add("reading"); utter.onend = utter.onerror = () => button.classList.remove("reading"); }
+      speechSynthesis.speak(utter);
+    }
+    function escapeHtml(text) { return text.replace(/[&<>"']/g, ch => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;" }[ch])); }
+    function render() {
+      categoryPlan.forEach(([name,count]) => {
+        const b = document.createElement("button"); b.type = "button"; b.textContent = `${name} (${count})`; b.dataset.cat = name; b.onclick = () => scrollToId(categoryId(name)); els.buttons.appendChild(b);
+        const o = document.createElement("option"); o.value = categoryId(name); o.textContent = `${name} (${count})`; els.select.appendChild(o);
+      });
+      categoryPlan.forEach(([name,count]) => {
+        const section = document.createElement("section"); section.className = "category"; section.id = categoryId(name); section.dataset.name = name;
+        section.innerHTML = `<div class="cat-head"><h3>${name} (${count})</h3><button class="secondary top-btn" type="button" data-top>↑ Top</button></div><div class="cards"></div><div class="cat-foot"><button class="secondary top-btn" type="button" data-top>↑ Top</button></div>`;
+        const cards = section.querySelector(".cards");
+        scenarios.filter(s => s.category === name).forEach(s => cards.appendChild(cardFor(s)));
+        els.content.appendChild(section);
+      });
+      document.querySelectorAll("[data-top]").forEach(b => b.onclick = () => scrollToId("top-categories"));
+    }
+    function cardFor(s) {
+      const card = document.createElement("article"); card.className = "email-card"; card.dataset.number = s.number; card.dataset.search = [s.title,s.category,s.subject,s.short,s.long].join(" ").toLowerCase();
+      card.innerHTML = `<div class="card-title"><h4>${s.number}. ${s.title}</h4><span class="meta">${s.category}</span></div><div class="subject"><b>Subject:</b> ${s.subject}</div>
+      <div class="email-section"><div class="section-title"><span>Short Version</span><span class="section-actions"><button class="icon read-short" type="button" aria-label="Read short email">🔊</button><button class="icon secondary translate-short" type="button" aria-label="Translate short email to Vietnamese">🇻🇳</button></span></div><div class="email-text">${escapeHtml(s.short)}</div></div>
+      <div class="email-section"><div class="section-title"><span>Long Version</span><span class="section-actions"><button class="icon read-long" type="button" aria-label="Read long email">🔊</button><button class="icon secondary translate-long" type="button" aria-label="Translate long email to Vietnamese">🇻🇳</button></span></div><div class="email-text">${escapeHtml(s.long)}</div></div>`;
+      card.querySelector(".read-short").onclick = e => speak(s.short, e.currentTarget);
+      card.querySelector(".read-long").onclick = e => speak(s.long, e.currentTarget);
+      card.querySelector(".translate-short").onclick = () => openModal(s.short, s.viShort);
+      card.querySelector(".translate-long").onclick = () => openModal(s.long, s.viLong);
+      return card;
+    }
+    function scrollToId(id) { document.getElementById(id).scrollIntoView({behavior:"smooth", block:"start"}); }
+    function openModal(en, vi) { modalEnglish = en; els.modalEnglish.textContent = en; els.modalVietnamese.textContent = vi; els.modal.style.display = "flex"; els.modalClose.focus(); }
+    function closeModal() { els.modal.style.display = "none"; }
+    function applySearch() {
+      const q = els.search.value.trim().toLowerCase(); const counts = new Map();
+      document.querySelectorAll(".category").forEach(section => {
+        let visible = 0;
+        section.querySelectorAll(".email-card").forEach(card => { const hit = !q || card.dataset.search.includes(q); card.classList.toggle("hidden", !hit); if (hit) visible++; });
+        section.classList.toggle("hidden", visible === 0); counts.set(section.dataset.name, visible);
+      });
+      document.querySelectorAll("#categoryButtons button").forEach(btn => btn.classList.toggle("muted", q && (counts.get(btn.dataset.cat) || 0) === 0));
+    }
+    function visibleScenario() {
+      let best = currentScenario, min = Infinity;
+      document.querySelectorAll(".email-card:not(.hidden)").forEach(card => {
+        const d = Math.abs(card.getBoundingClientRect().top - 110);
+        if (d < min) { min = d; best = scenarios[Number(card.dataset.number)-1]; }
+      });
+      return best;
+    }
+    function practiceText() { return practiceMode === "short" ? currentScenario.short : currentScenario.long; }
+    function openPractice() { currentScenario = visibleScenario(); els.practicePanel.classList.add("open"); updatePracticeOriginal(); els.practiceInput.focus(); }
+    function updatePracticeOriginal() {
+      const original = practiceText(), typed = els.practiceInput.value; let ok = 0;
+      while (ok < typed.length && ok < original.length && typed[ok] === original[ok]) ok++;
+      const mismatch = typed.length > ok;
+      els.originalText.innerHTML = `<span class="typed-ok">${escapeHtml(original.slice(0, ok))}</span>${mismatch ? `<span class="typed-bad">${escapeHtml(original.slice(ok, ok + 1))}</span>` : ""}${escapeHtml(original.slice(ok + (mismatch ? 1 : 0)))}`;
+      const pct = Math.round((ok / original.length) * 100);
+      els.practiceTitle.textContent = `Practice Writing -- ${currentScenario.title}`;
+      els.practiceStats.textContent = `${typed.trim().split(/\s+/).filter(Boolean).length} words • ${typed.length} characters • ${pct}% matched${mismatch ? " - check the red position" : pct === 100 ? " ✓ Perfect" : ""}`;
+    }
+    render(); loadVoices();
+    speechSynthesis.onvoiceschanged = loadVoices;
+    els.test.onclick = () => speak("Hello. This is a test of the selected English voice.", els.test);
+    els.stop.onclick = () => speechSynthesis.cancel();
+    els.select.onchange = e => scrollToId(e.target.value);
+    els.search.oninput = applySearch;
+    els.floatTop.onclick = () => scrollToId("top-categories");
+    els.modalRead.onclick = () => speak(modalEnglish, els.modalRead);
+    els.modalClose.onclick = closeModal;
+    els.modal.onclick = e => { if (e.target === els.modal) closeModal(); };
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+    els.practiceToggle.onclick = openPractice;
+    els.modeShort.onclick = () => { practiceMode = "short"; els.modeShort.className = ""; els.modeLong.className = "secondary"; els.practiceInput.value = ""; updatePracticeOriginal(); };
+    els.modeLong.onclick = () => { practiceMode = "long"; els.modeLong.className = ""; els.modeShort.className = "secondary"; els.practiceInput.value = ""; updatePracticeOriginal(); };
+    els.clearPractice.onclick = () => { els.practiceInput.value = ""; updatePracticeOriginal(); els.practiceInput.focus(); };
+    els.practiceInput.oninput = updatePracticeOriginal;
+    window.addEventListener("scroll", () => els.floatTop.classList.toggle("show", window.scrollY > 420));
+    const observer = new IntersectionObserver(entries => {
+      const v = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0]; if (!v) return;
+      els.select.value = v.target.id;
+      document.querySelectorAll("#categoryButtons button").forEach(b => b.classList.toggle("active", categoryId(b.dataset.cat) === v.target.id));
+    }, {rootMargin:"-20% 0px -65% 0px", threshold:[0,.2,.5,.8]});
+    document.querySelectorAll(".category").forEach(s => observer.observe(s));
+    console.log({scenarios:scenarios.length, categories:categoryPlan.length, allStartCorrect:scenarios.every(s => s.short.startsWith("Hello Team,") && s.long.startsWith("Hello Team,"))});
+  </script>
+</body>
+</html>
