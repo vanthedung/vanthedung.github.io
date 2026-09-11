@@ -42,9 +42,10 @@
     .char.ok { background:#dff6ea; border-color:#9bd9b8; color:#075a35; }
     .char.bad { background:#ffe1e1; border-color:#f1a4a4; color:#8c1717; }
     .char.wait { background:#f7f9fc; color:#7a879a; }
-    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding:12px; margin-bottom:18px; }
-    .stat { background:#f8fbff; border:1px solid #edf3fb; border-radius:8px; padding:10px; }
-    .stat b { display:block; font-size:22px; color:#10213c; }
+    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; padding:6px; margin-bottom:10px; }
+    .stat { background:#f8fbff; border:1px solid #edf3fb; border-radius:6px; padding:5px 6px; }
+    .stat span { font-size:12px; line-height:1.1; }
+    .stat b { display:block; font-size:16px; line-height:1.1; color:#10213c; }
     .result-panel { padding:16px; margin-top:16px; display:none; }
     .result-panel.show { display:block; }
     .correct { color:var(--green); font-weight:800; }
@@ -55,7 +56,7 @@
     .missing-char { color:var(--red); background:#ffe1e1; border-radius:3px; padding:0 1px; font-weight:800; }
     .actions-mini { margin-top:10px; }
     .button-bar { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:8px; margin-top:12px; }
-    .button-bar button { min-height:42px; padding:9px 10px; white-space:nowrap; }
+    .button-bar button { min-height:24px; padding:4px 6px; white-space:nowrap; font-size:14px; }
     .progress { height:10px; background:#e7eef8; border-radius:999px; overflow:hidden; margin-top:14px; }
     #bar { width:0%; height:100%; background:var(--blue); transition:width .18s ease; }
     .hidden { display:none !important; }
@@ -73,10 +74,13 @@
       .toolbar select, .toolbar button { width:100%; }
       .answer-row { display:block; }
       #answer { width:100%; }
-      .button-bar { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-      .button-bar button { width:100%; white-space:normal; }
+      .button-bar { grid-template-columns:repeat(7, minmax(30px, 1fr)); gap:5px; }
+      .button-bar button { width:100%; min-height:30px; padding:3px 4px; white-space:nowrap; font-size:13px; }
       .check-option { width:100%; }
-      .stats { grid-template-columns:repeat(2,1fr); }
+      .stats { grid-template-columns:repeat(4,1fr); gap:4px; padding:4px; }
+      .stat { padding:4px; text-align:center; }
+      .stat span { font-size:10px; }
+      .stat b { font-size:14px; }
       body.typing .stats { display:none; }
       body.typing .card { margin-top:12px; }
       .top-line { grid-template-columns:1fr; }
