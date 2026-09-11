@@ -50,6 +50,7 @@
     .word-line { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:8px; font-size:18px; font-weight:800; }
     .word-main { display:flex; flex-direction:column; gap:6px; }
     .word-title { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .mobile-num { display:none; color:var(--muted); }
     .inline-meta { color:#47566d; font-weight:700; }
     .forms { display:flex; flex-wrap:wrap; gap:6px; font-size:12px; font-weight:700; color:#34506f; }
     .form-chip { display:inline-flex; align-items:center; gap:6px; border:1px solid #c9d9ef; background:#f3f8ff; border-radius:999px; padding:3px 6px 3px 8px; }
@@ -74,10 +75,14 @@
     .status { color:var(--muted); font-size:14px; margin-left:auto; }
     @media (max-width:720px) {
       input, select { width:100%; min-width:0; }
+      .toolbar { position:static; border-radius:0; box-shadow:none; }
       .toolbar .wrap, .voice-row, .cat-head { align-items:stretch; }
+      table { min-width:0; }
+      td.num { display:none; }
+      .mobile-num { display:inline; }
       .ex { grid-template-columns:22px minmax(210px,1fr); }
       .word-line { align-items:flex-start; }
-      th { top:132px; }
+      th { position:static; }
     }
     @media print {
       .toolbar, .voice-row, .top-btn, #floatTop, .small, .form-play, .cat-menu { display:none !important; }
@@ -333,7 +338,7 @@
           const tr = document.createElement("tr");
           const formsHtml = rec.forms.length ? `<div class="forms">${rec.forms.map(f => `<span class="form-chip">${f.label}: <strong>${f.value}</strong><button class="form-play" type="button" data-form="${f.value.replace(/"/g,"&quot;")}" aria-label="Speak ${f.value.replace(/"/g,"&quot;")}">🔊</button></span>`).join("")}</div>` : "";
           tr.dataset.search = [rec.word, rec.meaning, ...rec.forms.map(f => f.value), ...rec.examples.map(e => e.en)].join(" ").toLowerCase();
-          tr.innerHTML = `<td class="num">${rec.number}</td><td><div class="word-line"><span class="word-main"><span class="word-title">${rec.word} <span class="inline-meta">(${rec.type})</span> <span class="inline-meta">${rec.ipa}</span> <button class="small secondary play-word" type="button" aria-label="Speak ${rec.word.replace(/"/g,"&quot;")}">🔊</button></span>${formsHtml}</span></div>
+          tr.innerHTML = `<td class="num">${rec.number}</td><td><div class="word-line"><span class="word-main"><span class="word-title"><span class="mobile-num">${rec.number}.</span> ${rec.word} <span class="inline-meta">(${rec.type})</span> <span class="inline-meta">${rec.ipa}</span> <button class="small secondary play-word" type="button" aria-label="Speak ${rec.word.replace(/"/g,"&quot;")}">🔊</button></span>${formsHtml}</span></div>
             <div class="meaning-line"><b>Meaning</b>: ${rec.meaning}</div>
             <div class="examples">${rec.examples.map((ex,i) => `<div class="ex"><b>${i+1}</b><span class="sentence-wrap"><button class="sentence" type="button" data-en="${ex.en.replace(/"/g,"&quot;")}" data-vi="${ex.vi.replace(/"/g,"&quot;")}">${ex.en}</button><button class="small read" type="button" aria-label="Speak example ${i+1}">🔊</button></span></div>`).join("")}</div></td>`;
           tr.querySelector(".play-word").addEventListener("click", () => speak(rec.word));
