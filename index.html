@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IT Support English Tools</title>
+  <title>English Learning Tools</title>
   <style>
     :root {
       --bg:#f4f7fb;
@@ -27,7 +27,7 @@
       padding:18px;
     }
     main {
-      width:min(520px, 100%);
+      width:min(760px, 100%);
       background:var(--card);
       border:1px solid var(--line);
       border-radius:10px;
@@ -52,9 +52,8 @@
       gap:12px;
     }
     a {
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:grid;
+      gap:4px;
       min-height:58px;
       padding:14px 16px;
       border:1px solid var(--blue);
@@ -64,7 +63,14 @@
       text-decoration:none;
       font-size:18px;
       font-weight:700;
-      text-align:center;
+      text-align:left;
+    }
+    a span {
+      display:block;
+      color:#dfeeff;
+      font-size:13px;
+      font-weight:400;
+      line-height:1.25;
     }
     a:hover,
     a:focus-visible {
@@ -81,12 +87,14 @@
 </head>
 <body>
   <main>
-    <h1>IT Support English Tools</h1>
-    <p>Vocabulary, email replies, and typing practice</p>
+    <h1>English Learning Tools</h1>
+    <p>Open one of the 5 study apps</p>
     <nav aria-label="Tool links">
-      <a href="IT_Support_1000_Vocabulary.html">IT Support 1000 Vocabulary</a>
-      <a href="IT_Support_100_Email_Replies.html">IT Support 100 Email Replies</a>
-      <a href="Test_vocabulary.html">Test Write</a>
+      <a href="IT_Support_1000_Vocabulary.html">IT Support 1000 Vocabulary<span>Study IT words, meanings, IPA, examples, and Vietnamese translations.</span></a>
+      <a href="Test_IT_Support_1000_Vocabulary.html">Test IT Support 1000 Vocabulary<span>Practice typing IT words or sentences from meaning and audio clues.</span></a>
+      <a href="General_English_1000_Vocabulary.html">General English 1000 Vocabulary<span>Study daily-life English words across common categories.</span></a>
+      <a href="Test_General_English_1000_Vocabulary.html">Test General English 1000 Vocabulary<span>Practice typing general English words and example sentences.</span></a>
+      <a href="IT_Support_100_Email_Replies.html">IT Support 100 Email Replies<span>Learn professional email replies for common IT support situations.</span></a>
     </nav>
   </main>
 </body>

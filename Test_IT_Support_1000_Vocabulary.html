@@ -3,139 +3,161 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>1000 IT Support Vocabulary Words</title>
+  <title>Test IT Support 1000 Vocabulary</title>
   <style>
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior:smooth; }
     :root {
       --bg:#f4f7fb; --panel:#fff; --text:#172033; --muted:#65728a;
-      --line:#dbe3ef; --blue:#1769d2; --blue-dark:#0c4fa8; --soft:#eaf2ff;
-      --shadow:0 10px 30px rgba(23,32,51,.08);
+      --line:#d9e3f0; --blue:#1769d2; --dark:#0b4fa8; --soft:#eaf2ff;
+      --green:#137a4c; --red:#c33030; --yellow:#f7c948; --shadow:0 10px 30px rgba(23,32,51,.08);
     }
-    * { box-sizing: border-box; }
-    body { margin:0; background:var(--bg); color:var(--text); font-family: Arial, Helvetica, sans-serif; line-height:1.45; }
-    header { padding:28px 18px 16px; background:linear-gradient(180deg,#fff,#f6f9ff); border-bottom:1px solid var(--line); }
-    .wrap { max-width:1180px; margin:0 auto; }
-    h1 { margin:0 0 14px; font-size:clamp(26px,3vw,42px); letter-spacing:0; }
-    h2 { margin:0 0 16px; font-size:24px; }
-    h3 { margin:0; font-size:22px; }
-    .toolbar, .cat-menu, .category, .voice-row { background:var(--panel); border:1px solid var(--line); box-shadow:var(--shadow); border-radius:8px; }
-    .voice-row { padding:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:16px; }
-    select, input { border:1px solid #bac7d9; border-radius:6px; padding:10px 12px; background:#fff; color:var(--text); font:inherit; }
-    input { min-width:260px; }
-    button { border:1px solid var(--blue); border-radius:6px; background:var(--blue); color:#fff; padding:9px 12px; font-weight:700; cursor:pointer; font:inherit; }
-    button:hover { background:var(--blue-dark); }
-    button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid #9fc5ff; outline-offset:2px; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Arial, Helvetica, sans-serif; line-height:1.5; }
+    .wrap { max-width:920px; margin:0 auto; padding:0 16px; }
+    header { background:linear-gradient(180deg,#fff,#f7fbff); border-bottom:1px solid var(--line); padding:24px 0 18px; }
+    h1 { margin:0 0 12px; font-size:clamp(28px,5vw,42px); letter-spacing:0; }
+    button, select, input { font:inherit; }
+    button { border:1px solid var(--blue); background:var(--blue); color:#fff; border-radius:6px; padding:10px 13px; font-weight:700; cursor:pointer; }
+    button:hover { background:var(--dark); }
     button.secondary { background:#fff; color:var(--blue); }
     button.secondary:hover { background:var(--soft); }
-    button.reading { background:#0b7a59; border-color:#0b7a59; }
-    .cat-menu { padding:18px; margin-bottom:18px; scroll-margin-top:88px; }
-    .cat-buttons { display:flex; flex-wrap:wrap; gap:9px; }
-    .cat-buttons button { background:#fff; color:var(--blue); }
-    .cat-buttons button.active, .cat-buttons button:hover { background:var(--blue); color:#fff; }
-    .cat-buttons button.muted { opacity:.35; }
-    .toolbar { position:sticky; top:0; z-index:10; border-radius:0; box-shadow:0 4px 14px rgba(23,32,51,.08); }
-    .toolbar .wrap { display:flex; gap:12px; align-items:center; padding:10px 18px; flex-wrap:wrap; }
-    .toolbar label { font-weight:700; }
-    main { padding:18px; }
-    .category { margin:0 auto 22px; overflow:hidden; scroll-margin-top:82px; }
-    .cat-head, .cat-foot { padding:14px 16px; display:flex; justify-content:space-between; align-items:center; gap:12px; background:#fbfdff; border-bottom:1px solid var(--line); }
-    .cat-foot { border-top:1px solid var(--line); border-bottom:0; justify-content:flex-end; }
-    .table-wrap { overflow-x:auto; }
-    table { width:100%; border-collapse:collapse; min-width:620px; }
-    th, td { padding:12px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
-    th { position:sticky; top:58px; background:#eef5ff; z-index:5; font-size:13px; text-transform:uppercase; color:#35435a; white-space:normal; line-height:1.25; }
-    td.num { width:54px; color:var(--muted); font-weight:700; }
-    tbody tr { background:#fff; }
-    tbody tr:hover { background:#fbfdff; }
-    .word-line { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:8px; font-size:18px; font-weight:800; }
-    .word-main { display:flex; flex-direction:column; gap:6px; }
-    .word-title { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
-    .mobile-num { display:none; color:var(--muted); }
-    .inline-meta { color:#47566d; font-weight:700; }
-    .forms { display:flex; flex-wrap:wrap; gap:6px; font-size:12px; font-weight:700; color:#34506f; }
-    .form-chip { display:inline-flex; align-items:center; gap:6px; border:1px solid #c9d9ef; background:#f3f8ff; border-radius:999px; padding:3px 6px 3px 8px; }
-    .form-play { border:0; background:#dcecff; color:var(--blue-dark); border-radius:999px; padding:2px 6px; font-size:11px; line-height:1.2; }
-    .form-play:hover { background:#c7defc; color:#073f87; }
-    .meaning-line { margin:8px 0 10px; color:#34435a; }
-    .meaning-line b { color:#14223a; }
-    .dict-link { display:inline-flex; align-items:center; justify-content:center; margin-left:6px; width:28px; height:28px; border:1px solid #c9d9ef; border-radius:999px; background:#f3f8ff; color:var(--blue-dark); text-decoration:none; font-weight:700; }
-    .dict-link:hover, .dict-link:focus-visible { background:#dcecff; outline:3px solid #9fc5ff; outline-offset:2px; }
-    .examples { display:grid; gap:8px; }
-    .ex { display:grid; grid-template-columns:34px minmax(280px,1fr); gap:8px; align-items:start; padding:7px 8px; border-radius:6px; background:#f7faff; border:1px solid #edf3fb; }
-    .example-number { min-width:28px; height:28px; padding:0; border-radius:999px; background:#fff; color:var(--blue); }
-    .sentence { background:transparent; color:var(--text); border:0; padding:0; font-weight:400; text-align:left; text-decoration:underline; text-decoration-color:#c7d5e8; text-underline-offset:3px; }
-    .sentence:hover { background:transparent; color:var(--blue); }
-    .small { padding:5px 7px; font-size:13px; white-space:nowrap; min-width:32px; }
-    #floatTop { position:fixed; right:18px; bottom:18px; z-index:20; display:none; border-radius:50%; width:52px; height:52px; padding:0; box-shadow:var(--shadow); }
-    #floatTop.show { display:block; }
-    .modal-backdrop { position:fixed; inset:0; background:rgba(8,20,38,.54); display:none; align-items:center; justify-content:center; padding:18px; z-index:30; }
-    .modal { background:#fff; border-radius:8px; max-width:720px; width:100%; padding:20px; box-shadow:0 24px 70px rgba(0,0,0,.25); }
-    .modal h2 { font-size:18px; margin-top:0; color:var(--blue-dark); }
-    .modal p { margin:6px 0 16px; font-size:18px; }
-    .modal-actions { display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
+    button.icon { min-width:42px; padding:9px 11px; }
+    button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid #9fc5ff; outline-offset:2px; }
+    select, input { border:1px solid #bac7d9; border-radius:6px; padding:11px 12px; background:#fff; color:var(--text); }
+    .toolbar, .options, .card, .stats, .result-panel { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); }
+    .toolbar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; padding:12px; margin-top:14px; }
+    .toolbar select { flex:1; min-width:220px; }
+    .options { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:12px; margin-top:10px; }
+    .check-option { display:inline-flex; align-items:center; gap:7px; font-weight:700; color:#33455f; padding-right:4px; }
+    .check-option input { width:18px; height:18px; padding:0; }
+    .card { margin:20px 0; padding:20px; }
+    .top-line { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; color:var(--muted); font-weight:700; }
+    .info-chip { display:inline-flex; align-items:center; min-height:30px; padding:4px 9px; border:1px solid var(--line); border-radius:999px; background:#f8fbff; }
+    .meaning { margin:18px 0; padding:16px; background:#f8fbff; border:1px solid #edf3fb; border-radius:8px; font-size:20px; }
+    .ipa { color:#40526d; margin-bottom:12px; }
+    .answer-row { display:flex; gap:10px; align-items:center; }
+    #answer { flex:1; min-width:0; font-size:22px; font-weight:700; }
+    .char-check { display:flex; flex-wrap:wrap; gap:5px; min-height:42px; margin-top:14px; }
+    .char { min-width:28px; height:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; border:1px solid var(--line); background:#fff; font-weight:800; }
+    .char.ok { background:#dff6ea; border-color:#9bd9b8; color:#075a35; }
+    .char.bad { background:#ffe1e1; border-color:#f1a4a4; color:#8c1717; }
+    .char.wait { background:#f7f9fc; color:#7a879a; }
+    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; padding:6px; margin-bottom:10px; }
+    .stat { background:#f8fbff; border:1px solid #edf3fb; border-radius:6px; padding:5px 6px; }
+    .stat span { font-size:12px; line-height:1.1; }
+    .stat b { display:block; font-size:16px; line-height:1.1; color:#10213c; }
+    .result-panel { padding:16px; margin-top:16px; display:none; }
+    .result-panel.show { display:block; }
+    .correct { color:var(--green); font-weight:800; }
+    .wrong { color:var(--red); font-weight:800; }
+    .answer-compare { display:grid; gap:8px; margin-top:8px; }
+    .compare-line { white-space:pre-wrap; }
+    .compare-label { display:inline-block; min-width:118px; color:#47566d; font-weight:800; }
+    .missing-char { color:var(--red); background:#ffe1e1; border-radius:3px; padding:0 1px; font-weight:800; }
+    .actions-mini { margin-top:10px; }
+    .button-bar { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:8px; margin-top:12px; }
+    .button-bar button { min-height:24px; padding:4px 6px; white-space:nowrap; font-size:14px; }
+    .progress { height:10px; background:#e7eef8; border-radius:999px; overflow:hidden; margin-top:14px; }
+    #bar { width:0%; height:100%; background:var(--blue); transition:width .18s ease; }
     .hidden { display:none !important; }
-    .status { color:var(--muted); font-size:14px; margin-left:auto; }
+    .modal-backdrop { position:fixed; inset:0; background:rgba(8,20,38,.55); display:none; align-items:center; justify-content:center; padding:16px; z-index:40; }
+    .modal-backdrop.show { display:flex; }
+    .modal { width:min(760px,100%); max-height:90vh; overflow:auto; background:#fff; border-radius:8px; padding:18px; box-shadow:0 24px 70px rgba(0,0,0,.25); }
+    .modal h2 { margin:0 0 12px; font-size:22px; }
+    .practice-list { display:grid; gap:10px; margin:12px 0; }
+    .practice-item { display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; border:1px solid var(--line); border-radius:8px; padding:12px; background:#f8fbff; }
+    .practice-item-text { color:#34435a; }
+    .practice-item-text b { color:#14223a; }
+    .modal-actions { display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
     @media (max-width:720px) {
-      input, select { width:100%; min-width:0; }
-      .toolbar { position:static; border-radius:0; box-shadow:none; }
-      .toolbar .wrap, .voice-row, .cat-head { align-items:stretch; }
-      table { min-width:0; }
-      td.num { display:none; }
-      .mobile-num { display:inline; }
-      .ex { grid-template-columns:34px minmax(0,1fr); }
-      .word-line { align-items:flex-start; }
-      th { position:static; }
-    }
-    @media print {
-      .toolbar, .voice-row, .top-btn, #floatTop, .small, .form-play, .cat-menu { display:none !important; }
-      body { background:#fff; color:#000; }
-      .category { box-shadow:none; border:0; break-inside:auto; }
-      tr { break-inside:avoid; }
-      th { position:static; background:#eee; }
-      .sentence { text-decoration:none; color:#000; }
+      .toolbar, .options, .answer-row { align-items:stretch; }
+      .toolbar select, .toolbar button { width:100%; }
+      .answer-row { display:block; }
+      #answer { width:100%; }
+      .button-bar { grid-template-columns:repeat(7, minmax(30px, 1fr)); gap:5px; }
+      .button-bar button { width:100%; min-height:30px; padding:3px 4px; white-space:nowrap; font-size:13px; }
+      .check-option { width:100%; }
+      .stats { grid-template-columns:repeat(4,1fr); gap:4px; padding:4px; }
+      .stat { padding:4px; text-align:center; }
+      .stat span { font-size:10px; }
+      .stat b { font-size:14px; }
+      body.typing .stats { display:none; }
+      body.typing .card { margin-top:12px; }
+      .top-line { grid-template-columns:1fr; }
+      .info-chip { width:100%; justify-content:center; }
+      .meaning { font-size:18px; }
+      #answer { font-size:20px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <h1>1000 IT Support Vocabulary Words • 22 Categories</h1>
-      <div class="voice-row">
-        <label for="voiceSelect">English voice</label>
-        <select id="voiceSelect" aria-label="English voice"></select>
-        <button id="stopSpeech" class="secondary" type="button">■ Stop</button>
-        <span id="validation" class="status"></span>
+      <h1>Test IT Support 1000 Vocabulary</h1>
+      <div class="toolbar">
+        <select id="categorySelect" aria-label="Category"></select>
+        <select id="modeSelect" aria-label="Question mode">
+          <option value="all">All words</option>
+          <option value="unseen">Unseen first</option>
+          <option value="wrong">Practice wrong words</option>
+          <option value="need-practice">Need Practice</option>
+        </select>
+        <button id="needPracticeListBtn" class="secondary" type="button">List</button>
       </div>
-      <section id="top-categories" class="cat-menu" aria-labelledby="catTitle">
-        <h2 id="catTitle">IT Support Categories</h2>
-        <div id="categoryButtons" class="cat-buttons"></div>
-      </section>
+      <div class="options" aria-label="Test options">
+        <label class="check-option"><input id="autoPlay" type="checkbox"> Auto Play</label>
+        <label class="check-option"><input id="showMeaning" type="checkbox" checked> Meaning</label>
+        <label class="check-option"><input id="showIpa" type="checkbox"> IPA</label>
+        <label class="check-option"><input id="showInfo" type="checkbox"> Category</label>
+        <label class="check-option"><input id="enableHint" type="checkbox"> Hint</label>
+        <label class="check-option"><input id="sentenceShort" type="checkbox"> Sentence Short</label>
+        <label class="check-option"><input id="sentenceLong" type="checkbox"> Sentence Long</label>
+      </div>
     </div>
   </header>
-  <nav class="toolbar" aria-label="Sticky category navigation">
-    <div class="wrap">
-      <label for="categorySelect">Category:</label>
-      <select id="categorySelect"></select>
-      <label for="searchBox">Search:</label>
-      <input id="searchBox" type="search" placeholder="Search word, meaning, sentence..." aria-label="Search word, meaning, sentence">
-      <button class="secondary top-btn" type="button" data-top>↑ Top</button>
-    </div>
-  </nav>
-  <main class="wrap" id="content"></main>
-  <button id="floatTop" type="button" aria-label="Back to top categories">↑ Top</button>
-  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalEnglishTitle">
+  <main class="wrap">
+    <section class="stats">
+      <div class="stat"><span>Question</span><b id="qNum">1</b></div>
+      <div class="stat"><span>Correct</span><b id="correctCount">0</b></div>
+      <div class="stat"><span>Wrong</span><b id="wrongCount">0</b></div>
+      <div class="stat"><span>Match</span><b id="matchPct">0%</b></div>
+    </section>
+    <section class="card">
+      <div class="top-line" id="infoBlock">
+        <span id="categoryText" class="info-chip">Category</span>
+        <span id="typeText" class="info-chip">Type</span>
+      </div>
+      <div class="meaning" id="meaningBlock"><b>Meaning:</b> <span id="meaningText"></span></div>
+      <div class="ipa" id="ipaBlock"><b>IPA:</b> <span id="ipaText"></span></div>
+      <div class="answer-row">
+        <input id="answer" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the vocabulary word..." aria-label="Type the vocabulary word">
+      </div>
+      <div class="button-bar" aria-label="Question actions">
+        <button id="checkBtn" type="button" aria-label="Check answer">✓</button>
+        <button id="backBtn" class="secondary" type="button" aria-label="Back">←</button>
+        <button id="nextBtn" type="button" aria-label="Next">→</button>
+        <button id="showBtn" class="secondary" type="button" aria-label="Show answer">👁</button>
+        <button id="againBtn" class="secondary" type="button" aria-label="Try again">↻</button>
+        <button id="clearStats" class="secondary" type="button" aria-label="Clear stats">⌫</button>
+        <button id="soundBtn" class="icon secondary" type="button" aria-label="Play sound again">🔊</button>
+      </div>
+      <div class="char-check" id="charCheck" aria-live="polite"></div>
+      <div class="progress"><div id="bar"></div></div>
+      <div class="result-panel" id="resultPanel"></div>
+    </section>
+  </main>
+  <div id="needPracticeModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="needPracticeTitle">
     <div class="modal">
-      <h2 id="modalEnglishTitle">English</h2>
-      <p id="modalEnglish"></p>
-      <h2>Vietnamese</h2>
-      <p id="modalVietnamese"></p>
+      <h2 id="needPracticeTitle">Need Practice</h2>
+      <div id="needPracticeList" class="practice-list"></div>
       <div class="modal-actions">
-        <button id="modalPlay" type="button" aria-label="Speak English sentence">🔊</button>
-        <button id="modalClose" class="secondary" type="button">Close</button>
+        <button id="clearNeedPractice" class="secondary" type="button">Clear List</button>
+        <button id="closeNeedPractice" type="button">Close</button>
       </div>
     </div>
   </div>
   <script>
+
     const categories = [
       ["Troubleshooting",24,["Issue","Error","Failure","Incident","Bug","Troubleshoot","Investigate","Diagnose","Resolve","Workaround","Root cause","Reproduce","Verify","Confirm","Escalate","Impact","Priority","Ticket","Status","Symptom","Fix","Analyze","Retry","Regression"]],
       ["Networking",24,["Network","Connection","Connectivity","Disconnect","Timeout","Firewall","Router","Gateway","DNS","IP address","Port","Ping","VPN","Wi-Fi","Bandwidth","Latency","Packet","Protocol","Proxy","Reachable","Subnet","Switch","DHCP","Traceroute"]],
@@ -1269,109 +1291,311 @@
     const vocabulary = [];
     categories.forEach(([name,count,words]) => expandedWords(words, count * 2).forEach(word => vocabulary.push(makeRecord(word,name,vocabulary.length + 1))));
 
+    
     const els = {
-      buttons:document.getElementById("categoryButtons"), select:document.getElementById("categorySelect"),
-      content:document.getElementById("content"), search:document.getElementById("searchBox"),
-      floatTop:document.getElementById("floatTop"), voice:document.getElementById("voiceSelect"),
-      stop:document.getElementById("stopSpeech"), modal:document.getElementById("modalBackdrop"),
-      modalEnglish:document.getElementById("modalEnglish"), modalVietnamese:document.getElementById("modalVietnamese"),
-      modalPlay:document.getElementById("modalPlay"), modalClose:document.getElementById("modalClose"), validation:document.getElementById("validation")
+      categorySelect:document.getElementById("categorySelect"), modeSelect:document.getElementById("modeSelect"),
+      showMeaning:document.getElementById("showMeaning"), showIpa:document.getElementById("showIpa"), showInfo:document.getElementById("showInfo"), enableHint:document.getElementById("enableHint"), autoPlay:document.getElementById("autoPlay"), sentenceShort:document.getElementById("sentenceShort"), sentenceLong:document.getElementById("sentenceLong"),
+      soundBtn:document.getElementById("soundBtn"), backBtn:document.getElementById("backBtn"), nextBtn:document.getElementById("nextBtn"), qNum:document.getElementById("qNum"),
+      correctCount:document.getElementById("correctCount"), wrongCount:document.getElementById("wrongCount"), matchPct:document.getElementById("matchPct"),
+      infoBlock:document.getElementById("infoBlock"),
+      categoryText:document.getElementById("categoryText"), typeText:document.getElementById("typeText"), meaningBlock:document.getElementById("meaningBlock"),
+      meaningText:document.getElementById("meaningText"), ipaBlock:document.getElementById("ipaBlock"), ipaText:document.getElementById("ipaText"), answer:document.getElementById("answer"),
+      checkBtn:document.getElementById("checkBtn"), charCheck:document.getElementById("charCheck"), bar:document.getElementById("bar"),
+      resultPanel:document.getElementById("resultPanel"), showBtn:document.getElementById("showBtn"), againBtn:document.getElementById("againBtn"),
+      clearStats:document.getElementById("clearStats"), needPracticeListBtn:document.getElementById("needPracticeListBtn"),
+      needPracticeModal:document.getElementById("needPracticeModal"), needPracticeList:document.getElementById("needPracticeList"),
+      clearNeedPractice:document.getElementById("clearNeedPractice"), closeNeedPractice:document.getElementById("closeNeedPractice")
     };
-    let voices = [], currentSentence = "";
-    function categoryId(name) { return "cat-" + name.toLowerCase().replace(/[^a-z0-9]+/g,"-"); }
-    function scrollToId(id) { document.getElementById(id).scrollIntoView({behavior:"smooth", block:"start"}); }
-    function speak(text, button) {
-      speechSynthesis.cancel();
-      const utter = new SpeechSynthesisUtterance(text);
-      const selected = voices.find(v => v.name === els.voice.value);
-      utter.voice = selected || voices[0] || null; utter.lang = "en-US"; utter.rate = .82; utter.pitch = 1; utter.volume = 1;
-      if (button) { button.textContent = "🔊"; button.classList.add("reading"); utter.onend = utter.onerror = () => { button.textContent = "🔊"; button.classList.remove("reading"); }; }
-      speechSynthesis.speak(utter);
+    let voices = [], preferredVoice = null, current = null, questionNumber = 0, history = [], historyIndex = -1, checkedValue = null;
+    const stats = JSON.parse(localStorage.getItem("testVocabularyStats") || "{\"correct\":0,\"wrong\":0,\"wrongWords\":[]}");
+    function saveStats() { localStorage.setItem("testVocabularyStats", JSON.stringify(stats)); }
+    function needPracticeWords() { return stats.needPractice || []; }
+    function addNeedPractice(word) {
+      stats.needPractice = Array.from(new Set([...needPracticeWords(), word]));
+      saveStats();
+      categoryOptions();
     }
     function loadVoices() {
-      const all = speechSynthesis.getVoices();
-      voices = all.filter(v => /^en/i.test(v.lang || v.name)).sort((a,b) => {
+      voices = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang || v.name)).sort((a,b) => {
         const rank = v => /Google US English/i.test(v.name) ? 1 : /Google English/i.test(v.name) ? 2 : /Microsoft.*US English/i.test(v.name) ? 3 : /en-US/i.test(v.lang) ? 4 : 5;
         return rank(a) - rank(b) || a.name.localeCompare(b.name);
       });
-      els.voice.innerHTML = voices.map(v => `<option value="${v.name}">${v.name} (${v.lang})</option>`).join("") || "<option>Default English voice</option>";
+      preferredVoice =
+        voices.find(v => v.name === "Google US English" && /^en-US$/i.test(v.lang)) ||
+        voices.find(v => /Google US English/i.test(v.name)) ||
+        voices.find(v => /Google English/i.test(v.name) && /^en-US$/i.test(v.lang)) ||
+        voices.find(v => /^en-US$/i.test(v.lang)) ||
+        voices[0] ||
+        null;
     }
-    function render() {
-      categories.forEach(([name,count]) => {
-        const btn = document.createElement("button");
-        btn.type = "button"; btn.textContent = `${name} (${count * 2})`; btn.dataset.cat = name;
-        btn.addEventListener("click", () => scrollToId(categoryId(name)));
-        els.buttons.appendChild(btn);
-        const opt = document.createElement("option");
-        opt.value = categoryId(name); opt.textContent = `${name} (${count * 2})`; els.select.appendChild(opt);
+    function speak(text) {
+      speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.voice = preferredVoice; utter.lang = "en-US"; utter.rate = .82; utter.pitch = 1; utter.volume = 1;
+      speechSynthesis.speak(utter);
+    }
+    function normalize(text) { return text.trim().replace(/\s+/g, " ").toLowerCase(); }
+    function escapeHtml(text) {
+      return String(text).replace(/[&<>"']/g, ch => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;" }[ch]));
+    }
+    function targetText() {
+      if (els.sentenceShort.checked) return current.examples[0].en;
+      if (els.sentenceLong.checked) return current.examples[2].en;
+      return current.word;
+    }
+    function escapeRegExp(text) {
+      return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+    function clueMeaning(item) {
+      let text = item.meaning;
+      const hiddenTerms = [item.word, baseWordForMeaning(item.word)].filter(Boolean);
+      hiddenTerms.forEach(term => {
+        text = text.replace(new RegExp("\\b" + escapeRegExp(term) + "\\b", "ig"), "this term");
       });
-      categories.forEach(([name,count]) => {
-        const records = vocabulary.filter(r => r.category === name);
-        const section = document.createElement("section");
-        section.className = "category"; section.id = categoryId(name); section.dataset.name = name;
-        section.innerHTML = `<div class="cat-head"><h3>${name} Vocabulary (${count * 2})</h3><button class="secondary top-btn" type="button" data-top>↑ Top</button></div>
-          <div class="table-wrap"><table><tbody></tbody></table></div>
-          <div class="cat-foot"><button class="secondary top-btn" type="button" data-top>↑ Top</button></div>`;
-        const tbody = section.querySelector("tbody");
-        records.forEach(rec => {
-          const tr = document.createElement("tr");
-          const formsHtml = rec.forms.length ? `<div class="forms">${rec.forms.map(f => `<span class="form-chip">${f.label}: <strong>${f.value}</strong><button class="form-play" type="button" data-form="${f.value.replace(/"/g,"&quot;")}" aria-label="Speak ${f.value.replace(/"/g,"&quot;")}">🔊</button></span>`).join("")}</div>` : "";
-          tr.dataset.search = [rec.word, rec.meaning, ...rec.forms.map(f => f.value), ...rec.examples.map(e => e.en)].join(" ").toLowerCase();
-          tr.innerHTML = `<td class="num">${rec.number}</td><td><div class="word-line"><span class="word-main"><span class="word-title"><span class="mobile-num">${rec.number}.</span> ${rec.word} <span class="inline-meta">(${rec.type})</span> <span class="inline-meta">${rec.ipa}</span> <button class="small secondary play-word" type="button" aria-label="Speak ${rec.word.replace(/"/g,"&quot;")}">🔊</button></span>${formsHtml}</span></div>
-            <div class="meaning-line"><b>Meaning</b>: ${rec.meaning}<a class="dict-link" href="${dictionaryUrl(rec.word)}" target="_blank" rel="noopener noreferrer" aria-label="Open Merriam-Webster definition for ${rec.word.replace(/"/g,"&quot;")}">↗</a></div>
-            <div class="examples">${rec.examples.map((ex,i) => `<div class="ex"><button class="example-number" type="button" aria-label="Speak example ${i+1}">${i+1}</button><button class="sentence" type="button" data-en="${ex.en.replace(/"/g,"&quot;")}" data-vi="${ex.vi.replace(/"/g,"&quot;")}">${ex.en}</button></div>`).join("")}</div></td>`;
-          tr.querySelector(".play-word").addEventListener("click", () => speak(rec.word));
-          tr.querySelectorAll(".form-play").forEach(button => button.addEventListener("click", () => speak(button.dataset.form)));
-          tr.querySelectorAll(".example-number").forEach((button,i) => button.addEventListener("click", () => speak(rec.examples[i].en, button)));
-          tr.querySelectorAll(".sentence").forEach(button => button.addEventListener("click", () => openModal(button.dataset.en, button.dataset.vi)));
-          tbody.appendChild(tr);
+      return text.replace(/\bthis term details\b/ig, "details for this term").replace(/\s+/g, " ").trim();
+    }
+    function categoryOptions() {
+      const currentValue = els.categorySelect.value || "all";
+      els.categorySelect.innerHTML = `<option value="all">All categories (${vocabulary.length})</option>` + categories.map(([name,count]) => `<option value="${name}">${name} (${count * 2})</option>`).join("");
+      els.categorySelect.value = [...els.categorySelect.options].some(option => option.value === currentValue) ? currentValue : "all";
+    }
+    function pool() {
+      let list = vocabulary;
+      if (els.categorySelect.value !== "all") list = list.filter(w => w.category === els.categorySelect.value);
+      if (els.modeSelect.value === "wrong" && stats.wrongWords.length) list = list.filter(w => stats.wrongWords.includes(w.word));
+      if (els.modeSelect.value === "need-practice") list = list.filter(w => needPracticeWords().includes(w.word));
+      if (els.modeSelect.value === "unseen") {
+        const seen = new Set([...(stats.seen || [])]);
+        const unseen = list.filter(w => !seen.has(w.word));
+        if (unseen.length) list = unseen;
+      }
+      return list;
+    }
+    function makeHistoryEntry(item) { return { item }; }
+    function showQuestion(entry, countQuestion = true) {
+      current = entry.item;
+      if (countQuestion) questionNumber++;
+      els.qNum.textContent = questionNumber;
+      els.categoryText.textContent = current.category;
+      els.typeText.textContent = `Type: ${current.type}`;
+      els.meaningText.textContent = clueMeaning(current);
+      els.ipaText.textContent = current.ipa;
+      updateOptions();
+      els.answer.value = "";
+      checkedValue = null;
+      els.resultPanel.className = "result-panel";
+      els.resultPanel.innerHTML = "";
+      updateLive();
+      if (els.autoPlay.checked) speak(targetText());
+      els.answer.focus();
+    }
+    function showEmptyNeedPractice() {
+        els.resultPanel.className = "result-panel show";
+        els.resultPanel.innerHTML = els.modeSelect.value === "need-practice" ? "No words in Need Practice yet." : "No words found for this selection.";
+        els.answer.value = "";
+        els.meaningText.textContent = "";
+        els.ipaText.textContent = "";
+        els.charCheck.innerHTML = "";
+        els.bar.style.width = "0%";
+        els.matchPct.textContent = "0%";
+    }
+    function pick() {
+      const list = pool();
+      if (!list.length) { showEmptyNeedPractice(); return; }
+      const item = list[Math.floor(Math.random() * list.length)];
+      const entry = makeHistoryEntry(item);
+      history = history.slice(0, historyIndex + 1);
+      history.push(entry);
+      historyIndex = history.length - 1;
+      showQuestion(entry, true);
+    }
+    function back() {
+      if (historyIndex <= 0) return;
+      historyIndex--;
+      showQuestion(history[historyIndex], false);
+    }
+    function next() {
+      if (historyIndex < history.length - 1) {
+        historyIndex++;
+        showQuestion(history[historyIndex], false);
+      } else {
+        pick();
+      }
+    }
+    function updateOptions() {
+      els.meaningBlock.classList.toggle("hidden", !els.showMeaning.checked);
+      els.ipaBlock.classList.toggle("hidden", !els.showIpa.checked);
+      els.infoBlock.classList.toggle("hidden", !els.showInfo.checked);
+      els.charCheck.classList.toggle("hidden", !els.enableHint.checked);
+      document.querySelector(".progress").classList.toggle("hidden", !els.enableHint.checked);
+    }
+    function updateLive() {
+      if (!current) return;
+      const typed = els.answer.value;
+      if (checkedValue !== null && typed !== checkedValue) checkedValue = null;
+      const target = targetText();
+      let ok = 0;
+      while (ok < typed.length && ok < target.length && typed[ok].toLowerCase() === target[ok].toLowerCase()) ok++;
+      const pct = Math.round((ok / target.length) * 100);
+      els.matchPct.textContent = pct + "%";
+      els.bar.style.width = pct + "%";
+      els.charCheck.innerHTML = target.split("").map((ch,i) => {
+        let cls = "wait";
+        if (i < typed.length) cls = typed[i]?.toLowerCase() === ch.toLowerCase() ? "ok" : "bad";
+        return `<span class="char ${cls}">${ch === " " ? "&nbsp;" : ch}</span>`;
+      }).join("");
+      updateOptions();
+    }
+    function highlightedCorrectAnswer(userAnswer, correctAnswer) {
+      let html = "";
+      for (let i = 0; i < correctAnswer.length; i++) {
+        const expected = correctAnswer[i];
+        const actual = userAnswer[i];
+        if (actual === undefined || actual.toLowerCase() !== expected.toLowerCase()) html += `<span class="missing-char">${expected === " " ? "&nbsp;" : escapeHtml(expected)}</span>`;
+        else html += escapeHtml(expected);
+      }
+      return html;
+    }
+    function resultCompareHtml(userAnswer, correctAnswer) {
+      return `<div class="answer-compare">
+        <div class="compare-line"><span class="compare-label">Your answer</span>: ${escapeHtml(userAnswer)}</div>
+        <div class="compare-line"><span class="compare-label">Correct answer</span>: ${highlightedCorrectAnswer(userAnswer, correctAnswer)}</div>
+      </div>`;
+    }
+    function showResultPanel() {
+      els.resultPanel.className = "result-panel show";
+      setTimeout(() => els.resultPanel.scrollIntoView({behavior:"smooth", block:"nearest"}), 40);
+    }
+    function checkAnswer() {
+      const target = targetText();
+      const userAnswer = els.answer.value;
+      const good = normalize(els.answer.value) === normalize(target);
+      checkedValue = els.answer.value;
+      showResultPanel();
+      const addButton = `<button id="addNeedPractice" class="secondary" type="button">Add to Need Practice</button>`;
+      if (good) {
+        stats.correct++;
+        stats.seen = Array.from(new Set([...(stats.seen || []), current.word]));
+        stats.wrongWords = stats.wrongWords.filter(w => w !== current.word);
+        els.resultPanel.innerHTML = `<div class="correct">Correct.</div>${resultCompareHtml(userAnswer, target)}<div class="actions-mini">${addButton}</div>`;
+      } else {
+        stats.wrong++;
+        stats.wrongWords = Array.from(new Set([...stats.wrongWords, current.word]));
+        els.resultPanel.innerHTML = `<div class="wrong">Not yet.</div>${resultCompareHtml(userAnswer, target)}<div class="actions-mini">${addButton}</div>`;
+      }
+      document.getElementById("addNeedPractice").onclick = () => {
+        addNeedPractice(current.word);
+        document.getElementById("addNeedPractice").textContent = "Added";
+      };
+      saveStats();
+      updateStats();
+      els.answer.focus();
+    }
+    function updateStats() {
+      els.correctCount.textContent = stats.correct;
+      els.wrongCount.textContent = stats.wrong;
+    }
+    function currentListKind() {
+      return els.modeSelect.value === "wrong" ? "wrong" : "need-practice";
+    }
+    function listWords(kind) {
+      return kind === "wrong" ? (stats.wrongWords || []) : needPracticeWords();
+    }
+    function openNeedPracticeList() {
+      const kind = currentListKind();
+      const title = kind === "wrong" ? "Practice Wrong Words" : "Need Practice";
+      const saved = listWords(kind);
+      document.getElementById("needPracticeTitle").textContent = title;
+      els.clearNeedPractice.textContent = `Clear ${kind === "wrong" ? "Wrong" : "Need Practice"}`;
+      if (!saved.length) {
+        els.needPracticeList.innerHTML = `<p>No words in ${title} yet.</p>`;
+      } else {
+        els.needPracticeList.innerHTML = saved.map(word => {
+          const item = vocabulary.find(v => v.word === word);
+          if (!item) return "";
+          return `<div class="practice-item"><div class="practice-item-text"><b>${item.word}</b> - ${clueMeaning(item)}</div><button class="secondary remove-practice" type="button" data-word="${item.word.replace(/"/g,"&quot;")}">Remove</button></div>`;
+        }).join("");
+        els.needPracticeList.querySelectorAll(".remove-practice").forEach(btn => btn.onclick = () => {
+          if (kind === "wrong") stats.wrongWords = (stats.wrongWords || []).filter(word => word !== btn.dataset.word);
+          else stats.needPractice = needPracticeWords().filter(word => word !== btn.dataset.word);
+          saveStats();
+          categoryOptions();
+          openNeedPracticeList();
         });
-        els.content.appendChild(section);
-      });
-      document.querySelectorAll("[data-top]").forEach(btn => btn.addEventListener("click", () => scrollToId("top-categories")));
+      }
+      els.needPracticeModal.classList.add("show");
+      els.closeNeedPractice.focus();
     }
-    function openModal(en, vi) {
-      currentSentence = en; els.modalEnglish.textContent = en; els.modalVietnamese.textContent = vi; els.modal.style.display = "flex"; els.modalClose.focus();
-    }
-    function closeModal() { els.modal.style.display = "none"; }
-    function applySearch() {
-      const q = els.search.value.trim().toLowerCase();
-      const counts = new Map();
-      document.querySelectorAll(".category").forEach(section => {
-        let visible = 0;
-        section.querySelectorAll("tbody tr").forEach(row => {
-          const hit = !q || row.dataset.search.includes(q);
-          row.classList.toggle("hidden", !hit); if (hit) visible++;
-        });
-        section.classList.toggle("hidden", visible === 0);
-        counts.set(section.dataset.name, visible);
-      });
-      document.querySelectorAll("#categoryButtons button").forEach(btn => btn.classList.toggle("muted", q && (counts.get(btn.dataset.cat) || 0) === 0));
-    }
-    function validate() {
-      const exampleCount = vocabulary.reduce((sum,r) => sum + r.examples.length, 0);
-      const ok = categories.length === 22 && vocabulary.length === 1000 && exampleCount === 3000 && vocabulary.every(r => r.type && r.ipa && r.meaning && r.examples.every(e => e.vi));
-      els.validation.textContent = ok ? "Validated: 1,000 words, 3,000 examples." : "Validation needs attention.";
-      console.log({categories:categories.length, words:vocabulary.length, examples:exampleCount, ok});
-    }
-    render(); validate(); loadVoices();
+    function closeNeedPracticeList() { els.needPracticeModal.classList.remove("show"); }
+    categoryOptions(); loadVoices(); updateStats(); pick();
     speechSynthesis.onvoiceschanged = loadVoices;
-    els.select.addEventListener("change", e => scrollToId(e.target.value));
-    els.search.addEventListener("input", applySearch);
-    els.floatTop.addEventListener("click", () => scrollToId("top-categories"));
-    els.stop.addEventListener("click", () => speechSynthesis.cancel());
-    els.modalClose.addEventListener("click", closeModal);
-    els.modal.addEventListener("click", e => { if (e.target === els.modal) closeModal(); });
-    els.modalPlay.addEventListener("click", () => speak(currentSentence));
-    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
-    window.addEventListener("scroll", () => els.floatTop.classList.toggle("show", window.scrollY > 420));
-    const observer = new IntersectionObserver(entries => {
-      const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      els.select.value = visible.target.id;
-      document.querySelectorAll("#categoryButtons button").forEach(btn => btn.classList.toggle("active", categoryId(btn.dataset.cat) === visible.target.id));
-    }, {rootMargin:"-20% 0px -65% 0px", threshold:[0,.2,.5,.8]});
-    document.querySelectorAll(".category").forEach(sec => observer.observe(sec));
+    els.answer.addEventListener("input", updateLive);
+    els.answer.addEventListener("focus", () => {
+      document.body.classList.add("typing");
+      setTimeout(() => els.answer.scrollIntoView({behavior:"smooth", block:"center"}), 120);
+    });
+    els.answer.addEventListener("blur", () => document.body.classList.remove("typing"));
+    els.answer.addEventListener("keydown", e => {
+      if (e.key !== "Enter") return;
+      e.preventDefault();
+      if (checkedValue !== null && els.answer.value === checkedValue) next();
+      else checkAnswer();
+    });
+    document.addEventListener("keydown", e => {
+      if (!["ArrowRight", "ArrowLeft"].includes(e.key)) return;
+      if (["INPUT", "SELECT", "BUTTON"].includes(document.activeElement.tagName)) return;
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") back();
+    });
+    els.checkBtn.onclick = checkAnswer;
+    els.backBtn.onclick = back;
+    els.nextBtn.onclick = next;
+    els.soundBtn.onclick = () => speak(targetText());
+    els.showBtn.onclick = () => { const target = targetText(); els.resultPanel.className = "result-panel show"; els.resultPanel.innerHTML = `Answer: <b>${target}</b>`; speak(target); };
+    els.againBtn.onclick = () => {
+      els.answer.value = "";
+      els.resultPanel.className = "result-panel";
+      els.resultPanel.innerHTML = "";
+      updateLive();
+      speak(targetText());
+      els.answer.focus();
+    };
+    els.clearStats.onclick = () => {
+      stats.correct = 0; stats.wrong = 0; stats.wrongWords = []; stats.seen = [];
+      saveStats(); updateStats();
+      els.resultPanel.className = "result-panel show";
+      els.resultPanel.innerHTML = "Stats cleared.";
+      if (els.modeSelect.value === "wrong") els.modeSelect.value = "all";
+    };
+    els.needPracticeListBtn.onclick = openNeedPracticeList;
+    els.closeNeedPractice.onclick = closeNeedPracticeList;
+    els.needPracticeModal.onclick = e => { if (e.target === els.needPracticeModal) closeNeedPracticeList(); };
+    els.clearNeedPractice.onclick = () => {
+      const kind = currentListKind();
+      if (kind === "wrong") stats.wrongWords = [];
+      else stats.needPractice = [];
+      saveStats();
+      if (els.modeSelect.value === "need-practice" || els.modeSelect.value === "wrong") els.modeSelect.value = "all";
+      openNeedPracticeList();
+    };
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeNeedPracticeList(); });
+    els.categorySelect.onchange = () => { history = []; historyIndex = -1; pick(); };
+    els.modeSelect.onchange = () => { history = []; historyIndex = -1; pick(); };
+    els.showMeaning.onchange = updateOptions;
+    els.showIpa.onchange = updateOptions;
+    els.showInfo.onchange = updateOptions;
+    els.enableHint.onchange = updateOptions;
+    function resetCurrentAttempt() {
+      checkedValue = null;
+      els.answer.value = "";
+      els.resultPanel.className = "result-panel";
+      els.resultPanel.innerHTML = "";
+      updateLive();
+      els.answer.focus();
+    }
+    els.sentenceShort.onchange = () => { if (els.sentenceShort.checked) els.sentenceLong.checked = false; resetCurrentAttempt(); };
+    els.sentenceLong.onchange = () => { if (els.sentenceLong.checked) els.sentenceShort.checked = false; resetCurrentAttempt(); };
+    els.autoPlay.onchange = () => { if (els.autoPlay.checked && current) speak(targetText()); };
   </script>
 </body>
 </html>
