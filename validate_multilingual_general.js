@@ -17,8 +17,6 @@ for (const file of [
   "Test_General_English_1000_Vocabulary.html",
   "General_Spanish_1000_Vocabulary.html",
   "Test_General_Spanish_1000_Vocabulary.html",
-  "General_Vietnamese_1000_Vocabulary.html",
-  "Test_General_Vietnamese_1000_Vocabulary.html",
 ]) {
   const html = fs.readFileSync(file, "utf8");
   for (const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) {
